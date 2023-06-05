@@ -1,4 +1,5 @@
 import React from 'react';
+<<<<<<< HEAD
 import { useState, useContext } from 'react';
 import { navigate } from 'gatsby';
 import { UserContext } from '../providers/UserProvider'
@@ -11,6 +12,16 @@ const Signin = () => {
     const [ error, setError ] = useState('');
     const { user, setUser } = useContext(UserContext);
      
+=======
+import { useState } from 'react';
+import Layout from '../components/layout'
+import axios from 'axios'
+
+const Signin = () => {
+    const [ email, setEmail ] = useState('');
+    const [ password, setPassword ] = useState('');
+
+>>>>>>> bae8efc (Signin page created. handleSubmit WIP)
     const _handleEmailChange = (e) => {
         setEmail(e.target.value);
     };
@@ -28,6 +39,7 @@ const Signin = () => {
                 email: email,
             }
         };
+<<<<<<< HEAD
         
         axios.post(`http://localhost:3000/login`, payload).then( (response) => {
             if (response.data.token ) {
@@ -90,14 +102,30 @@ const Signin = () => {
 
             {/* Previous form in case of error*/}
             <form onSubmit={ _handleSubmit }>
+=======
+        // TODO: Post reqeust to handle login
+        // axios.post(`http://localhost:3000/login/`, payload).then( (response) => {
+        //     console.log(response.data);
+        // });
+    };
+
+    return (
+        <Layout>
+            <form>
+>>>>>>> bae8efc (Signin page created. handleSubmit WIP)
                 <h1>Sign In Form</h1>
                 <label>Email: </label>
                 <input name='email' value={ email } onChange={ _handleEmailChange }/>
                 <label>Password: </label>
                 <input type="password" name="password_digest" onChange={ _handlePasswordChange } />
                 <button>Signin</button>
+<<<<<<< HEAD
             </form> 
         </>
+=======
+            </form>
+        </Layout>
+>>>>>>> bae8efc (Signin page created. handleSubmit WIP)
     )
 }
 
