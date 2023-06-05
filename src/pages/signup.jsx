@@ -5,6 +5,7 @@ import { navigate } from 'gatsby';
 import axios from 'axios';
 
 
+
 const Signup = () => {
     const { user, setUser } = useContext(UserContext);
     const [ name, setName ] = useState('');
