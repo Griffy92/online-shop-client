@@ -33,8 +33,13 @@ const Layout = ( {children} ) => {
     };
 
     return (
+<<<<<<< HEAD
         <UserContext.Provider value={{user, setUser}}>
             <Navbar user={user} handleSignOut={ handleSignOut} />
+=======
+        <div className={container}>
+            <Navbar />
+>>>>>>> 55dba9e (Create User speaking to backend. Helper API file broken.)
             {/* <FilterList /> */}
             {children}
             <Footer />
