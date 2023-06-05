@@ -6,5 +6,7 @@ module.exports = {
     title: `online-shop-client`,
     siteUrl: `https://www.yourdomain.tld`,
   },
-  plugins: [],
+  plugins: [
+    'gatsby-plugin-postcss',
+  ],
 }
