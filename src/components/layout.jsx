@@ -1,5 +1,7 @@
 import React from 'react';
 import Navbar from './navbar';
+import Footer from './footer';
+import Sidebar from './sidebar';
 import FilterList from './FilterList';
 
 const Layout = ( {children} ) => {
@@ -8,7 +10,8 @@ const Layout = ( {children} ) => {
             <Navbar />
             <FilterList />
             {children}
-            <footer>Footer</footer>
+            <Footer />
+
         </div>
     );
 };
