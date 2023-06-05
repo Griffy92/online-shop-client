@@ -1,15 +1,12 @@
 import axios from 'axios';
 
-const baseURL = 'http://localhsot:3000/users/';
+const baseURL = 'http://localhost:3000/users/';
 
-const handleError = (fn) => (...params) => 
-    fn(...params).catch( (error) => {
-        console.error(error);
-    });
-
-export const api = {
-    createUser: handleError(async (payload) => {
-        const res = await axios.post(baseURL, payload);
-        return res.data;
-    })
+export const UserAPI = {
+    createUser: function ( payload ) {
+        return axios.post(baseURL + payload);
+    },
+    getUsers() {
+        return axios.get(baseURL);
+    }
 }
