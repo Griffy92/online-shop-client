@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useState } from 'react';
 import Layout from '../components/layout'
 
 
@@ -25,11 +26,11 @@ const Signup = () => {
             <form>
                 <label>Name: </label>
                 <input name="fullname" value={name} onChange={_handleNameChange} />
-                <label>Password: </label>
-                <input type="email" onChange={_handleEmailChange}/>
-                <button>Signup!</button>
-                <input type="password" onChange={_handlePasswordChange} />
                 <label>Email: </label>
+                <input type="email" value={email} onChange={_handleEmailChange}/>
+                <label>Password: </label>
+                <input type="password" value={password} onChange={_handlePasswordChange} />
+                <button>Signup!</button>
             </form>
         </Layout>
     )

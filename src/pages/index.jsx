@@ -1,8 +1,10 @@
 import * as React from "react"
+import { useState } from 'react';
 import Layout from '../components/layout'
 import IndexCarousel from "../components/index-carousel/index-carousel"
 
 const IndexPage = () => {
+
 	return (
 		<Layout>
 			<div className="bg-cover bg-center h-auto text-white py-24 px-10 bg-red-600">
