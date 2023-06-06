@@ -6,7 +6,9 @@ import axios from 'axios'
 const Signin = () => {
     const [ email, setEmail ] = useState('');
     const [ password, setPassword ] = useState('');
-
+    const [ error, setError ] = useState('');
+    const [ user, setUser ] = useState({});
+     
     const _handleEmailChange = (e) => {
         setEmail(e.target.value);
     };
@@ -24,16 +26,24 @@ const Signin = () => {
                 email: email,
             }
         };
-        // TODO: Post reqeust to handle login
-        // axios.post(`http://localhost:3000/login/`, payload).then( (response) => {
-        //     console.log(response.data);
-        // });
+        
+        axios.post(`http://localhost:3000/login`, payload).then( (response) => {
+            if (response.data.token ) {
+                localStorage.setItem('token', response.data.token);
+                setUser(response.data.user)
+            }
+            // console.log(response.data);
+        }).catch( (response) => {
+            setError(response.response.data.error); // returns Invalid Credentials
+            // console.log(error)
+        });
     };
 
     return (
         <Layout>
-            <form>
+            <form onSubmit={ _handleSubmit }>
                 <h1>Sign In Form</h1>
+                <p>{user.fullname}</p>
                 <label>Email: </label>
                 <input name='email' value={ email } onChange={ _handleEmailChange }/>
                 <label>Password: </label>
