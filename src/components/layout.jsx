@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { useState, useContext, useEffect } from 'react';
 import {container} from './layout.module.css'
 import { UserContext } from '../providers/UserProvider'
@@ -7,6 +8,9 @@ import Sidebar from './sidebar';
 import FilterList from './FilterList';
 import axios from 'axios';
 
+import axios from 'axios'
+
+export const UserStateContext = createContext(null);
 
 const Layout = ( {children} ) => {
     const { user, setUser } = useContext(UserContext);
@@ -33,12 +37,12 @@ const Layout = ( {children} ) => {
     }
 
     return (
-        <div>
+        <UserStateContext.Provider value={user}>
             <Navbar user={user} handleSignOut={ handleSignOut} />
-            {/* <FilterList /> */}
+            {/* <FilterList /> */}s
             {children}
             <Footer />
-        </div>
+        </UserStateContext.Provider>
     );
 };
 
