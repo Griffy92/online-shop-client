@@ -26,7 +26,7 @@ const IndexPage = () => {
     console.log('hit me baby one more time', user);
 
 	return (
-		<Layout>
+		<>
 			<div className="bg-cover bg-center h-auto text-white py-24 px-10 bg-red-600">
 				<div className="md:w-1/2">
 					<p className="text-3xl font-bold">This is a banner - image didn't work, but don't hate the idea of having one on the landing page?</p>
@@ -38,8 +38,7 @@ const IndexPage = () => {
 			{/* <IndexCarousel />	 */}
 			<IndexCarousel />
 			{/* <FeaturedProducts /> */}
-		</Layout>
-		
+		</>
 	)
 }
 

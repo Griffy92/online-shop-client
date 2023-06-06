@@ -15,7 +15,7 @@ const ProductPage = () => {
     console.log(productItem.url)
 
     return (
-        <Layout>
+        <>
             <div className='container'>
                 <div className="card w-1/2 bg-white shadow-xl mx-auto">
                     <figure className="px-10 pt-10">
@@ -46,7 +46,7 @@ const ProductPage = () => {
                     </div>
                 </div>
             </div>
-        </Layout>
+        </>
     )
 }
 

@@ -1,16 +1,15 @@
 import React from 'react';
-import { useState, useEffect, createContext } from 'react';
+import { useState, useContext } from 'react';
 import { navigate } from 'gatsby';
-import Layout from '../components/layout'
+import { UserContext } from '../providers/UserProvider'
 import axios from 'axios'
 
-export const UserStateContext = createContext(null);
 
 const Signin = () => {
     const [ email, setEmail ] = useState('');
     const [ password, setPassword ] = useState('');
     const [ error, setError ] = useState('');
-    const [ user, setUser ] = useState({});
+    const { user, setUser } = useContext(UserContext);
      
     const _handleEmailChange = (e) => {
         setEmail(e.target.value);
@@ -31,14 +30,13 @@ const Signin = () => {
         };
         
         axios.post(`http://localhost:3000/login`, payload).then( (response) => {
-            // if (response.data.token ) {
+            if (response.data.token ) {
                 localStorage.setItem('token', response.data.token);
                 setUser(response.data.user)
-            // }
-            // console.log(response.data);
+            }
+            console.log(user);
         }).catch( (response) => {
             setError(response.response.data.error); // returns Invalid Credentials
-            // console.log(error)
         });
 
         // TODO: What if the user was already browsing then signs in? .... try navigate(-1)
@@ -46,7 +44,7 @@ const Signin = () => {
     };
 
     return (
-        <Layout loggedin={user}>
+        <>
             <form onSubmit={ _handleSubmit }>
                 <h1>Sign In Form</h1>
 
@@ -56,7 +54,7 @@ const Signin = () => {
                 <input type="password" name="password_digest" onChange={ _handlePasswordChange } />
                 <button>Signin</button>
             </form>
-        </Layout>
+        </>
     )
 }
 

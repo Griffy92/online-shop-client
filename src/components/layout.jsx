@@ -1,17 +1,16 @@
 import React from 'react';
-import { useState, createContext, useEffect } from 'react';
+import { useState, useContext, useEffect } from 'react';
+import {container} from './layout.module.css'
+import { UserContext } from '../providers/UserProvider'
 import Navbar from './navbar';
 import Footer from './footer';
 import Sidebar from './sidebar';
 import FilterList from './FilterList';
-import {container} from './layout.module.css'
-
 import axios from 'axios';
 
-export const UserStateContext = createContext(null);
 
 const Layout = ( {children} ) => {
-    const [ user, setUser ] = useState({});
+    const { user, setUser } = useContext(UserContext);
 
     let token = localStorage.getItem('token');
     // fetch user
@@ -29,17 +28,19 @@ const Layout = ( {children} ) => {
         }
     }, [token])
 
-    console.log('hit me baby one more time', user);
+    const handleSignOut = () => {
+        setUser({});
+        localStorage.clear();
+        console.log(user, 'User signed out');
+    }
 
     return (
-        // <UserStateContext.Provider value={user}>
         <div>
-            <Navbar user={user} />
+            <Navbar user={user} handleSignOut={ handleSignOut} />
             {/* <FilterList /> */}
             {children}
             <Footer />
         </div>
-        // </UserStateContext.Provider>
     );
 };
 

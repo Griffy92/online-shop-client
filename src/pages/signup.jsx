@@ -1,6 +1,5 @@
 import React from 'react';
 import { useState } from 'react';
-import  UserAPI from '../utilities/usersAPI'
 import Layout from '../components/layout'
 import axios from 'axios'
 
@@ -43,7 +42,7 @@ const Signup = () => {
     };
     
     return (
-        <Layout>
+        <>
             <h1>Sign up here foo</h1>
             <form onSubmit={ _handleUserCreationSubmit} >
                 <label>Name: </label>
@@ -54,7 +53,7 @@ const Signup = () => {
                 <input type="password_digest" value={password} onChange={_handlePasswordChange} />
                 <button>Signup!</button>
             </form>
-        </Layout>
+        </>
     )
 }
 
