@@ -1,11 +1,12 @@
 import React from 'react';
-import { useState } from 'react';
-import Layout from '../components/layout'
-import axios from 'axios'
+import { useState, useContext } from 'react';
+import { UserContext } from '../providers/UserProvider';
+import { navigate } from 'gatsby';
+import axios from 'axios';
 
 
 const Signup = () => {
-    const [ user, setUser ] = useState({});
+    const { user, setUser } = useContext(UserContext);
     const [ name, setName ] = useState('');
     const [ password, setPassword ] = useState('');
     const [ email, setEmail ] = useState('');
@@ -35,9 +36,11 @@ const Signup = () => {
 
         axios.post(`http://localhost:3000/users/`, payload).then( (response) => {
             console.log(response.data);
+            localStorage.setItem('token', response.data.token)
+            setUser(response.data.user);
         });
 
-        // TODO: redirect to somewhere and fetch JWT token and setState?
+        navigate('/');
 
     };
     
