@@ -23,6 +23,11 @@ const Navbar = ( props ) => {
                     <a className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
                         Blog
                     </a>
+                    { user.admin && 
+                        <a className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
+                            Admin
+                        </a>
+                    }
                 </div>
             </div>
 
@@ -40,7 +45,9 @@ const Navbar = ( props ) => {
                     </button>
                     <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         <Link to="/account">
-                        <svg aria-hidden="true" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                        <svg aria-hidden="true" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
                         <span className="sr-only">View Profile</span>
                         </Link>
                     </button>

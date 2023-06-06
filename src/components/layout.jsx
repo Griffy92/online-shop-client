@@ -31,7 +31,6 @@ const Layout = ( {children} ) => {
     const handleSignOut = () => {
         setUser({});
         localStorage.clear();
-        console.log(user, 'User signed out');
     }
 
     return (
