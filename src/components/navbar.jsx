@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby'
-import CartButton from './cart-button';
+import CartButton from './cart/cart-button';
 import SearchButton from './search-button';
 
 const Navbar = () => {
