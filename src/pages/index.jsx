@@ -4,7 +4,7 @@ import IndexCarousel from "../components/index-carousel/index-carousel"
 
 const IndexPage = () => {
 	return (
-		<Layout>
+		<Layout pageTitle="Home Page">
 			<div className="bg-cover bg-center h-auto text-white py-24 px-10 bg-red-600">
 				<div className="md:w-1/2">
 					<p className="text-3xl font-bold">This is a banner - image didn't work, but don't hate the idea of having one on the landing page?</p>

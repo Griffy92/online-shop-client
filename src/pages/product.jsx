@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import Layout from '../components/layout'
 
 const ProductPage = () => {
@@ -15,7 +15,7 @@ const ProductPage = () => {
     console.log(productItem.url)
 
     return (
-        <Layout>
+        <Layout pageTitle="product">
             <div className='container'>
                 <div className="card w-1/2 bg-white shadow-xl mx-auto">
                     <figure className="px-10 pt-10">
