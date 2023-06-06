@@ -24,7 +24,7 @@ const Layout = ( {children} ) => {
 =======
 import {container} from './layout.module.css'
 
-import axios from 'axios'
+import axios from 'axios';
 
 export const UserStateContext = createContext(null);
 
@@ -34,8 +34,12 @@ const Layout = ( {children} ) => {
     let token = localStorage.getItem('token');
     // fetch user
     useEffect(() => {
+<<<<<<< HEAD
         if(token) {
 >>>>>>> 2975514 (Signout button complete. Moving user state to layout incomplete)
+=======
+        if (token) {
+>>>>>>> 5865863 (Navbar condition & fixed signup)
             axios.get('http://localhost:3000/profile', {
                 headers: {
                     "Authorization": `Bearer ${token}`
@@ -43,6 +47,7 @@ const Layout = ( {children} ) => {
             }).then( (response) => {
                 setUser(response.data);
             })
+<<<<<<< HEAD
 <<<<<<< HEAD
         } else {
             setUser('');
@@ -61,8 +66,12 @@ const Layout = ( {children} ) => {
 =======
         <div className={container}>
 =======
+=======
+        } else {
+            setUser('');
+>>>>>>> 5865863 (Navbar condition & fixed signup)
         }
-    }, [])
+    }, [token])
 
     console.log('hit me baby one more time', user);
 
