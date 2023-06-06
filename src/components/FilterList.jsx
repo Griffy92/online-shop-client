@@ -10,6 +10,7 @@ const FilterList = () => {
       color: "Camel",
       size: "M",
       tags: "coat check textured camel brown long sleeves buttoned cuffs",
+      image: "http://placekitten.com/301/300"
     },
     {
       id: 2,
@@ -19,6 +20,7 @@ const FilterList = () => {
       color: "Black",
       size: "L",
       tags: "coat camel black grey marl lapel collar hip flap pockets",
+      image: "http://placekitten.com/302/300"
     },
     {
       id: 3,
@@ -28,6 +30,7 @@ const FilterList = () => {
       color: "White",
       size: "S",
       tags: "coat camel white short sleeves double-breasted button",
+      image: "http://placekitten.com/303/300"
     },
     {
       id: 4,
@@ -37,6 +40,7 @@ const FilterList = () => {
       color: "Purple",
       size: "M",
       tags: "hoodie solid plain purple long baggy hood",
+      image: "http://placekitten.com/304/300"
     },
     {
       id: 5,
@@ -46,6 +50,7 @@ const FilterList = () => {
       color: "Black",
       size: "L",
       tags: "hoodie solid plain black long baggy hood",
+      image: "http://placekitten.com/305/300"
     },
     {
       id: 6,
@@ -55,6 +60,7 @@ const FilterList = () => {
       color: "Gray",
       size: "S",
       tags: "hoodie solid plain gray grey short hood",
+      image: "http://placekitten.com/306/300"
     },
   ]);
 
@@ -137,6 +143,7 @@ const FilterList = () => {
               <h5>Price: ${product.price}</h5>
               <h5>Color: {product.color}</h5>
               <h5>Size: {product.size}</h5>
+              <img src={ product.image } />
             </div>
           ))
         ) : (
