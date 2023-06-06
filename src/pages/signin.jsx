@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Layout from '../components/layout'
 import axios from 'axios'
 
@@ -8,6 +8,19 @@ const Signin = () => {
     const [ password, setPassword ] = useState('');
     const [ error, setError ] = useState('');
     const [ user, setUser ] = useState({});
+
+    useEffect(() => {
+        let token = localStorage.getItem('token');
+        if(token) {
+            axios.get('http://localhost:3000/profile', {
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                }
+            }).then( (response) => {
+                setUser(response.data);
+            })
+        }
+    }, [])
      
     const _handleEmailChange = (e) => {
         setEmail(e.target.value);
@@ -37,6 +50,7 @@ const Signin = () => {
             setError(response.response.data.error); // returns Invalid Credentials
             // console.log(error)
         });
+        
     };
 
     return (
