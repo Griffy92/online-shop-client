@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '../components/layout';
 import ProductCard from '../components/product-card';
+import Sidebar from '../components/sidebar';
 
 const CategoryPage = () => {
 
@@ -56,16 +57,14 @@ const CategoryPage = () => {
      ]
 
 
-    //  <ProductCard props={carouselArray[0]}/>
-
     return (
         <Layout>
-            <div className='container grid grid-cols-6 gap-4'>
-                <div className='overflow-hidden p-4' >
-                    <ProductCard props={productArray[0]}/>
-                </div>
-                <div className='overflow-hidden p-4' >
-                    <ProductCard props={productArray[1]}/>
+            <Sidebar />
+            <div className="ml-64">
+                <div className='grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-2'>
+                {productArray.map((e) => (
+                    <ProductCard product={e}/> 
+                ))}        
                 </div>
             </div>
         </Layout>

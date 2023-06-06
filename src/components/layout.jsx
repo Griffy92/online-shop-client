@@ -8,9 +8,9 @@ import {container} from './layout.module.css'
 
 const Layout = ( {children} ) => {
     return (
-        <div className={container}>
+        <div >
             <Navbar />
-            <FilterList />
+            {/* <FilterList /> */}
             {children}
             <Footer />
 

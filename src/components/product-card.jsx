@@ -1,19 +1,25 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
-const ProductCard = (props) => {
+const ProductCard = ( { product } ) => {
+
+    console.log(product)
+
+    const { item, description, bgcol, url } = product
+
+    console.log(item)
 
     return (
-        <div className="card bg-white shadow-xl">
-            <figure><img src={props.props.url} alt="Shoes" /></figure>
-            <div className="card-body">
-                <h2 className="card-title text-black">
-                {props.props.item}
-                <div className="badge badge-secondary">NEW</div>
-                </h2>
-                <p className="text-black">{props.props.description}</p>
-                <div className="card-actions justify-end">
-                <div className="badge badge-outline text-black">{props.props.bgcol}</div> 
+        <div className='overflow-hidden p-4'>
+            <div className="card card-compact bg-white shadow-xl ">
+                <figure><img src={url} alt="Shoes" /></figure>
+                <div className="card-body">
+                    <h2 className="card-title text-black">
+                    {item}
+                    </h2>
+                    <p className="text-black">{description}</p>
+                    <div className="card-actions justify-end">
+                    </div>
                 </div>
             </div>
         </div>
