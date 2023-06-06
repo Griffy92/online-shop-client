@@ -3,8 +3,6 @@ import { Link } from 'gatsby';
 
 const ProductCard = ( { product } ) => {
 
-    console.log(product)
-
     const { item, description, bgcol, url } = product
 
     console.log(item)

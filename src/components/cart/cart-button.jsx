@@ -4,6 +4,28 @@ import { Popover } from '@headlessui/react'
 import CartButtonItem from './cart-button-item';
 
 const CartButton = () => {
+
+    const cartArray = [
+        { item: "Shoes",
+         description: "Item Description - Item 1",
+         bgcol: "red", 
+         url: "http://placekitten.com/500/500"},
+         { item: "Chewing Gum",
+         description: "Item Description - Item 2",
+         bgcol: "orange", 
+         url: "http://placekitten.com/501/501"},
+         { item: "Cats",
+         description: "Item Description - Item 3",
+         bgcol: "yellow", 
+         url: "http://placekitten.com/502/502"},
+         { item: "Teddy Bears",
+         description: "Item Description - Item 4",
+         bgcol: "green", 
+         url: "http://placekitten.com/501/503"},
+    ]
+
+    console.log(cartArray)
+
     return (
         <Popover>
             <Popover.Button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"> 
@@ -14,7 +36,9 @@ const CartButton = () => {
                 <div className="p-2">
                     <table className="table-fixed w-full">
                         <tbody>
-                            <CartButtonItem />
+                            {cartArray.map((e) => (
+                            <CartButtonItem product={e}/> 
+                            ))}        
                         </tbody>
                     </table>
                 </div>
