@@ -30,11 +30,9 @@ const Signin = () => {
         };
         
         axios.post(`http://localhost:3000/login`, payload).then( (response) => {
-            if (response.data.token ) {
-                localStorage.setItem('token', response.data.token);
-                setUser(response.data.user)
-            }
-            console.log(user);
+            // if (response.data.token ) {
+            localStorage.setItem('token', response.data.token);
+            setUser(response.data.user)
         }).catch( (response) => {
             setError(response.response.data.error); // returns Invalid Credentials
         });
