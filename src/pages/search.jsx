@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import Layout from "../components/layout";
 import {useLocation} from "@reach/router"
 
@@ -50,7 +50,7 @@ const Search = () => {
     });
       
     return (
-        <Layout>
+        <Layout pageTitle="search">
             <h1>Searching for {search}</h1>
             {searchProducts.map((product) => (
                 <div key={product.id} >
