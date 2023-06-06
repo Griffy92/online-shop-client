@@ -6,7 +6,7 @@ import Sidebar from './sidebar';
 import FilterList from './FilterList';
 import {container} from './layout.module.css'
 
-import axios from 'axios'
+import axios from 'axios';
 
 export const UserStateContext = createContext(null);
 
@@ -16,7 +16,7 @@ const Layout = ( {children} ) => {
     let token = localStorage.getItem('token');
     // fetch user
     useEffect(() => {
-        if(token) {
+        if (token) {
             axios.get('http://localhost:3000/profile', {
                 headers: {
                     "Authorization": `Bearer ${token}`
@@ -24,8 +24,10 @@ const Layout = ( {children} ) => {
             }).then( (response) => {
                 setUser(response.data);
             })
+        } else {
+            setUser('');
         }
-    }, [])
+    }, [token])
 
     console.log('hit me baby one more time', user);
 
