@@ -1,17 +1,21 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import { Popover } from '@headlessui/react'
 
-const CartButtonItem = () => {
+const CartButtonItem = ( { product } ) => {
+  
+  const { item, description, bgcol, url } = product
+
+  console.log(product)
+
     return (
       <tr>
-        <td className="w-1/4">
+        <td className="w-1/6">
           <div className="lg:table-cell">
-            <img src="http://placekitten.com/75/75"/>  
+            <img src={url}/>  
           </div>
         </td>
-        <td className="w-1/4"><h2>Item</h2>Description</td>
-        <td className="w-1/4 text-center"><p>$30.50</p></td>
+        <td className="w-4/6 text-black"><h2>{item}</h2>{description}</td>
+        <td className="w-1/6 text-center text-black"><p>$30.50</p></td>
       </tr>
     );
 };
