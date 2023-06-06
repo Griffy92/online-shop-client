@@ -13,9 +13,9 @@ export const UserStateContext = createContext(null);
 const Layout = ( {children} ) => {
     const [ user, setUser ] = useState({});
 
+    let token = localStorage.getItem('token');
     // fetch user
     useEffect(() => {
-        let token = localStorage.getItem('token');
         if(token) {
             axios.get('http://localhost:3000/profile', {
                 headers: {
@@ -27,15 +27,17 @@ const Layout = ( {children} ) => {
         }
     }, [])
 
-    console.log(user);
+    console.log('hit me baby one more time', user);
 
     return (
-        <UserStateContext.Provider value={user}>
-            <Navbar />
-            {/* <FilterList /> */}s
+        // <UserStateContext.Provider value={user}>
+        <div>
+            <Navbar user={user} />
+            {/* <FilterList /> */}
             {children}
             <Footer />
-        </UserStateContext.Provider>
+        </div>
+        // </UserStateContext.Provider>
     );
 };
 

@@ -1,9 +1,29 @@
 import * as React from "react"
 import { useState } from 'react';
+import { useEffect } from 'react';
+import axios from 'axios';
 import Layout from '../components/layout'
 import IndexCarousel from "../components/index-carousel/index-carousel"
 
 const IndexPage = () => {
+
+	const [ user, setUser ] = useState({});
+
+    // fetch user
+    useEffect(() => {
+        let token = localStorage.getItem('token');
+        if(token) {
+            axios.get('http://localhost:3000/profile', {
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                }
+            }).then( (response) => {
+                setUser(response.data);
+            })
+        }
+    }, [])
+
+    console.log('hit me baby one more time', user);
 
 	return (
 		<Layout>
