@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
-const ProductCard = (props) => {
+const IndexCarouselCard = (props) => {
 
     return (
         <div className="card bg-white shadow-xl">
@@ -20,4 +20,4 @@ const ProductCard = (props) => {
     );
 };
 
-export default ProductCard;
+export default IndexCarouselCard;

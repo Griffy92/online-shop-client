@@ -27,16 +27,16 @@ const ProductPage = () => {
                         <table class="table-fixed w-1/2">
                             <tbody>
                                 <tr>
-                                <td className="w-1/2 text-left text-black">Colour</td>
-                                <td className="w-1/2 text-right text-black">{productItem.bgcol}</td>
+                                    <td className="w-1/2 text-left text-black">Colour</td>
+                                    <td className="w-1/2 text-right text-black">{productItem.bgcol}</td>
                                 </tr>
                                 <tr>
-                                <td className="w-1/2 text-left text-black">Category</td>
-                                <td className="w-1/2 text-right text-black">{productItem.category}</td>
+                                    <td className="w-1/2 text-left text-black">Category</td>
+                                    <td className="w-1/2 text-right text-black">{productItem.category}</td>
                                 </tr>
                                 <tr>
-                                <td className="w-1/2 text-left text-black">Left in stock</td>
-                                <td className="w-1/2 text-right text-black">{productItem.stock}</td>
+                                    <td className="w-1/2 text-left text-black">Left in stock</td>
+                                    <td className="w-1/2 text-right text-black">{productItem.stock}</td>
                                 </tr>
                             </tbody>
                         </table>
