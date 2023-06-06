@@ -47,7 +47,6 @@ const Signin = () => {
         <>
             <form onSubmit={ _handleSubmit }>
                 <h1>Sign In Form</h1>
-
                 <label>Email: </label>
                 <input name='email' value={ email } onChange={ _handleEmailChange }/>
                 <label>Password: </label>
