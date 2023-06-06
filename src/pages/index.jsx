@@ -1,8 +1,6 @@
 import * as React from "react"
 import Layout from '../components/layout'
-import IndexCarousel from "../components/index-carousel"
-import FeaturedProducts from "../components/featured-products"
-import IndexProductCarousel from "../components/index-product-carousel"
+import IndexCarousel from "../components/index-carousel/index-carousel"
 
 const IndexPage = () => {
 	return (
@@ -16,7 +14,7 @@ const IndexPage = () => {
 			</div>
 			<h1>Website coming soon| This is the index</h1>
 			{/* <IndexCarousel />	 */}
-			<IndexProductCarousel />
+			<IndexCarousel />
 			{/* <FeaturedProducts /> */}
 		</Layout>
 		

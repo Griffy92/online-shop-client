@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'gatsby'
-import ProductCard from './product-card';
+import IndexCarouselCard from './index-carousel-card';
 
-const IndexProductCarousel = () => {
+const IndexCarousel = () => {
 
     const carouselArray = [
        { item: "Shoes",
@@ -60,13 +60,13 @@ const IndexProductCarousel = () => {
             <div id="slide1" className="carousel-item relative w-full justify-center">
                 <div className='columns-3'>
                     <div className='overflow-hidden p-4' >
-                        <ProductCard props={carouselArray[0]}/>
+                        <IndexCarouselCard props={carouselArray[0]}/>
                     </div>
                     <div className='overflow-hidden p-4' >
-                        <ProductCard props={carouselArray[1]}/>
+                        <IndexCarouselCard props={carouselArray[1]}/>
                     </div>
                     <div className='overflow-hidden p-4' >
-                        <ProductCard props={carouselArray[2]}/>
+                        <IndexCarouselCard props={carouselArray[2]}/>
                     </div>
                 </div>
                 <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -77,13 +77,13 @@ const IndexProductCarousel = () => {
             <div id="slide2" className="carousel-item relative w-full justify-center">
                 <div className='columns-3 justify-center'>
                     <div className='overflow-hidden p-4' >
-                        <ProductCard props={carouselArray[3]}/>
+                        <IndexCarouselCard props={carouselArray[3]}/>
                     </div>
                     <div className='overflow-hidden p-4' >
-                        <ProductCard props={carouselArray[4]}/>
+                        <IndexCarouselCard props={carouselArray[4]}/>
                     </div>
                     <div className='overflow-hidden p-4' >
-                        <ProductCard props={carouselArray[5]}/>
+                        <IndexCarouselCard props={carouselArray[5]}/>
                     </div>
                 </div>
                 <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -94,13 +94,13 @@ const IndexProductCarousel = () => {
             <div id="slide3" className="carousel-item relative w-full justify-center">
                 <div className='columns-3 justify-center'>
                     <div className='overflow-hidden p-4' >
-                        <ProductCard props={carouselArray[6]}/>
+                        <IndexCarouselCard props={carouselArray[6]}/>
                     </div>
                     <div className='overflow-hidden p-4' >
-                        <ProductCard props={carouselArray[7]}/>
+                        <IndexCarouselCard props={carouselArray[7]}/>
                     </div>
                     <div className='overflow-hidden p-4' >
-                        <ProductCard props={carouselArray[8]}/>
+                        <IndexCarouselCard props={carouselArray[8]}/>
                     </div>
                 </div>
                 <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -111,13 +111,13 @@ const IndexProductCarousel = () => {
             <div id="slide4" className="carousel-item relative w-full justify-center">
                 <div className='columns-3 justify-center'>
                     <div className='overflow-hidden p-4' >
-                        <ProductCard props={carouselArray[9]}/>
+                        <IndexCarouselCard props={carouselArray[9]}/>
                     </div>
                     <div className='overflow-hidden p-4' >
-                        <ProductCard props={carouselArray[10]}/>
+                        <IndexCarouselCard props={carouselArray[10]}/>
                     </div>
                     <div className='overflow-hidden p-4' >
-                        <ProductCard props={carouselArray[11]}/>
+                        <IndexCarouselCard props={carouselArray[11]}/>
                     </div>
                 </div>
                 <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -130,4 +130,4 @@ const IndexProductCarousel = () => {
     )
 };
 
-export default IndexProductCarousel;
+export default IndexCarousel;
