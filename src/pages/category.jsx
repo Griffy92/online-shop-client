@@ -61,12 +61,10 @@ const CategoryPage = () => {
     return (
         <Layout>
             <div className='container grid grid-cols-6 gap-4'>
-                <div className='overflow-hidden p-4' >
-                    <ProductCard props={productArray[0]}/>
-                </div>
-                <div className='overflow-hidden p-4' >
-                    <ProductCard props={productArray[1]}/>
-                </div>
+                {productArray.map((e) => (
+                    <ProductCard product={e}/> 
+                )               
+            )}        
             </div>
         </Layout>
     )
