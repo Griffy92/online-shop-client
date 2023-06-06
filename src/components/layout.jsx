@@ -8,10 +8,6 @@ import Sidebar from './sidebar';
 import FilterList from './FilterList';
 import axios from 'axios';
 
-import axios from 'axios';
-
-export const UserStateContext = createContext(null);
-
 const Layout = ( {children} ) => {
     const { user, setUser } = useContext(UserContext);
 
@@ -37,12 +33,12 @@ const Layout = ( {children} ) => {
     };
 
     return (
-        <UserStateContext.Provider value={user}>
+        <UserContext.Provider value={user}>
             <Navbar user={user} handleSignOut={ handleSignOut} />
             {/* <FilterList /> */}
             {children}
             <Footer />
-        </UserStateContext.Provider>
+        </UserContext.Provider>
     );
 };
 
