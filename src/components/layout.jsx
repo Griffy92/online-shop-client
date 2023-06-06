@@ -31,9 +31,9 @@ export const UserStateContext = createContext(null);
 const Layout = ( {children} ) => {
     const [ user, setUser ] = useState({});
 
+    let token = localStorage.getItem('token');
     // fetch user
     useEffect(() => {
-        let token = localStorage.getItem('token');
         if(token) {
 >>>>>>> 2975514 (Signout button complete. Moving user state to layout incomplete)
             axios.get('http://localhost:3000/profile', {
@@ -64,9 +64,10 @@ const Layout = ( {children} ) => {
         }
     }, [])
 
-    console.log(user);
+    console.log('hit me baby one more time', user);
 
     return (
+<<<<<<< HEAD
         <UserStateContext.Provider value={user}>
 >>>>>>> 2975514 (Signout button complete. Moving user state to layout incomplete)
             <Navbar />
@@ -79,6 +80,16 @@ const Layout = ( {children} ) => {
 =======
         </UserStateContext.Provider>
 >>>>>>> 2975514 (Signout button complete. Moving user state to layout incomplete)
+=======
+        // <UserStateContext.Provider value={user}>
+        <div>
+            <Navbar user={user} />
+            {/* <FilterList /> */}
+            {children}
+            <Footer />
+        </div>
+        // </UserStateContext.Provider>
+>>>>>>> d9c96aa (Signin Bugged - need to force refresh for compoennts to recognise JWT)
     );
 };
 
