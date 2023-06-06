@@ -143,7 +143,7 @@ const FilterList = () => {
               <h5>Price: ${product.price}</h5>
               <h5>Color: {product.color}</h5>
               <h5>Size: {product.size}</h5>
-              <img src={ product.image } />
+              <img src={ product.image } alt={ product.title } />
             </div>
           ))
         ) : (

@@ -1,4 +1,3 @@
-import React from 'react';
 import { useState, useContext, useEffect } from 'react';
 import {container} from './layout.module.css'
 import { UserContext } from '../providers/UserProvider'
