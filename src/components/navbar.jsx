@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { Link } from 'gatsby'
+import React from 'react';
+import { Link } from 'gatsby';
 import CartButton from './cart/cart-button';
 import SearchButton from './search-button';
 

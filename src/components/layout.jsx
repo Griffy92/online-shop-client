@@ -8,7 +8,7 @@ import Sidebar from './sidebar';
 import FilterList from './FilterList';
 import axios from 'axios';
 
-import axios from 'axios'
+import axios from 'axios';
 
 export const UserStateContext = createContext(null);
 
@@ -18,11 +18,7 @@ const Layout = ( {children} ) => {
     let token = localStorage.getItem('token');
     // fetch user
     useEffect(() => {
-<<<<<<< HEAD
         if (token) {
-=======
-        if(token) {
->>>>>>> 766038a (Signin Bugged - need to force refresh for compoennts to recognise JWT)
             axios.get('http://localhost:3000/profile', {
                 headers: {
                     "Authorization": `Bearer ${token}`
@@ -35,29 +31,18 @@ const Layout = ( {children} ) => {
         }
     }, [token])
 
-<<<<<<< HEAD
     const handleSignOut = () => {
         setUser({});
         localStorage.clear();
-    }
+    };
 
     return (
         <UserStateContext.Provider value={user}>
             <Navbar user={user} handleSignOut={ handleSignOut} />
-            {/* <FilterList /> */}s
-=======
-    console.log('hit me baby one more time', user);
-
-    return (
-        // <UserStateContext.Provider value={user}>
-        <div>
-            <Navbar user={user} />
             {/* <FilterList /> */}
->>>>>>> 766038a (Signin Bugged - need to force refresh for compoennts to recognise JWT)
             {children}
             <Footer />
-        </div>
-        // </UserStateContext.Provider>
+        </UserStateContext.Provider>
     );
 };
 
