@@ -20,7 +20,7 @@ export default function Product({ pageContext: { product } }) {
         </div>
         <div>
             <strong>Stock: </strong>
-            ${product.quantity}
+            {product.quantity}
         </div>
       </div>
     )
