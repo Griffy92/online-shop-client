@@ -16,6 +16,9 @@ const Sidebar = () => {
                 <BoxFilters />
                 <PriceRangeMinFilter />
                 <PriceRangeMaxFilter />
+                <div className='flex justify-center'>
+                    <button className="btn btn-primary btn-sm">Apply Filter</button>
+                </div>
             </div>
         </aside>
     );
