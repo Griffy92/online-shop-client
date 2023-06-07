@@ -43,8 +43,12 @@ const CartButton = () => {
                     </table>
                 </div>
                 <hr />
-                <div className='flex justify-center'>
+                <div className='flex justify-center p-2'>
+<<<<<<< HEAD
+                    <button className="btn btn-primary btn-wide btn-md ">Checkout</button>
+=======
                     <button className="btn btn-primary btn-wide btn-md">Checkout</button>
+>>>>>>> 8d5220d (re-making previously conflicted changes - cart panel styling)
                 </div>
             </Popover.Panel>
       </Popover>
