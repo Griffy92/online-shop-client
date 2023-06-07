@@ -26,15 +26,28 @@ const IndexPage = () => {
     console.log('hit me baby one more time', user);
 
 	return (
-		<>
-			<div className="bg-cover bg-center h-auto text-white py-24 px-10 bg-red-600">
+		<>	
+			{/* cover image with CTA button */}
+			<div 
+			className="bg-cover bg-center h-auto text-white py-24 px-10"
+			style={{
+				backgroundImage:`url(/header_image.png)`,
+				color: `white`,
+				}}>
+			
 				<div className="md:w-1/2">
 					<p className="text-3xl font-bold">This is a banner - image didn't work, but don't hate the idea of having one on the landing page?</p>
 					<p className="text-2xl mb-10 leading-none">This might be a bit large though?</p>
-					<a href="#" className="bg-purple-800 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Call to Action</a>
+					<a href="#" className="bg-purple-800 py-4 px-8 text-white font-bold text-xs rounded hover:bg-gray-200 hover:text-gray-800" 
+					style={{
+						backgroundColor: `#2563EB`
+						}}>Shop now!</a>
+
+					{/* bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full */}
+
 				</div>  
 			</div>
-			<h1>Website coming soon| This is the index</h1>
+			<h1>Bestselling</h1>
 			{/* <IndexCarousel />	 */}
 			<IndexCarousel />
 			{/* <FeaturedProducts /> */}
