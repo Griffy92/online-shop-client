@@ -52,6 +52,7 @@ const Navbar = ( props ) => {
                         </svg>
                         <span className="sr-only">View Profile</span>
                         </Link>
+                        <span className="sr-only">View Profile</span>
                     </button>
                 </>
             ) : (
