@@ -58,7 +58,7 @@ const CategoryPage = () => {
 
 
     return (
-        <Layout>
+        <div>
             <Sidebar />
             <div className="ml-64">
                 <div className='grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-2'>
@@ -67,7 +67,7 @@ const CategoryPage = () => {
                 ))}        
                 </div>
             </div>
-        </Layout>
+        </div>
     )
 }
 
