@@ -43,7 +43,9 @@ const CartButton = () => {
                     </table>
                 </div>
                 <hr />
-                <button>Checkout</button>
+                <div className='flex justify-center'>
+                    <button className="btn btn-primary btn-wide btn-md">Checkout</button>
+                </div>
             </Popover.Panel>
       </Popover>
     );
