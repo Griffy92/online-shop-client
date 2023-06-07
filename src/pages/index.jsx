@@ -1,10 +1,32 @@
 import * as React from "react"
+import { useState } from 'react';
+import { useEffect } from 'react';
+import axios from 'axios';
 import Layout from '../components/layout'
 import IndexCarousel from "../components/index-carousel/index-carousel"
 
 const IndexPage = () => {
+
+	const [ user, setUser ] = useState({});
+
+    // fetch user
+    useEffect(() => {
+        let token = localStorage.getItem('token');
+        if(token) {
+            axios.get('http://localhost:3000/profile', {
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                }
+            }).then( (response) => {
+                setUser(response.data);
+            })
+        }
+    }, [])
+
+    console.log('hit me baby one more time', user);
+
 	return (
-		<Layout pageTitle="Home Page">
+		<>
 			<div className="bg-cover bg-center h-auto text-white py-24 px-10 bg-red-600">
 				<div className="md:w-1/2">
 					<p className="text-3xl font-bold">This is a banner - image didn't work, but don't hate the idea of having one on the landing page?</p>
@@ -16,8 +38,7 @@ const IndexPage = () => {
 			{/* <IndexCarousel />	 */}
 			<IndexCarousel />
 			{/* <FeaturedProducts /> */}
-		</Layout>
-		
+		</>
 	)
 }
 
