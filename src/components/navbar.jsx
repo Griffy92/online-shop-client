@@ -27,7 +27,7 @@ const Navbar = ( props ) => {
                     </a>
                     { user.admin && 
                         <a className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
-                            Admin
+                            <Link to="/admin">Admin</Link>
                         </a>
                     }
                 </div>
