@@ -118,7 +118,7 @@ const ProductsPage = () => {
  
 
     return (
-        <Layout pageTitle="product">
+        <div pageTitle="product">
             <div className="container container mx-auto">
                 <div class="bg-white place-content-center grid grid-cols-4 gap-4">
                     {productsList.map((product) => (
@@ -135,7 +135,7 @@ const ProductsPage = () => {
                     ))}
                 </div>
             </div>
-        </Layout>
+        </div>
     )
 }
 
