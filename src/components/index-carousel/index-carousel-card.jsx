@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 const IndexCarouselCard = (props) => {
 
     return (
-        <div className="card bg-white shadow-xl">
+        <div className="card bg-white shadow-x">
             <figure><img src={props.props.url} alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="card-title text-black">

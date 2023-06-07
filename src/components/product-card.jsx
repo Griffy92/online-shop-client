@@ -8,7 +8,7 @@ const ProductCard = ( { product } ) => {
     console.log(item)
 
     return (
-        <div className='overflow-hidden p-4'>
+        <div className='overflow-hidden'>
             <div className="card card-compact bg-white shadow-xl ">
                 <figure><img src={url} alt="Shoes" /></figure>
                 <div className="card-body">
