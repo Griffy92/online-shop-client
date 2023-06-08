@@ -10,7 +10,7 @@ const AllProductsTemplate = ({ pageContext }) => {
       <ul>
         {allProducts.map(product => (
           <li key={product.id}>
-            <Link to={`/product/${product.product_code}`}>{product.product_name}</Link>
+            <Link to={`/product/${product.id}`}>{product.product_name}</Link>
           </li>
         ))}
       </ul>

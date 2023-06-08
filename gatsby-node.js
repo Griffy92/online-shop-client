@@ -20,7 +20,7 @@ exports.createPages = async ({ actions: { createPage } }) => {
     });
     allProducts.forEach(product => {
         createPage({
-            path: `/product/${product.product_code}/`,
+            path: `/product/${product.id}/`,
             component: require.resolve("./src/templates/product.js"),
             context: { product },
         })
