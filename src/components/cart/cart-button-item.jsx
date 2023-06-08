@@ -5,8 +5,6 @@ const CartButtonItem = ( { product } ) => {
   
   const { item, description, bgcol, url } = product
 
-  console.log(product)
-
     return (
       <tr>
         <td className="w-1/6">
