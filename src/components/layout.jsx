@@ -1,25 +1,18 @@
 import * as React from 'react';
-import { useState, useContext, useEffect } from 'react';
-import {container} from './layout.module.css'
+import { useContext, useEffect } from 'react';
 import { UserContext } from '../providers/UserProvider'
 import Navbar from './navbar';
 import Footer from './footer';
-import Sidebar from './sidebar';
+import { UserAPI } from '../services/users'
 import FilterList from './FilterList';
-import axios from 'axios';
 
 const Layout = ( {children} ) => {
     const { user, setUser } = useContext(UserContext);
+    const token = localStorage.getItem('token');
 
-    let token = localStorage.getItem('token');
-    // fetch user
     useEffect(() => {
         if (token) {
-            axios.get('http://localhost:3000/profile', {
-                headers: {
-                    "Authorization": `Bearer ${token}`
-                }
-            }).then( (response) => {
+            UserAPI.getUser(token).then((response) => {
                 setUser(response.data);
             })
         } else {

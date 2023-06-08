@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useContext } from 'react';
 import { navigate } from 'gatsby';
 import { UserContext } from '../providers/UserProvider'
-import axios from 'axios'
+import { UserAPI } from '../services/users'
 
 
 const Signin = () => {
@@ -22,6 +22,7 @@ const Signin = () => {
     const _handleSubmit = (e) => {
         e.preventDefault();
 
+        // login details
         const payload = {
             user: {
                 password: password,
@@ -29,7 +30,7 @@ const Signin = () => {
             }
         };
         
-        axios.post(`http://localhost:3000/login`, payload).then( (response) => {
+        UserAPI.signIn(payload).then( (response) => {
             if (response.data.token ) {
                 localStorage.setItem('token', response.data.token);
                 setUser(response.data.user)
