@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useContext } from 'react';
 import { UserContext } from '../providers/UserProvider';
 import { navigate } from 'gatsby';
-import axios from 'axios';
+import { UserAPI } from '../services/users'
 
 
 
@@ -35,7 +35,7 @@ const Signup = () => {
             }
         };
 
-        axios.post(`http://localhost:3000/users/`, payload).then( (response) => {
+        UserAPI.createUser(payload).then( (response) => {
             localStorage.setItem('token', response.data.token)
             setUser(response.data.user);
         });
