@@ -24,7 +24,10 @@ const CartButton = () => {
          url: "http://placekitten.com/501/503"},
     ]
 
-    console.log(cartArray)
+    // DOM TODO: 
+    // User presses checkout button
+    // HTTP request to server to create Payment Intent
+    // 
 
     return (
         <Popover>
