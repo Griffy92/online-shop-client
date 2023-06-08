@@ -3,7 +3,12 @@ import React from 'react'
 export default function Product({ pageContext: { product } }) {
     return (
       <div style={{ width: 960, margin: "4rem auto" }}>
-        <h1>{product.product_name}</h1>
+        <div>
+            <img src={ "http://localhost:3000" + product.image } />
+        </div>
+
+        <strong>{ product.product_name }</strong>
+
         <div>
             <strong>Animal category:</strong> {product.animal_category}
         </div>
