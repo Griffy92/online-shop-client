@@ -38,6 +38,8 @@ const Navbar = ( props ) => {
                     <Link className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" to="/dog-products">Dog</Link>
                     <Link className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" to="/cat-products">Cat</Link>
                     <Link className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" to="/reptile-products">Reptile</Link>
+                    <Link className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" to="/bird-products">Bird</Link>
+                    <Link className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" to="/smallpet-products">Small Pet</Link>
 
                     <a className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
                         Blog

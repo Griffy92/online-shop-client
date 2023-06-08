@@ -45,6 +45,22 @@ exports.createPages = async ({ actions: { createPage } }) => {
         context: { reptileProducts },
     });
 
+    // Create page for bird products
+    const birdProducts = allProducts.filter(product => product.animal_category === "Bird");
+    createPage({
+        path: `/bird-products`,
+        component: require.resolve("./src/templates/bird-products.js"),
+        context: { birdProducts },
+    });
+
+    // Create page for small pet products
+    const smallpetProducts = allProducts.filter(product => product.animal_category === "Small Pet");
+    createPage({
+        path: `/smallpet-products`,
+        component: require.resolve("./src/templates/smallpet-products.js"),
+        context: { smallpetProducts },
+    });
+
     // Create individual product pages
     allProducts.forEach(product => {
         createPage({
