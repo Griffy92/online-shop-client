@@ -18,4 +18,3 @@ const ProductCardGenerator = ( { productArray } ) => {
 };
 
 export default ProductCardGenerator;
-export default ProductCardGenerator;
