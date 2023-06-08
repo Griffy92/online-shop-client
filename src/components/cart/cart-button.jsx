@@ -1,30 +1,17 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { Popover } from '@headlessui/react'
-import CartButtonItem from './cart-button-item';
-import axios from 'axios';
 
 const CartButton = () => {
-    const [ message, setMessage ] = useState('hello');
 
-    const cartArray = [
-        { item: "Shoes",
-         description: "Item Description - Item 1",
-         bgcol: "red", 
-         url: "http://placekitten.com/500/500"},
-         { item: "Chewing Gum",
-         description: "Item Description - Item 2",
-         bgcol: "orange", 
-         url: "http://placekitten.com/501/501"},
-         { item: "Cats",
-         description: "Item Description - Item 3",
-         bgcol: "yellow", 
-         url: "http://placekitten.com/502/502"},
-         { item: "Teddy Bears",
-         description: "Item Description - Item 4",
-         bgcol: "green", 
-         url: "http://placekitten.com/501/503"},
-    ]
+    const [cart, setCart] = useState(null)
+
+    useEffect(() => {
+      axios.get('http://localhost:3000/orders/4')
+        .then(content => {
+          setCart(content.data)
+        });
+    }, []);
 
     // DOM TODO: 
     // User presses checkout button
@@ -63,19 +50,16 @@ const CartButton = () => {
             <Popover.Panel className="absolute z-10 bg-gray-50 lg:w-1/3 -translate-x-full md:w-1/2 sm:w-full overscroll-none px-2 pt-2">
                 <div className="p-2">
                     <table className="table-fixed w-full">
-                        <tbody>
-                            {cartArray.map((e) => (
-                            <CartButtonItem product={e}/> 
-                            ))}        
-                        </tbody>
+                    {cart !== null ? (
+                        <CardButtonItemGenerator cart={cart}/>
+                        ) : (
+                        <div>Loading Content...</div>
+                        )}
                     </table>
                 </div>
                 <hr />
                 <div className='flex justify-center'>
-                    <button onClick={ _handleCheckout } className="btn btn-primary btn-wide btn-md">Checkout</button>
-                </div>
-                <div>
-                    {message}
+                    <button className="btn btn-primary btn-wide btn-md">Checkout</button>
                 </div>
             </Popover.Panel>
       </Popover>
