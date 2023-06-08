@@ -3,6 +3,10 @@ import { Link } from 'gatsby';
 import { Popover } from '@headlessui/react'
 import CartButtonItem from './cart-button-item';
 
+
+
+import { loadStripe } from "@stripe/stripe-js"
+
 const CartButton = () => {
 
     const cartArray = [
@@ -43,9 +47,10 @@ const CartButton = () => {
                     </table>
                 </div>
                 <hr />
-                <div className='flex justify-center'>
+                {/* <div className='flex justify-center'>
                     <button className="btn btn-primary btn-wide btn-md">Checkout</button>
-                </div>
+                </div> */}
+
             </Popover.Panel>
       </Popover>
     );

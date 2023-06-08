@@ -17,11 +17,13 @@
   "dependencies": {
     "@headlessui/react": "^1.7.15",
     "@heroicons/react": "^2.0.18",
+    "@stripe/stripe-js": "^1.54.0",
     "axios": "^1.4.0",
     "gatsby": "^5.10.0",
     "js-search": "^2.0.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "stripe": "^12.8.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",
