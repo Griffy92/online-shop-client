@@ -7,7 +7,7 @@ const DropdownCategory = () => {
                 <span className="label-text">Category</span>
             </label>
             <select className="select select-bordered w-full max-w-xs">
-                <option disabled selected>Please Select</option>
+                <option>Please Select</option>
                 <option>Option 1</option>
                 <option>Option 2</option>
                 <option>Option 3</option>
@@ -16,6 +16,6 @@ const DropdownCategory = () => {
             </select>
         </div>
     )
-}
+};
 
 export default DropdownCategory;
