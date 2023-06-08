@@ -26,12 +26,12 @@ const Layout = ( {children} ) => {
     };
 
     return (
-        <UserContext.Provider value={{user, setUser}}>
+        <>
             <Navbar user={user} handleSignOut={ handleSignOut} />
             {/* <FilterList /> */}
             {children}
             <Footer />
-        </UserContext.Provider>
+        </>
     );
 };
 
