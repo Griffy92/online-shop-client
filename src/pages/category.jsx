@@ -7,11 +7,11 @@ const CategoryPage = () => {
     return (
         <div>
             <Sidebar />
-            <div className="ml-64">
+            <div className="ml-64 p-4">
                 <CategoryContent />
             </div>
         </div>
     )
 }
 
-export default CategoryPage; 
+export default CategoryPage;

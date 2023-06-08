@@ -9,18 +9,20 @@ const ProductCard = ( { product } ) => {
     const { product_name, product_description, image, url, id } = product
 
     return (
-        <div className="card card-compact bg-white shadow-xl ">
-            <figure><img src={image} alt="Shoes" /></figure>
+        <div className='overflow-hidden'>
+        <div className="card card-compact bg-white shadow-xl h-64">
+            <figure><img src={image} alt="Shoes"/></figure>
             <div className="card-body">
                 <h2 className="card-title text-black">
-                    <Link to={product.id}>{product_name}</Link>
+                    <Link to={`../product/${product.id}`}>{product.product_name}</Link>
                 </h2>
-                <p className="text-black">{product_description}</p>
                 <div className="card-actions justify-end">
                 </div>
             </div>
+        </div>
         </div>
     );
 };
 
 export default ProductCard;
+

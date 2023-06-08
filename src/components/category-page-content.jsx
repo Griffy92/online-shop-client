@@ -4,18 +4,22 @@ import axios from "axios";
 import ProductCardGenerator from './product-card-generator';
 
 const CategoryContent = () => {
+
   const [content, setContent] = useState(null)
+  const [productArray, setProductArray] = useState([])
 
   useEffect(() => {
     axios.get('http://localhost:3000/products/')
       .then(content => {
         setContent(content.data)
-        console.log(content.data)
+        setProductArray(content.data)
+        productArray.map()
+
       });
   }, [])
 
   return (
-    <div className='overflow-hidden'>
+    <div>
           {content !== null ? (
               <ProductCardGenerator productArray={content}  />
           ) : (

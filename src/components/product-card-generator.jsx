@@ -7,7 +7,7 @@ const ProductCardGenerator = ( { productArray } ) => {
     console.log(productArray)
 
     return (
-        <div>
+        <div className='overflow-hidden'>
             <div className='grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-2'>
                 {productArray.map((e) => (
                     <ProductCard product={e}/> 
