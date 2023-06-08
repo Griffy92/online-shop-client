@@ -14,4 +14,4 @@ const CategoryPage = () => {
     )
 }
 
-export default CategoryPage;
+export default CategoryPage; 
