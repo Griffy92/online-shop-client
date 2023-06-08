@@ -1,21 +1,20 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { Popover } from '@headlessui/react'
+import axios from 'axios'
+import CardButtonItemGenerator from './cart-button-item-generator'
 
 const CartButton = () => {
-
+    const [message, setMessage] = useState('')
     const [cart, setCart] = useState(null)
 
     useEffect(() => {
-      axios.get('http://localhost:3000/orders/4')
+      axios.get('http://localhost:3000/orders/1')
         .then(content => {
           setCart(content.data)
         });
     }, []);
 
-    // DOM TODO: 
-    // User presses checkout button
-    // HTTP request to server to create Payment Intent
     useEffect(() => {
         // Check to see if this is a redirect back from Checkout
         const query = new URLSearchParams(window.location.search);
@@ -59,8 +58,9 @@ const CartButton = () => {
                 </div>
                 <hr />
                 <div className='flex justify-center'>
-                    <button className="btn btn-primary btn-wide btn-md">Checkout</button>
+                    <button onClick={ _handleCheckout } className="btn btn-primary btn-wide btn-md">Checkout</button>
                 </div>
+                {message}
             </Popover.Panel>
       </Popover>
     );

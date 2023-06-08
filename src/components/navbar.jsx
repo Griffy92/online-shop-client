@@ -8,7 +8,6 @@ import axios from 'axios';
 const Navbar = ( props ) => {
 
     const { user, handleSignOut } = props;
-    console.log(user)
 
     return (
         <>
@@ -72,7 +71,6 @@ const Navbar = ( props ) => {
                         </svg>
                         <span className="sr-only">View Profile</span>
                         </Link>
-                        <span className="sr-only">View Profile</span>
                     </button>
                 </>
             ) : (
