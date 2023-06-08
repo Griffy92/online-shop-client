@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { Link, navigate } from "gatsby";
+import { navigate } from "gatsby";
 
 const SearchButton = () => {
     

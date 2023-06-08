@@ -1,13 +1,11 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import { useState, useEffect } from 'react';
 import { Popover } from '@headlessui/react'
 import CartButtonItem from './cart-button-item';
-
-
-
-import { loadStripe } from "@stripe/stripe-js"
+import axios from 'axios';
 
 const CartButton = () => {
+    const [ message, setMessage ] = useState('hello');
 
     const cartArray = [
         { item: "Shoes",
@@ -28,7 +26,33 @@ const CartButton = () => {
          url: "http://placekitten.com/501/503"},
     ]
 
-    console.log(cartArray)
+    // DOM TODO: 
+    // User presses checkout button
+    // HTTP request to server to create Payment Intent
+    useEffect(() => {
+        // Check to see if this is a redirect back from Checkout
+        const query = new URLSearchParams(window.location.search);
+    
+        if (query.get("success")) {
+          setMessage("Order placed! You will receive an email confirmation.");
+        }
+    
+        if (query.get("canceled")) {
+          setMessage(
+            "Order canceled -- continue to shop around and checkout when you're ready."
+          );
+        }
+      }, []);
+
+    const _handleCheckout = () => {
+        axios.post('http://localhost:3000/checkouts').then( (response) => {
+            console.log(response.data);
+            const tempLink = document.createElement('a');
+            tempLink.setAttribute('href', response.data.session )
+            tempLink.click();
+            tempLink.remove();
+        })
+    }
 
     return (
         <Popover>
@@ -47,10 +71,12 @@ const CartButton = () => {
                     </table>
                 </div>
                 <hr />
-                {/* <div className='flex justify-center'>
-                    <button className="btn btn-primary btn-wide btn-md">Checkout</button>
-                </div> */}
-
+                <div className='flex justify-center'>
+                    <button onClick={ _handleCheckout } className="btn btn-primary btn-wide btn-md">Checkout</button>
+                </div>
+                <div>
+                    {message}
+                </div>
             </Popover.Panel>
       </Popover>
     );
