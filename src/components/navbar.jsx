@@ -2,11 +2,14 @@ import React from 'react';
 import { Link } from 'gatsby';
 import CartButton from './cart/cart-button';
 import SearchButton from './search-button';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const Navbar = ( props ) => {
 
     const { user, handleSignOut } = props;
-    
+    console.log(user)
+
     return (
         <>
         {/* strip on top of website */}
@@ -45,7 +48,7 @@ const Navbar = ( props ) => {
             </div>
 
             <SearchButton />
-            <CartButton />
+            <CartButton user={user} />
 
             { user ? (
                 <>
