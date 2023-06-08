@@ -1,19 +1,20 @@
 import React from 'react';
-import { Link } from 'gatsby';
 
 const CartButtonItem = ( { product } ) => {
+
+  console.log(product)
   
-  const { item, description, bgcol, url } = product
+  const { product_name, retail_price } = product
 
     return (
       <tr>
         <td className="w-1/6">
           <div className="lg:table-cell">
-            <img src={url}/>  
+            picture 
           </div>
         </td>
-        <td className="w-4/6 text-black"><h2>{item}</h2>{description}</td>
-        <td className="w-1/6 text-center text-black"><p>$30.50</p></td>
+        <td className="w-4/6 text-black"><h2>{product_name}</h2></td>
+        <td className="w-1/6 text-center text-black"><p>{retail_price}</p></td>
       </tr>
     );
 };

@@ -13,8 +13,6 @@ const CategoryContent = () => {
       .then(content => {
         setContent(content.data)
         setProductArray(content.data)
-        productArray.map()
-
       });
   }, [])
 
