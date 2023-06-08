@@ -1,24 +1,15 @@
 import * as React from 'react';
 import Layout from '../components/layout'
 
-const ProductPage = () => {
+const ProductPage = ( product ) => {
 
-    const productItem = { 
-        item: "A Cute Kitty",
-        description: "Item Description - Item 1",
-        bgcol: "red", 
-        url: "http://placekitten.com/500/500",
-        stock: 5,
-        category: "Kitten"
-        }
-
-    console.log(productItem.url)
+    console.log(product)
 
     return (
         <>
             <div className='container'>
                 <div className="card w-1/2 bg-white shadow-xl mx-auto">
-                    <figure className="px-10 pt-10">
+                    {/* <figure className="px-10 pt-10">
                         <img src={productItem.url} alt="Shoes" className="rounded-xl" />
                     </figure>
                     <div className="card-body px-10 pt-10 items-center text-center">
@@ -42,8 +33,8 @@ const ProductPage = () => {
                         </table>
                         <div className="card-actions">
                             <button className="btn btn-primary">Add to Cart</button>
-                        </div>
-                    </div>
+                        </div> */}
+                    {/* </div> */}
                 </div>
             </div>
         </>
