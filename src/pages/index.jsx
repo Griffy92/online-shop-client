@@ -2,8 +2,9 @@ import * as React from "react"
 import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
-import Layout from '../components/layout'
 import IndexCarousel from "../components/index-carousel/index-carousel"
+import headerImage from '../images/header.png';
+
 
 
 const IndexPage = () => {
@@ -34,8 +35,8 @@ const IndexPage = () => {
 			<div 
 			className="bg-cover bg-center h-auto text-white py-24 px-10"
 			style={{
-				backgroundImage:`url(/header_image.png)`,
-				color: `white`,
+				backgroundImage:`url(${headerImage})`,
+				color: `white`
 				}}>
 			
 				<div className="md:w-1/2">

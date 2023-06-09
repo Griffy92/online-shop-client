@@ -24,7 +24,7 @@ const Navbar = ( props ) => {
             <nav className="flex items-center justify-between flex-wrap" 
                 style={{
                     backgroundColor: `white`, 
-                    boxShadow: '0 5px 10px rgba(0,0,0,0.1)',
+                    boxShadow: '0 5px 10px rgba(0,0,0,0.1)'
                     }}>
 
                 <div className="flex items-center flex-shrink-0 text-black mr-6 p-4">
