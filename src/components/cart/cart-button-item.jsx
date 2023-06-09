@@ -8,13 +8,13 @@ const CartButtonItem = ( { product } ) => {
 
     return (
       <tr>
-        <td className="w-1/6">
+        <td className="w-1/6 h-16">
           <div className="lg:table-cell">
             picture 
           </div>
         </td>
         <td className="w-4/6 text-black"><h2>{product_name}</h2></td>
-        <td className="w-1/6 text-center text-black"><p>{retail_price}</p></td>
+        <td className="w-1/6 text-center text-black"><p>${retail_price}</p></td>
       </tr>
     );
 };

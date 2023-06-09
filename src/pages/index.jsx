@@ -2,15 +2,15 @@ import * as React from "react"
 import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
-import Layout from '../components/layout'
 import IndexCarousel from "../components/index-carousel/index-carousel"
+import headerImage from '../images/header.png';
+
 
 
 const IndexPage = () => {
-	
-
 
 	const [ user, setUser ] = useState({});
+
 
     // fetch user
     useEffect(() => {
@@ -20,7 +20,7 @@ const IndexPage = () => {
                 headers: {
                     "Authorization": `Bearer ${token}`
                 }
-            }).then( (response) => {
+            }).then((response) => {
                 setUser(response.data);
             })
         }
@@ -34,14 +34,14 @@ const IndexPage = () => {
 			<div 
 			className="bg-cover bg-center h-auto text-white py-24 px-10"
 			style={{
-				backgroundImage:`url(/header_image.png)`,
-				color: `white`,
+				backgroundImage:`url(${headerImage})`,
+				color: `white`
 				}}>
 			
 				<div className="md:w-1/2">
 					<p className="text-3xl font-bold">This is a banner - image didn't work, but don't hate the idea of having one on the landing page?</p>
 					<p className="text-2xl mb-10 leading-none">This might be a bit large though?</p>
-					<a href="#" className="bg-purple-800 py-4 px-8 text-white font-bold text-xs rounded hover:bg-gray-200 hover:text-gray-800" 
+					<a href="/products" className="bg-purple-800 py-4 px-8 text-white font-bold text-xs rounded hover:bg-gray-200 hover:text-gray-800" 
 					style={{
 						backgroundColor: `#2563EB`
 						}}>Shop now!</a>
