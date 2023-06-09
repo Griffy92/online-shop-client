@@ -7,10 +7,9 @@ import IndexCarousel from "../components/index-carousel/index-carousel"
 
 
 const IndexPage = () => {
-	
-
 
 	const [ user, setUser ] = useState({});
+
 
     // fetch user
     useEffect(() => {
@@ -20,7 +19,7 @@ const IndexPage = () => {
                 headers: {
                     "Authorization": `Bearer ${token}`
                 }
-            }).then( (response) => {
+            }).then((response) => {
                 setUser(response.data);
             })
         }
