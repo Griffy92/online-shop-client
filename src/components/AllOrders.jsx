@@ -34,9 +34,7 @@ const AllOrders = () => {
       // Replace the condition below with your own filter logic
       return (
         order.id.toString().includes(filterValue) ||
-        order.product_id.toString().includes(filterValue) ||
         order.user_id.toString().includes(filterValue) ||
-        order.quantity.toString().includes(filterValue) ||
         order.orderstatus.toLowerCase().includes(filterValue.toLowerCase())
       );
     });
@@ -82,9 +80,7 @@ const AllOrders = () => {
         <thead>
           <tr>
             <th onClick={() => handleSort('id')}>Order ID</th>
-            <th onClick={() => handleSort('product_id')}>Product ID</th>
             <th onClick={() => handleSort('user_id')}>User ID</th>
-            <th onClick={() => handleSort('quantity')}>Quantity</th>
             <th onClick={() => handleSort('orderstatus')}>Status</th>
             <th>Actions</th>
           </tr>
@@ -94,9 +90,7 @@ const AllOrders = () => {
             <tr key={order.id}>
 
               <td>{order.id}</td>
-              <td>{order.product_id}</td>
               <td>{order.user_id}</td>
-              <td>{order.quantity}</td>
               <td>{order.orderstatus}</td>
               <td>
                 <button onClick={() => openOrderDetails(order.id)}>Order Details</button>
