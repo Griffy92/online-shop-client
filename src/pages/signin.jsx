@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { navigate } from 'gatsby';
 import { UserContext } from '../providers/UserProvider'
 import { UserAPI } from '../services/users'
@@ -12,6 +12,10 @@ const Signin = () => {
     const [ error, setError ] = useState('');
     const { user, setUser } = useContext(UserContext);
     const [ form, setForm ] = useState(true);
+
+    useEffect( () => {
+        setForm(true);
+    }, [])
      
     const _handleEmailChange = (e) => {
         setEmail(e.target.value);
@@ -77,7 +81,7 @@ const Signin = () => {
                                                     <label className="text-gray-500 dark:text-gray-300">Remember me</label>
                                                 </div>
                                             </div>
-                                            <button onClick= { () => setForm(false) }>
+                                            <button onClick= { () => setForm(!form) }>
                                                 <a href="#" className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">Forgot password?</a>
                                             </button>
                                         </div>
@@ -93,7 +97,7 @@ const Signin = () => {
                         </div>
                 </section>
                 :
-                <ForgotPasswordForm formDecider={ () => setForm(true) }/>                
+                <ForgotPasswordForm formDecider={ () => setForm(!form) }/>                
             }
         </>
     )
