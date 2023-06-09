@@ -8,12 +8,12 @@ const CartButton = () => {
     const [message, setMessage] = useState('')
     const [cart, setCart] = useState(null)
 
-    useEffect(() => {
-      axios.get('http://localhost:3000/orders/1')
-        .then(content => {
-          setCart(content.data)
-        });
-    }, []);
+    // useEffect(() => {
+    //   axios.get('http://localhost:3000/orders/1')
+    //     .then(content => {
+    //       setCart(content.data)
+    //     });
+    // }, []);
 
     useEffect(() => {
         // Check to see if this is a redirect back from Checkout

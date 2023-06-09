@@ -1,12 +1,29 @@
 import * as React from "react";
 import Layout from "../components/layout";
-import {useLocation} from "@reach/router"
+import { useLocation } from "@reach/router"
+import axios from "axios";
+import { useEffect } from "react";
 
 const Search = () => {
     const location = useLocation();
     // using URLSearchParams to extract query from url 
     const search = new URLSearchParams(location.search).get("query");
     const newSearch = search.toLowerCase();
+
+    // KAREN TODO: UPDATE
+    useEffect(() => {
+    const fetchSearch = async () => {
+        try {
+            const response = await axios.get('http://localhost:3000/products');
+            console.log(response.data)
+        } catch (error) {
+            console.error('Unable to obtain search ', error)
+        }
+        };
+            fetchSearch();
+    }, []); 
+
+
     const products = [
         {
             id: 1,

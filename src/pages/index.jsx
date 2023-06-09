@@ -5,7 +5,10 @@ import axios from 'axios';
 import Layout from '../components/layout'
 import IndexCarousel from "../components/index-carousel/index-carousel"
 
+
 const IndexPage = () => {
+	
+
 
 	const [ user, setUser ] = useState({});
 
@@ -51,6 +54,8 @@ const IndexPage = () => {
 			{/* <IndexCarousel />	 */}
 			<IndexCarousel />
 			{/* <FeaturedProducts /> */}
+
+
 		</>
 	)
 }
