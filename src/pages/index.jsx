@@ -5,11 +5,6 @@ import axios from 'axios';
 import IndexCarousel from "../components/index-carousel/index-carousel"
 import headerImage from '../images/header.png';
 
-// Karen Testing
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Geologica:wght@700&display=swap');
-</style>
-
 const IndexPage = () => {
 
 	const [ user, setUser ] = useState({});
