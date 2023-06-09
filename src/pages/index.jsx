@@ -42,7 +42,7 @@ const IndexPage = () => {
 				<div className="md:w-1/2">
 					<p className="text-3xl font-bold">This is a banner - image didn't work, but don't hate the idea of having one on the landing page?</p>
 					<p className="text-2xl mb-10 leading-none">This might be a bit large though?</p>
-					<a href="#" className="bg-purple-800 py-4 px-8 text-white font-bold text-xs rounded hover:bg-gray-200 hover:text-gray-800" 
+					<a href="/products" className="bg-purple-800 py-4 px-8 text-white font-bold text-xs rounded hover:bg-gray-200 hover:text-gray-800" 
 					style={{
 						backgroundColor: `#2563EB`
 						}}>Shop now!</a>

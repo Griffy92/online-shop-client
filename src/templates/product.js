@@ -27,6 +27,8 @@ export default function Product({ pageContext: { product } }) {
             <strong>Stock: </strong>
             { product.quantity }
         </div>
+
+        <button className="btn btn-primary">Add to Cart</button>
       </div>
     )
 }
