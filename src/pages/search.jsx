@@ -17,38 +17,37 @@ const Search = () => {
 
 
     useEffect(() => {
-    const fetchSearch = async () => {
-      try {
-        const response = await axios.get(URL+'products');
+        const fetchSearch = async () => {
+            try {
+                const response = await axios.get(URL+'products');
 
-        const fetchedProducts = response.data;
-        console.log(fetchedProducts) // object
-        
-        const searchProducts = fetchedProducts.filter((product) => {
-            return (
-              product.product_name.toLowerCase().includes(newSearch) ||
-              product.product_description.toLowerCase().includes(newSearch)
-            );
-          });
-        setProducts(searchProducts);
-        setLoading(false);
-      } catch (error) {
-        console.error("ERROR", error);
-      }
-    };
+                const fetchedProducts = response.data;
+                console.log(fetchedProducts)
+                
+                const searchProducts = fetchedProducts.filter((product) => {
+                    return (
+                        product.product_name.toLowerCase().includes(newSearch) ||
+                        product.product_description.toLowerCase().includes(newSearch)
+                    );
+                });
+                setProducts(searchProducts);
+                setLoading(false);
+            } catch (error) {
+                console.error("ERROR", error);
+            }
+        };
 
-    fetchSearch();
-  }, [newSearch]);
+        fetchSearch();
+    }, [newSearch]);
       
+    
     return (
         <div className="container mx-auto" pageTitle="search">
 
             <h1>Searching for {search}</h1>
             
             <div className="bg-white place-content-center grid grid-cols-4 gap-4">
-                {loading ? (
-                    <p>Loading...</p>
-                    ) : (
+                {loading ? ( <p>Loading...</p> ) : (
                     products.map(( product ) => (
                         <div key={ product.id }>
                             
@@ -70,8 +69,8 @@ const Search = () => {
                     ))
                 )}
             </div>
-    </div>
-  );
+        </div>
+    );
 };
 
 export default Search;
