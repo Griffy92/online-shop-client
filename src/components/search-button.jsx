@@ -6,20 +6,19 @@ const SearchButton = () => {
     
     const [search, setSearch] = useState('')
 
-
     const _handleSubmit = (e) => {
         e.preventDefault();
         navigate(`/search?query=${search}`);
-      };
+    };
     
     const _handleChange = (e) => {
-    setSearch(e.target.value);
+        setSearch(e.target.value);
     };
     
     const _handleKeyDown = (e) => {
-    if (e.key === "Enter") {
-        _handleSubmit(e);
-    }
+        if (e.key === "Enter") {
+            _handleSubmit(e);
+        }
     };
 
     return (
