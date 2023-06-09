@@ -8,10 +8,9 @@ import headerImage from '../images/header.png';
 
 
 const IndexPage = () => {
-	
-
 
 	const [ user, setUser ] = useState({});
+
 
     // fetch user
     useEffect(() => {
@@ -21,7 +20,7 @@ const IndexPage = () => {
                 headers: {
                     "Authorization": `Bearer ${token}`
                 }
-            }).then( (response) => {
+            }).then((response) => {
                 setUser(response.data);
             })
         }
