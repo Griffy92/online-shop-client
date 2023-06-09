@@ -30,7 +30,7 @@ const SearchButton = () => {
                     <svg
                     className="w-5 h-5 text-gray-500"
                     aria-hidden="true"
-                    fill="currentColor"
+                    fill="white"
                     viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg"
                     >
@@ -48,8 +48,9 @@ const SearchButton = () => {
                 id="search-navbar"
                 className="block p-2.5 w-full pl-10 text-sm inline-flex text-gray-900 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 style={{
-                    backgroundColor: `#e3e3e3`,
-                    border: `grey`
+                    backgroundColor: `rgba(0,166,112, 0.5)`,
+                    border: `1px solid white`,
+                    borderRadius: `2em`
                     }}
                 placeholder="Search..."
                 value={search}

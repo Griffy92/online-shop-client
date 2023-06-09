@@ -4,6 +4,9 @@ import CartButton from './cart/cart-button';
 import SearchButton from './search-button';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import logo from '../images/Pocket-Cart-Logo.svg';
+
+
 
 const Navbar = ( props ) => {
 
@@ -12,30 +15,33 @@ const Navbar = ( props ) => {
     return (
         <>
         {/* strip on top of website */}
-        <div className="header-banner" 
+        {/* <div className="header-banner" 
             style={{
                 backgroundColor: `#26d36d`,
                 padding: `5px`,
                 textAlign: `center`,
                 color: `white`,
                 fontFamily: `sans-serif`,
-                }}>Free shipping for orders over $50! 🐶🐱🐭🐦🐹 </div>
+                }}>Free shipping for orders over $50! 🐶🐱🐭🐦🐹 </div> */}
+            
 
-            <nav className="flex items-center justify-between flex-wrap" 
+            {/* nav background color and drop shadow effect */}
+            <nav className="flex items-center justify-between flex-wrap"
                 style={{
-                    backgroundColor: `white`, 
+                    backgroundColor: `#00A570`, 
                     boxShadow: '0 5px 10px rgba(0,0,0,0.1)'
                     }}>
-
-                <div className="flex items-center flex-shrink-0 text-black mr-6 p-4">
-                    <button>
-                        <span className="font-semibold text-xl tracking-tight">
-                            <Link to="/">Pocket Cart</Link>
-                        </span>
-                    </button>
+                
+                {/* Logo */}
+                <div className="flex items-center flex-shrink-0  mr-6 p-5">
+                    <Link to="/">
+                        <img src={logo} className="h-8 mr-2" />
+                    </Link>
                 </div>
-                <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-                    <div className="text-sm lg:flex-grow">
+
+                {/* Links for routes */}
+                <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto" >
+                    <div className="text-sm lg:flex-grow" style={{ fontFamily: 'Geologica, sans-serif'}} >
                     <Link className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" to="/products">Products</Link>
                     <Link className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" to="/dog-products">Dog</Link>
                     <Link className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" to="/cat-products">Cat</Link>
