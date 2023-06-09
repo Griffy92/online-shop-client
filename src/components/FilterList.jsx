@@ -14,7 +14,7 @@ const FilterList = () => {
     },
     {
       id: 2,
-      title: "Contrast Check Coat",
+    title: "Contrast Check Coat",
       category: "Coat",
       price: "155.4",
       color: "Black",

@@ -1,7 +1,8 @@
 import * as React from "react";
 import Layout from "../components/layout";
-import { useLocation, useEffect } from "@reach/router"
+import { useLocation } from "@reach/router"
 import axios from "axios";
+import { useEffect } from "react";
 
 const Search = () => {
     const location = useLocation();
