@@ -29,7 +29,7 @@ const IndexPage = () => {
         }
     }, [])
 
-    console.log('hit me baby one more time', user);
+    // console.log('hit me baby one more time', user);
 
 	return (
 		<>	

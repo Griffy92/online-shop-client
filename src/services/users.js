@@ -16,4 +16,15 @@ export const UserAPI = {
     signIn: function (payload) {
         return axios.post( baseURL + 'login', payload );
     },
+    forgotPassword: function ( email ) {
+        return axios.post( baseURL + 'password/forgot', {
+            email: email,
+        });
+    },
+    resetPassword: function (token, password) {
+        return axios.post( baseURL + 'password/reset', {
+            token: token, 
+            password: password
+        });
+    },
 }
