@@ -7,7 +7,6 @@ import CardButtonItemGenerator from './cart-button-item-generator'
 const CartButton = ({user}) => {
     const [message, setMessage] = useState('')
     const [cart, setCart] = useState(null)
-    // const cart = null
 
     useEffect(() => {
         // Check to see if this is a redirect back from Checkout
@@ -37,7 +36,7 @@ const CartButton = ({user}) => {
     const _handleClick = () => {
       console.log('click')
       console.log(user)
-      const actOrder = (user.orders.find((e) => e.orderstatus == "active" ))
+      const actOrder = (user.orders.find((e) => e.orderstatus === "active" ))
       if (actOrder) {
         console.log(actOrder)
         setCart(actOrder.products)

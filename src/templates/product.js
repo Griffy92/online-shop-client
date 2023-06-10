@@ -1,10 +1,11 @@
 import React from 'react'
+import ProductControls from '../components/product-controls'
 
 export default function Product({ pageContext: { product } }) {
     return (
-      <div style={{ width: 960, margin: "4rem auto" }}>
+      <div className="container w-1/2 mx-auto p-6">
         <div>
-            <img src={ "http://localhost:3000" + product.image } alt={ product.product_name }/>
+            <img src={ "http://localhost:3000" + product.image } alt={ product.product_name } className='mx-auto'/>
         </div>
 
         <strong>{ product.product_name }</strong>
@@ -27,8 +28,9 @@ export default function Product({ pageContext: { product } }) {
             <strong>Stock: </strong>
             { product.quantity }
         </div>
-
-        <button className="btn btn-primary">Add to Cart</button>
+        <div className="w-full mx-auto">
+            <ProductControls product={product}/>
+        </div>
       </div>
     )
 }

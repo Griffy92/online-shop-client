@@ -3,6 +3,9 @@ import { Link } from "gatsby";
 import ProductFilter from "../components/product-filter";
 
 const AllProductsTemplate = ({ pageContext }) => {
+  
+  console.log(pageContext)
+
   const { allProducts } = pageContext;
 
   const [filteredProducts, setFilteredProducts] = useState(allProducts);
