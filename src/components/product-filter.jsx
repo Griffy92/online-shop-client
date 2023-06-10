@@ -34,11 +34,13 @@ const ProductFilter = ({ products, onApplyFilters }) => {
         };
 
     return (
-        <div>
+        <aside id="default-sidebar" className="fixed px-4 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
+        <div className="menu bg-white w-56 space-y-4">
             <h3>Filters</h3>
-                <label>
-                    Sort by Price:
-                    <select
+                <label className="label">
+                    <span className="label-text">Sort by Price</span>
+                </label>
+                    <select className="select select-bordered w-full max-w-xs select-sm"
                         value={sortByPrice}
                         onChange={ (e) => setSortByPrice(e.target.value) }
                     >
@@ -46,11 +48,11 @@ const ProductFilter = ({ products, onApplyFilters }) => {
                         <option value="asc">Low to High</option>
                         <option value="desc">High to Low</option>
                     </select>
-                </label>
                 <br />
-                <label>
-                    Sort by Category:
-                    <select
+                <label className="label">
+                    <span className="label-text">Filter by Category</span>
+                </label>
+                    <select className="select select-bordered w-full max-w-xs select-sm"
                         value={sortByCategory}
                         onChange={ (e) => setSortByCategory(e.target.value) }
                     >
@@ -63,19 +65,19 @@ const ProductFilter = ({ products, onApplyFilters }) => {
                         <option value="Accessories">Accessories</option>
                         <option value="Toys">Toys</option>
                     </select>
-                </label>
                 <br />
-                <label>
-                    Sort by Newest:
+                <label className="label">
+                    <span className="label-text">Sort by Newest</span>
+                </label>
                     <input
                         type="checkbox"
                         checked={sortByNewest}
                         onChange={ (e) => setSortByNewest(e.target.checked) }
                     />
-                </label>
                 <br />
-                <button onClick={ _handleApplyFilters }>Apply</button>
+                <button onClick={ _handleApplyFilters } className="btn btn-success">Apply</button>
         </div>
+        </aside>
   );
 };
 
