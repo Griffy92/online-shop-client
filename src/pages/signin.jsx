@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useContext, useEffect } from 'react';
-import { navigate } from 'gatsby';
+import { navigate, Link } from 'gatsby';
 import { UserContext } from '../providers/UserProvider'
 import { UserAPI } from '../services/users'
 import ForgotPasswordForm from '../components/ForgotPassword';
@@ -10,20 +10,12 @@ const Signin = () => {
     const [ email, setEmail ] = useState('');
     const [ password, setPassword ] = useState('');
     const [ error, setError ] = useState('');
-    const { user, setUser } = useContext(UserContext);
+    const { setUser } = useContext(UserContext);
     const [ form, setForm ] = useState(true);
 
     useEffect( () => {
         setForm(true);
     }, [])
-     
-    const _handleEmailChange = (e) => {
-        setEmail(e.target.value);
-    };
-
-    const _handlePasswordChange = (e) => {
-        setPassword(e.target.value);
-    };
 
     const _handleSubmit = (e) => {
         e.preventDefault();
@@ -41,13 +33,12 @@ const Signin = () => {
                 localStorage.setItem('token', response.data.token);
                 setUser(response.data.user)
             }
+            setError(null);
+            navigate(-1);
         }).catch( (response) => {
-            setError(response.response.data.error)
-            // TODO: better error handling
+            setError(response.response.data.error);
         });
 
-        // TODO: What if the user was already browsing then signs in? .... try navigate(-1)
-        navigate('/');
     };
 
     return (
@@ -60,16 +51,16 @@ const Signin = () => {
                                     <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                                         Sign in to your account
                                     </h1>
-
                                     <form className="space-y-4 md:space-y-6" onSubmit={ _handleSubmit } >
+                                        <p className="text-red-500 italic">{error}</p>
                                         <div>
                                             <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
-                                            <input name="email" value={ email } onChange={ _handleEmailChange } className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required />
+                                            <input name="email" value={ email } onChange={ (e) => setEmail(e.target.value) } className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required />
                                         </div>
 
                                         <div>
                                             <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                                            <input type="password" name="password_digest" onChange={ _handlePasswordChange } id="password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                                            <input type="password" name="password_digest" onChange={ (e) => setPassword(e.target.value) } id="password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
                                         </div>
 
                                         <div className="flex items-center justify-between">
@@ -81,23 +72,21 @@ const Signin = () => {
                                                     <label className="text-gray-500 dark:text-gray-300">Remember me</label>
                                                 </div>
                                             </div>
-                                            <button onClick= { () => setForm(!form) }>
-                                                <a href="#" className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">Forgot password?</a>
-                                            </button>
                                         </div>
 
                                         <button type="submit" className="w-full text-blue bg-white hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sign in</button>
-                                        <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                                            Don’t have an account yet? <a href="#" className="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign In</a>
-                                        </p>
                                     </form>
+                                    <p className="text-sm font-light text-gray-500 dark:text-gray-400 flex justify-between">
+                                        <Link to="/signup" className="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign Up </Link>
+                                        <a onClick={ () => setForm(!form) } className="font-medium text-primary-600 hover:underline dark:text-primary-500"> <button className="hover:underline" > Forgot your password?</button></a>
+                                    </p>
 
                                 </div>
                             </div>
                         </div>
                 </section>
                 :
-                <ForgotPasswordForm formDecider={ () => setForm(!form) }/>                
+                <ForgotPasswordForm formDecider={ () => setForm(!form) } />                
             }
         </>
     )
