@@ -4,9 +4,16 @@ import { Popover } from '@headlessui/react'
 import axios from 'axios'
 import CardButtonItemGenerator from './cart-button-item-generator'
 
-const CartButton = ({user}) => {
+import { useContext } from 'react';
+import { UserContext } from '../../providers/UserProvider'
+import { UserAPI } from '../../services/users'
+import { CartAPI } from '../../services/cart';
+
+const CartButton = () => {
     const [message, setMessage] = useState('')
-    const [cart, setCart] = useState(null)
+    const [cartItems, setCartItems] = useState([])
+    const { user, setUser } = useContext(UserContext);
+    const token = localStorage.getItem('token');
 
     useEffect(() => {
         // Check to see if this is a redirect back from Checkout
@@ -35,14 +42,18 @@ const CartButton = ({user}) => {
 
     const _handleClick = () => {
       console.log('click')
-      console.log(user)
+
+      UserAPI.getUser(token).then((response) => {
+        setUser(response.data)})
+
       const actOrder = (user.orders.find((e) => e.orderstatus === "active" ))
-      const cart_items = actOrder.cart_items
-      if (cart_items) {
-        console.log(cart_items)
-        setCart(cart_items)
-      } else (console.log("No Active Orders!"))
-    }
+      setCartItems(actOrder.cart_items)
+
+      console.log(actOrder)
+      CartAPI.getOrder(actOrder.id).then((response) => {
+        setCartItems(response.data.cart_items)})
+
+      };
 
     return (
         <Popover>
@@ -53,8 +64,8 @@ const CartButton = ({user}) => {
             <Popover.Panel className="absolute z-10 bg-gray-50 lg:w-1/3 -translate-x-full md:w-1/2 sm:w-full overscroll-none px-2 pt-2">
                 <div className="p-2">
                     <table className="table-fixed w-full">
-                    {cart !== null ? (
-                      <CardButtonItemGenerator cart={cart}/>
+                    {cartItems !== null ? (
+                      <CardButtonItemGenerator cartItems={cartItems}/>
                       ) : (
                       <tbody>
                         <tr>
@@ -65,7 +76,7 @@ const CartButton = ({user}) => {
                     </table>
                 </div>
                 <hr />
-                <div className='flex justify-center'>
+                <div className='flex justify-center p-2'>
                     <button onClick={ _handleCheckout } className="btn btn-primary btn-wide btn-md">Checkout</button>
                 </div>
                 {message}
