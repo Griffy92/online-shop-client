@@ -4,7 +4,6 @@ import { UserContext } from '../providers/UserProvider'
 import Navbar from './navbar';
 import Footer from './footer';
 import { UserAPI } from '../services/users'
-import FilterList from './FilterList';
 
 const Layout = ( {children} ) => {
     const { user, setUser } = useContext(UserContext);
@@ -28,7 +27,6 @@ const Layout = ( {children} ) => {
     return (
         <>
             <Navbar user={user} handleSignOut={ handleSignOut} />
-            {/* <FilterList /> */}
             {children}
             <Footer />
         </>

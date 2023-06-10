@@ -9,7 +9,6 @@ const IndexPage = () => {
 
 	const [ user, setUser ] = useState({});
 
-
     // fetch user
     useEffect(() => {
         let token = localStorage.getItem('token');
