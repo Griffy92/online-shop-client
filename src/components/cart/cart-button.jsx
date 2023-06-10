@@ -37,9 +37,10 @@ const CartButton = ({user}) => {
       console.log('click')
       console.log(user)
       const actOrder = (user.orders.find((e) => e.orderstatus === "active" ))
-      if (actOrder) {
-        console.log(actOrder)
-        setCart(actOrder.products)
+      const cart_items = actOrder.cart_items
+      if (cart_items) {
+        console.log(cart_items)
+        setCart(cart_items)
       } else (console.log("No Active Orders!"))
     }
 
