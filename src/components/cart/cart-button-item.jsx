@@ -60,7 +60,6 @@ const _handleRemoveCart = () => {
         <td className="w-1/6 h-16">
           <div className="lg:table-cell">
             <img src={`http://localhost:3000${product.product.image}`} alt={product.product.product_name} className='h-16'/>
-            <img src={`http://localhost:3000${product.product.image}`} alt={product.product.product_name} className='h-16'/>
           </div>
         </td>
         <td className="w-4/6 text-black">
