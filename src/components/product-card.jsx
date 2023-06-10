@@ -10,16 +10,16 @@ const ProductCard = ( { product } ) => {
 
     return (
         <div className='overflow-hidden'>
-        <div className="card card-compact bg-white shadow-xl h-64">
-            <figure><img src={image} alt="Shoes"/></figure>
-            <div className="card-body">
-                <h2 className="card-title text-black">
-                    <Link to={`../product/${product.id}`}>{product.product_name}</Link>
-                </h2>
-                <div className="card-actions justify-end">
+            <div className="card card-compact bg-white shadow-xl h-64">
+                <figure><img src={image} alt="Shoes"/></figure>
+                <div className="card-body">
+                    <h2 className="card-title text-black">
+                        <Link to={`../product/${product.id}`}>{product.product_name}</Link>
+                    </h2>
+                    <div className="card-actions justify-end">
+                    </div>
                 </div>
             </div>
-        </div>
         </div>
     );
 };

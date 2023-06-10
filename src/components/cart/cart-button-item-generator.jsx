@@ -8,7 +8,7 @@ const CardButtonItemGenerator = ( cartProducts ) => {
     return (
         <tbody>
             {cart.map((e) => (
-                <CartButtonItem product={e}/> 
+                <CartButtonItem product={e} key={Math.random()}/> 
             ))}        
         </tbody>
     )
