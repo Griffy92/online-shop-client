@@ -10,10 +10,22 @@ const ProductControls = ({product}) => {
     const token = localStorage.getItem('token');
 
     const getActiveOrder = () => {
+    const getActiveOrder = () => {
         const actOrder = (user.orders.find((e) => e.orderstatus === "active" ))
 
         if (actOrder ) {
+
+        if (actOrder ) {
             return actOrder
+        }
+    };
+
+    const checkActiveOrder = () => {
+        if (user.orders.find((e) => e.orderstatus === "active" ) == null) {
+            console.log('makeing new order for ' + user.id)
+            const user_id = user.id
+            CartAPI.newOrder( user_id )
+        } 
         }
     };
 
@@ -27,6 +39,9 @@ const ProductControls = ({product}) => {
 
     const _handleAddCart = () => {
         console.log("Add-Click")
+        checkActiveOrder()
+
+        const order_id = getActiveOrder().id
         checkActiveOrder()
 
         const order_id = getActiveOrder().id
@@ -47,6 +62,7 @@ const ProductControls = ({product}) => {
     const _handleRemoveCart = () => {
         console.log('Remove-Click')
         const order_id = getActiveOrder().id
+        const order_id = getActiveOrder().id
         const product_id = product.id
         const payload = {
             product: {
@@ -62,6 +78,7 @@ const ProductControls = ({product}) => {
     };
 
     return (
+        <div className="w-full mx-auto">
         <div className="w-full mx-auto">
             <button className="btn btn-success" onClick={_handleAddCart}>Add to Cart</button>
             <button className="btn btn-error" onClick={_handleRemoveCart}>Remove From Cart</button>

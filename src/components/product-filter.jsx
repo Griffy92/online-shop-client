@@ -41,6 +41,10 @@ const ProductFilter = ({ products, onApplyFilters }) => {
                     <span className="label-text">Sort by Price</span>
                 </label>
                     <select className="select select-bordered w-full max-w-xs select-sm"
+                <label className="label">
+                    <span className="label-text">Sort by Price</span>
+                </label>
+                    <select className="select select-bordered w-full max-w-xs select-sm"
                         value={sortByPrice}
                         onChange={ (e) => setSortByPrice(e.target.value) }
                     >
@@ -51,7 +55,11 @@ const ProductFilter = ({ products, onApplyFilters }) => {
                 <br />
                 <label className="label">
                     <span className="label-text">Filter by Category</span>
+                <br />
+                <label className="label">
+                    <span className="label-text">Filter by Category</span>
                 </label>
+                    <select className="select select-bordered w-full max-w-xs select-sm"
                     <select className="select select-bordered w-full max-w-xs select-sm"
                         value={sortByCategory}
                         onChange={ (e) => setSortByCategory(e.target.value) }
@@ -68,6 +76,9 @@ const ProductFilter = ({ products, onApplyFilters }) => {
                 <br />
                 <label className="label">
                     <span className="label-text">Sort by Newest</span>
+                <br />
+                <label className="label">
+                    <span className="label-text">Sort by Newest</span>
                 </label>
                     <input
                         type="checkbox"
@@ -76,7 +87,9 @@ const ProductFilter = ({ products, onApplyFilters }) => {
                     />
                 <br />
                 <button onClick={ _handleApplyFilters } className="btn btn-success">Apply</button>
+                <button onClick={ _handleApplyFilters } className="btn btn-success">Apply</button>
         </div>
+        </aside>
         </aside>
   );
 };
