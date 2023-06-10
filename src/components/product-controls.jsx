@@ -2,10 +2,12 @@ import React from "react";
 import { useContext } from 'react';
 import { UserContext } from '../providers/UserProvider'
 import { CartAPI } from "../services/cart";
+import { UserAPI } from "../services/users";
 
 
 const ProductControls = ({product}) => {
-    const { user } = useContext(UserContext);
+    const { user, setUser } = useContext(UserContext);
+    const token = localStorage.getItem('token');
 
     const getActiveOrder = () => {
         const actOrder = (user.orders.find((e) => e.orderstatus === "active" ))
@@ -38,8 +40,8 @@ const ProductControls = ({product}) => {
             },
         };
         CartAPI.addProduct( order_id, product_id, payload )
-        console.log(user)
-        // 
+        UserAPI.getUser(token).then((response) => {
+            setUser(response.data)})
     };
 
     const _handleRemoveCart = () => {
@@ -55,6 +57,8 @@ const ProductControls = ({product}) => {
             },
         };
         CartAPI.removeProduct( order_id, product_id, payload )
+        UserAPI.getUser(token).then((response) => {
+            setUser(response.data)})
     };
 
     return (
