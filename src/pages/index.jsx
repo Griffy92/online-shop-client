@@ -5,8 +5,6 @@ import axios from 'axios';
 import IndexCarousel from "../components/index-carousel/index-carousel"
 import headerImage from '../images/header.png';
 
-
-
 const IndexPage = () => {
 
 	const [ user, setUser ] = useState({});
