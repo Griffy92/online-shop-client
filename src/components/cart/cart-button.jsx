@@ -1,10 +1,8 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext} from 'react';
 import { Popover } from '@headlessui/react'
 import axios from 'axios'
 import CardButtonItemGenerator from './cart-button-item-generator'
-
-import { useContext } from 'react';
 import { UserContext } from '../../providers/UserProvider'
 import { UserAPI } from '../../services/users'
 import { CartAPI } from '../../services/cart';
@@ -21,7 +19,7 @@ const CartButton = () => {
     
         if (query.get("success")) {
           setMessage("Order placed! You will receive an email confirmation.");
-        }
+        };
     
         if (query.get("canceled")) {
           setMessage(
@@ -38,7 +36,7 @@ const CartButton = () => {
             tempLink.click();
             tempLink.remove();
         })
-    }
+    };
 
     const _handleClick = () => {
       console.log('click')

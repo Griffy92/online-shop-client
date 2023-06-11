@@ -9,22 +9,12 @@ const ProductControls = ({product}) => {
     const { user, setUser } = useContext(UserContext);
     const token = localStorage.getItem('token');
 
+
     const getActiveOrder = () => {
         const actOrder = (user.orders.find((e) => e.orderstatus === "active" ))
 
         if (actOrder ) {
-
-        if (actOrder ) {
             return actOrder
-        }
-    };
-
-    const checkActiveOrder = () => {
-        if (user.orders.find((e) => e.orderstatus === "active" ) == null) {
-            console.log('makeing new order for ' + user.id)
-            const user_id = user.id
-            CartAPI.newOrder( user_id )
-        } 
         }
     };
 
