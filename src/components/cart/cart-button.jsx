@@ -6,28 +6,14 @@ import { Popover } from '@headlessui/react'
 import { UserContext } from '../../providers/UserProvider'
 import { CartAPI } from '../../services/cart';
 import { guestAPI } from '../../services/guests';
+import { UserAPI } from '../../services/users';
 
 const CartButton = () => {
   const [message, setMessage] = useState('')
   const [cartItems, setCartItems] = useState([])
   const { user, setUser, guestStatus } = useContext(UserContext);
-
   const token = localStorage.getItem('token');
 
-  useEffect(() => {
-      // Check to see if this is a redirect back from Checkout
-      const query = new URLSearchParams(window.location.search);
-
-      if (query.get("success")) {
-        setMessage("Order placed! You will receive an email confirmation.");
-      };
-
-      if (query.get("canceled")) {
-        setMessage(
-          "Order canceled -- continue to shop around and checkout when you're ready."
-        );
-      }
-  }, []);
     useEffect(() => {
         // Check to see if this is a redirect back from Checkout
         const query = new URLSearchParams(window.location.search);
@@ -70,15 +56,6 @@ const CartButton = () => {
             tempLink.remove();
         });
     };
-  const _handleCheckout = () => {
-      axios.post('http://localhost:3000/checkouts').then( (response) => {
-          console.log(response.data);
-          const tempLink = document.createElement('a');
-          tempLink.setAttribute('href', response.data.session )
-          tempLink.click();
-          tempLink.remove();
-      })
-  };
 
   const _handleClick = () => {
 
