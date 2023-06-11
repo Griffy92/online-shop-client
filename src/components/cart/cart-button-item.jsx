@@ -1,31 +1,50 @@
 import { Link } from 'gatsby';
 import React from 'react';
+import { UserContext } from '../../providers/UserProvider'
 import { CartAPI } from "../../services/cart";
-import { useState } from 'react';
+import { UserAPI } from "../../services/users";
+import { guestAPI } from "../../services/guests";
+import { useState, useContext } from 'react';
 
 const CartButtonItem = ( props ) => {
-
+  const { guestStatus } = useContext(UserContext);
   const { product } = props
-
   const [count, setCount] = useState(0)
 
   const _handleAddCart = () => {
     console.log("Add-Click")
 
-    const order_id = product.order_id
-    const product_id = product.product_id
+    if (!guestStatus) {
+      const order_id = product.order_id
+      const product_id = product.product_id
 
-    const payload = {
-        product: {
-            product_id: product_id
-        },
-        order: {
-            order_id: order_id
-        },
+      const payload = {
+          product: {
+              product_id: product_id
+          },
+          order: {
+              order_id: order_id
+          },
+      };
+      CartAPI.addProduct( order_id, product_id, payload )
+      setCount(count + 1)
     };
-    CartAPI.addProduct( order_id, product_id, payload )
-    setCount(count + 1)
-};
+
+    if (guestStatus) {
+      const sessionObj = guestAPI.getGuestCart()
+      const guestCart = sessionObj.order.cart_items
+      
+      guestCart.map(function(e){
+        if (e.product.id === product.product.id){
+            e.quantity = e.quantity + 1
+        }})
+      sessionObj.order.cart_items = guestCart
+      guestAPI.setGuestCart(sessionObj)
+      setCount(count + 1);
+      return
+      }
+    }
+
 
 const countCheck = (count) => {
   const prodCount = product.quantity + count
@@ -37,6 +56,7 @@ const countCheck = (count) => {
 };
 
 const _handleRemoveCart = () => {
+  if (!guestStatus) {
     console.log('Remove-Click')
     const order_id = product.order_id
     const product_id = product.product_id
@@ -50,7 +70,31 @@ const _handleRemoveCart = () => {
     };
     CartAPI.removeProduct( order_id, product_id, payload )
     setCount(count - 1)
-};
+  }
+
+if (guestStatus) {
+  const sessionObj = guestAPI.getGuestCart()
+  const guestCart = sessionObj.order.cart_items
+  
+  if (product.quantity < 2){
+    console.log("not enough")
+    guestCart.splice(guestCart.indexOf(guestCart.find((e) => e.product.id === product.id)))              
+    sessionObj.order.cart_items = guestCart
+    guestAPI.setGuestCart(sessionObj)
+    setCount(count - 1)
+
+  } else {
+    guestCart.map(function(e){
+      if (e.product.id === product.product.id){
+          e.quantity = e.quantity - 1
+      }})
+    sessionObj.order.cart_items = guestCart
+    guestAPI.setGuestCart(sessionObj)
+    setCount(count - 1)
+    return
+  }
+}
+}
 
     return (
       <tr>
