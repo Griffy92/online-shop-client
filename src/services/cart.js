@@ -11,14 +11,7 @@ export const CartAPI = {
     },
     newOrder: function (user_id) {
         return axios.get(baseURL + 'users/' + user_id +'/orders/new');
-        return axios.put(baseURL + 'removecart/' + order_id + '/' + product_id, payload);
     },
-    newOrder: function (user_id) {
-        return axios.get(baseURL + 'users/' + user_id +'/orders/new');
-    },
-    getOrder: function (order_id) {
-        return axios.get(baseURL + 'orders/' + order_id);
-    }
     getOrder: function (order_id) {
         return axios.get(baseURL + 'orders/' + order_id);
     }
