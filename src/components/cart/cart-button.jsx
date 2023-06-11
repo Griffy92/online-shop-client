@@ -1,57 +1,74 @@
 import React from 'react';
-import { useState, useEffect, useContext} from 'react';
-import { Popover } from '@headlessui/react'
 import axios from 'axios'
 import CardButtonItemGenerator from './cart-button-item-generator'
+import { useState, useEffect, useContext} from 'react';
+import { Popover } from '@headlessui/react'
 import { UserContext } from '../../providers/UserProvider'
-import { UserAPI } from '../../services/users'
 import { CartAPI } from '../../services/cart';
 
 const CartButton = () => {
     const [message, setMessage] = useState('')
     const [cartItems, setCartItems] = useState([])
-    const { user, setUser } = useContext(UserContext);
-    const token = localStorage.getItem('token');
+    const { user } = useContext(UserContext);
 
     useEffect(() => {
         // Check to see if this is a redirect back from Checkout
         const query = new URLSearchParams(window.location.search);
     
         if (query.get("success")) {
+          // TODO: Redirect to the order confirmation page
           setMessage("Order placed! You will receive an email confirmation.");
         };
     
         if (query.get("canceled")) {
-          setMessage(
-            "Order canceled -- continue to shop around and checkout when you're ready."
-          );
-        }
-      }, []);
+          setMessage("Order canceled -- continue to shop around and checkout when you're ready.");
+        };
+	}, []);
 
-    const _handleCheckout = () => {
-        axios.post('http://localhost:3000/checkouts').then( (response) => {
-            console.log(response.data);
+	const createStripePayload = () => {
+
+		let lineItem = []; // this is the post param
+		
+		cartItems.forEach( (item) => {
+			lineItem.push({
+				name: item.product.product_name,
+				price: item.product.retail_price,
+				quantity: item.quantity,
+				image: `${ 'http://localhost:3000/' + item.product.image }`
+			});
+		});
+
+		return lineItem;
+	};
+	
+	// Redirect buyer to stripe checkout
+	const _handleCheckout = () => {
+		const payload = createStripePayload();
+
+		// initiates a checkout session and gets back a redirect to stripe checkout
+        axios.post('http://localhost:3000/checkouts', payload).then( (response) => {
             const tempLink = document.createElement('a');
             tempLink.setAttribute('href', response.data.session )
             tempLink.click();
             tempLink.remove();
-        })
+        });
     };
 
+	// This displays the items in the cart when cart icon clicked
     const _handleClick = () => {
-      console.log('click')
+		console.log('cart button click')
 
-      UserAPI.getUser(token).then((response) => {
-        setUser(response.data)})
+		// finds the active order from user object 
+		const actOrder = (user.orders.find((e) => e.orderstatus === "active" ));
+		setCartItems(actOrder.cart_items);
 
-      const actOrder = (user.orders.find((e) => e.orderstatus === "active" ))
-      setCartItems(actOrder.cart_items)
-
-      console.log(actOrder)
-      CartAPI.getOrder(actOrder.id).then((response) => {
-        setCartItems(response.data.cart_items)})
-
-      };
+		console.log('active order', actOrder)
+		// queries the API to get car items with the active order id
+		CartAPI.getOrder(actOrder.id).then((response) => {
+			setCartItems(response.data.cart_items);
+		});
+		
+	};
 
     return (
         <Popover>

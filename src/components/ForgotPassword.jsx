@@ -4,18 +4,14 @@ import { UserAPI } from '../services/users';
 import ResetPasswordForm from './ResetPassword';
 
 const ForgotPasswordForm = ( props ) => {
-    const [ email, setEmail ] = useState('');
     const { formDecider } = props;
+    const [ email, setEmail ] = useState('');
     const [ error, setError ] = useState('');
     const [ resetPW, setResetPW ] = useState(false);
 
     useEffect(() => {
         setResetPW(false);
     },[]);
-
-    const _handleEmailChange = (e) => {
-        setEmail(e.target.value);
-    };
 
     const _handleSubmit = (e) => {
         e.preventDefault();
@@ -41,7 +37,7 @@ const ForgotPasswordForm = ( props ) => {
                                 <form className="space-y-4 md:space-y-6" onSubmit={ _handleSubmit } >
                                     <div>
                                         <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
-                                        <input name="email" value={ email } onChange={ _handleEmailChange } className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required />
+                                        <input name="email" value={ email } onChange={ (e) => setEmail(e.target.value) } className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required />
                                     </div>
 
                                     <div className="flex items-end">
