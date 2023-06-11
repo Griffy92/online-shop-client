@@ -3,16 +3,13 @@ import { useContext } from 'react';
 import { UserContext } from '../providers/UserProvider'
 import { CartAPI } from "../services/cart";
 import { UserAPI } from "../services/users";
-import { UserAPI } from "../services/users";
 
 
 const ProductControls = ({product}) => {
     const { user, setUser } = useContext(UserContext);
     const token = localStorage.getItem('token');
-    const { user, setUser } = useContext(UserContext);
-    const token = localStorage.getItem('token');
 
-    const getActiveOrder = () => {
+
     const getActiveOrder = () => {
         const actOrder = (user.orders.find((e) => e.orderstatus === "active" ))
 
@@ -34,9 +31,6 @@ const ProductControls = ({product}) => {
         checkActiveOrder()
 
         const order_id = getActiveOrder().id
-        checkActiveOrder()
-
-        const order_id = getActiveOrder().id
         const product_id = product.id
         const payload = {
             product: {
@@ -49,13 +43,10 @@ const ProductControls = ({product}) => {
         CartAPI.addProduct( order_id, product_id, payload )
         UserAPI.getUser(token).then((response) => {
             setUser(response.data)})
-        UserAPI.getUser(token).then((response) => {
-            setUser(response.data)})
     };
 
     const _handleRemoveCart = () => {
         console.log('Remove-Click')
-        const order_id = getActiveOrder().id
         const order_id = getActiveOrder().id
         const product_id = product.id
         const payload = {
@@ -69,12 +60,9 @@ const ProductControls = ({product}) => {
         CartAPI.removeProduct( order_id, product_id, payload )
         UserAPI.getUser(token).then((response) => {
             setUser(response.data)})
-        UserAPI.getUser(token).then((response) => {
-            setUser(response.data)})
     };
 
     return (
-        <div className="w-full mx-auto">
         <div className="w-full mx-auto">
             <button className="btn btn-success" onClick={_handleAddCart}>Add to Cart</button>
             <button className="btn btn-error" onClick={_handleRemoveCart}>Remove From Cart</button>
