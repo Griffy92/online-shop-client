@@ -3,11 +3,9 @@ import { Link } from 'gatsby';
 
 const IndexCarouselCard = ({props}) => {
 
-    console.log(props)
-
     return (
         <div className="card bg-white shadow-x h-1/2 min-h-96">
-            
+            <Link to={`/product/${props.id}`} >
             <figure><img src={ "http://localhost:3000" + props.image } alt={ props.product_name } className='mx-auto max-h-80'/></figure>
             <div className="card-body">
             <div className="badge badge-secondary">NEW</div>
@@ -20,6 +18,7 @@ const IndexCarouselCard = ({props}) => {
                 </div>
                 <p>${props.retail_price}</p>
             </div>
+            </ Link>
         </div>
     );
 };

@@ -17,7 +17,7 @@ const ProductControls = ({product}) => {
                 return actOrder
             }
         }
-    }
+    };
 
     const checkActiveOrder = () => {
         if (guestStatus) {
@@ -29,7 +29,7 @@ const ProductControls = ({product}) => {
                 const user_id = user.id
                 CartAPI.newOrder( user_id )
             }
-        } 
+        }
     };
 
     const _handleAddCart = () => {
@@ -78,7 +78,7 @@ const ProductControls = ({product}) => {
                 return
             }
         }
-    }
+    };
 
     const _handleRemoveCart = () => {
         console.log('Remove-Click')

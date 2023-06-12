@@ -26,7 +26,7 @@ const AllProductsTemplate = ({ pageContext }) => {
                             <h2 className="card-title text-black">{ product.product_name }</h2>
                             <p className="badge badge-secondary">${ product.retail_price }</p>
                             <div className="w-full mx-auto">
-                                    <ProductControls product={product}/>
+                              <ProductControls product={product}/>
                             </div>
                         </div>
                     ))}

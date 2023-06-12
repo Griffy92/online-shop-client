@@ -2,9 +2,9 @@ import { Link } from 'gatsby';
 import React from 'react';
 import { UserContext } from '../../providers/UserProvider'
 import { CartAPI } from "../../services/cart";
-import { UserAPI } from "../../services/users";
 import { guestAPI } from "../../services/guests";
 import { useState, useContext } from 'react';
+import CartPrice from './price-calc';
 
 const CartButtonItem = ( props ) => {
   const { guestStatus } = useContext(UserContext);
@@ -42,59 +42,58 @@ const CartButtonItem = ( props ) => {
       guestAPI.setGuestCart(sessionObj)
       setCount(count + 1);
       return
-      }
+    };
+  };
+
+  const countCheck = (count) => {
+    const prodCount = product.quantity + count
+    if (prodCount > 0) {
+      return prodCount
+    } else {
+      return 0
+    };
+  };
+
+  const _handleRemoveCart = () => {
+    if (!guestStatus) {
+      console.log('Remove-Click')
+      const order_id = product.order_id
+      const product_id = product.product_id
+      const payload = {
+          product: {
+              product_id: product_id
+          },
+          order: {
+              order_id: order_id
+          },
+      };
+      CartAPI.removeProduct( order_id, product_id, payload )
+      setCount(count - 1)
     }
 
+    if (guestStatus) {
+      const sessionObj = guestAPI.getGuestCart()
+      const guestCart = sessionObj.order.cart_items
+      
+      if (product.quantity < 2) {
+        console.log("not enough")
+        guestCart.splice(guestCart.indexOf(guestCart.find((e) => e.product.id === product.id)))              
+        sessionObj.order.cart_items = guestCart
+        guestAPI.setGuestCart(sessionObj)
+        setCount(count - 1)
 
-const countCheck = (count) => {
-  const prodCount = product.quantity + count
-  if (prodCount > 0) {
-    return prodCount
-  } else {
-    return 0
+      } else {
+        guestCart.map(function(e){
+          if (e.product.id === product.product.id){
+              e.quantity = e.quantity - 1
+          }})
+        sessionObj.order.cart_items = guestCart
+        guestAPI.setGuestCart(sessionObj)
+        setCount(count - 1)
+        return
+      }
+    }
   };
-};
-
-const _handleRemoveCart = () => {
-  if (!guestStatus) {
-    console.log('Remove-Click')
-    const order_id = product.order_id
-    const product_id = product.product_id
-    const payload = {
-        product: {
-            product_id: product_id
-        },
-        order: {
-            order_id: order_id
-        },
-    };
-    CartAPI.removeProduct( order_id, product_id, payload )
-    setCount(count - 1)
-  }
-
-if (guestStatus) {
-  const sessionObj = guestAPI.getGuestCart()
-  const guestCart = sessionObj.order.cart_items
-  
-  if (product.quantity < 2){
-    console.log("not enough")
-    guestCart.splice(guestCart.indexOf(guestCart.find((e) => e.product.id === product.id)))              
-    sessionObj.order.cart_items = guestCart
-    guestAPI.setGuestCart(sessionObj)
-    setCount(count - 1)
-
-  } else {
-    guestCart.map(function(e){
-      if (e.product.id === product.product.id){
-          e.quantity = e.quantity - 1
-      }})
-    sessionObj.order.cart_items = guestCart
-    guestAPI.setGuestCart(sessionObj)
-    setCount(count - 1)
-    return
-  }
-}
-}
 
     return (
       <tr>
@@ -109,8 +108,8 @@ if (guestStatus) {
         <td className="w-4/6 text-black">
           <Link to={`/product/${product.product.id}`}><h2>{product.product.product_name}</h2></Link>
         </td>
-        <td className="w-1/6 text-center text-black">
-          <p>${product.product.retail_price}</p>
+        <td className="w-1/6 text-center">
+          <p className='text-black'>${product.product.retail_price}</p><span>(each)</span>
         </td>
         <td className="w-1/6 text-center text-black">
           <button className="btn btn-success btn-sm w-5" onClick={_handleAddCart}>+</button>
