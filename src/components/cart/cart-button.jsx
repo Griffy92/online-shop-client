@@ -69,7 +69,6 @@ const CartButton = () => {
       const actOrder = (user.orders.find((e) => e.orderstatus === "active" ))
       setCartItems(actOrder.cart_items)
 
-      console.log(actOrder)
       CartAPI.getOrder(actOrder.id).then((response) => {
         setCartItems(response.data.cart_items)})
     };
