@@ -6,22 +6,25 @@ import Footer from './footer';
 import { UserAPI } from '../services/users'
 
 const Layout = ( {children} ) => {
-    const { user, setUser } = useContext(UserContext);
+    const { user, setUser, guestStatus, setGuestStatus } = useContext(UserContext);
     const token = localStorage.getItem('token');
 
     useEffect(() => {
         if (token) {
             UserAPI.getUser(token).then((response) => {
                 setUser(response.data);
+                setGuestStatus(false);
             })
         } else {
             setUser('');
+            setGuestStatus(true);
         }
     }, [token])
 
     const handleSignOut = () => {
         setUser({});
         localStorage.clear();
+        setGuestStatus(true)
     };
 
     return (

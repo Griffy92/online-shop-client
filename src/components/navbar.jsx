@@ -2,15 +2,22 @@ import React from 'react';
 import { Link } from 'gatsby';
 import CartButton from './cart/cart-button';
 import SearchButton from './search-button';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
 import logo from '../images/Pocket-Cart-Logo.svg';
-
-
+import { guestAPI } from '../services/guests';
 
 const Navbar = ( props ) => {
-
     const { user, handleSignOut } = props;
+
+    if (user === '') {
+        if (sessionStorage.getItem("guestCart") == null) {
+            console.log('setting session storage cart')
+            const defaultCart = guestAPI.defaultCart()
+            console.log(defaultCart)
+            guestAPI.setGuestCart(defaultCart)
+        } else {
+            console.log('found Session Storage Cart')
+        }
+    };
 
     return (
         <>
@@ -23,8 +30,6 @@ const Navbar = ( props ) => {
                 color: `white`,
                 fontFamily: `sans-serif`,
                 }}>Free shipping for orders over $50! 🐶🐱🐭🐦🐹 </div> */}
-            
-
             {/* nav background color and drop shadow effect */}
             <nav className="flex items-center justify-between flex-wrap"
                 style={{
@@ -49,9 +54,6 @@ const Navbar = ( props ) => {
                     <Link className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" to="/bird-products">Bird</Link>
                     <Link className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" to="/smallpet-products">Small Pet</Link>
 
-                    <a className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
-                        Blog
-                    </a>
                     { user.admin && 
                         <Link className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white" to="/admin">Admin</Link>
                     }

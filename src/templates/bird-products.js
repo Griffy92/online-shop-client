@@ -13,7 +13,6 @@ const BirdProductsTemplate = ({ pageContext }) => {
 
     return (
         <div className="container mx-auto">
-            <h1>Bird Products</h1>
             <ProductFilter products={birdProducts} onApplyFilters={applyFilters} />
             <div className="ml-64">
                 <div className="bg-white place-content-center grid grid-cols-4 gap-4">

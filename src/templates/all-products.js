@@ -3,14 +3,12 @@ import { Link } from "gatsby";
 import ProductFilter from "../components/product-filter";
 
 const AllProductsTemplate = ({ pageContext }) => {
-
-    const { allProducts } = pageContext;
-
-    const [filteredProducts, setFilteredProducts] = useState(allProducts);
-
-    const applyFilters = (updatedProducts) => {
-        setFilteredProducts(updatedProducts);
-    };
+  
+  const { allProducts } = pageContext;
+  const [filteredProducts, setFilteredProducts] = useState(allProducts);
+  const applyFilters = (updatedProducts) => {
+      setFilteredProducts(updatedProducts);
+  };
 
     return (
         <div className="container mx-auto">
