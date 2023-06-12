@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect, useContext} from 'react';
 import axios from 'axios'
 import CardButtonItemGenerator from './cart-button-item-generator'
-import { useState, useEffect, useContext} from 'react';
 import { Popover } from '@headlessui/react'
 import { UserContext } from '../../providers/UserProvider'
 import { CartAPI } from '../../services/cart';
