@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
 import IndexCarousel from "../components/index-carousel/index-carousel"
-import headerImage from '../images/header.png';
+import headerImage from '../images/header-temp.jpg';
 
 const IndexPage = () => {
 
