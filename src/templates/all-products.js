@@ -22,11 +22,11 @@ const AllProductsTemplate = ({ pageContext }) => {
                                 <figure className="px-10 pt-10">
                                     <img src={`http://localhost:3000${product.image}`} alt={product.product_name} className="w-full h-60 object-cover" />
                                 </figure>
-                                <h2 className="card-title text-black">{product.product_name}</h2>
-                                <p className="badge badge-secondary">${ product.retail_price }</p>
-                               </Link>
-                            <div className="w-full mx-auto card-actions pt-6">
-                                <ProductControls product={product}/>
+                            </Link>
+                            <h2 className="card-title text-black">{ product.product_name }</h2>
+                            <p className="badge badge-secondary">${ product.retail_price }</p>
+                            <div className="w-full mx-auto">
+                              <ProductControls product={product}/>
                             </div>
                         </div>
                     ))}

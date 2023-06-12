@@ -1,6 +1,7 @@
 import React , { useState } from "react";
 import { Link } from "gatsby";
 import ProductFilter from "../components/product-filter";
+import ProductControls from "../components/product-controls";
 
 const SmallpetProductsTemplate = ({ pageContext }) => {
     const { smallpetProducts } = pageContext;
@@ -23,12 +24,12 @@ const SmallpetProductsTemplate = ({ pageContext }) => {
                                     <figure className="px-10 pt-10 w-100 h-100">
                                         <img src={`http://localhost:3000${product.image}`} alt={product.product_name} className="w-full h-60 object-cover" />
                                     </figure>
-                                    <h2 className="card-title text-black">{product.product_name}</h2>
-                                    <p className="badge badge-secondary">${ product.retail_price }</p>
-                                    <div className="card-actions">
-                                        <button className="btn btn-primary">Add to Cart</button>
-                                    </div>
                                 </Link>
+                                <h2 className="card-title text-black">{product.product_name}</h2>
+                                <p className="badge badge-secondary">${ product.retail_price }</p>
+                                <div className="w-full mx-auto">
+                                    <ProductControls product={product}/>
+                                </div>
                             </div>
                         ))
                     ) : (
