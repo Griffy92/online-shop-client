@@ -15,6 +15,9 @@ export const CartAPI = {
     newOrder: function (user_id) {
         return axios.get(baseURL + 'users/' + user_id +'/orders/new');
     },
+    guestCheckout: function (payload) {
+        return axios.get(baseURL + 'guestcheckout/', payload);
+    },
     getOrder: function (order_id) {
         return axios.get(baseURL + 'orders/' + order_id);
     }

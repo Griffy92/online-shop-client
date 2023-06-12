@@ -3,10 +3,9 @@ import ProductControls from '../components/product-controls'
 
 export default function Product({ pageContext: { product } }) {
     return (
-      <div className="container w-3/4 mx-auto p-6 bg-white h-3/4">
+      <div className="container w-1/2 mx-auto p-6 h-3/4 bg-white max-h-fit">
         <div className='mx-auto'>
-            <img src={ "http://localhost:3000" + product.image } alt={ product.product_name } className='mx-auto h-60'/>
-            
+            <img src={ "http://localhost:3000" + product.image } alt={ product.product_name } className='mx-auto'/>
         </div>
 
         <strong>{ product.product_name }</strong>
