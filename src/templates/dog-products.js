@@ -37,9 +37,8 @@ const DogProductsTemplate = ({ pageContext }) => {
                 </div>
             </div>
         </div>
-        </div>
     );
-    };
+};
 
 export default DogProductsTemplate;
 
