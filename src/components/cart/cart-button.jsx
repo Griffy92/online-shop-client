@@ -9,10 +9,12 @@ import { UserAPI } from '../../services/users';
 import CartPrice from './price-calc';
 
 const CartButton = () => {
-  const [message, setMessage] = useState('');
-  const [cartItems, setCartItems] = useState([]);
+  const [message, setMessage] = useState('')
+  const [cartItems, setCartItems] = useState([])
   const { user, setUser, guestStatus } = useContext(UserContext);
   const token = localStorage.getItem('token');
+
+
 
     useEffect(() => {
         // Check to see if this is a redirect back from Checkout
@@ -29,17 +31,22 @@ const CartButton = () => {
 	}, []);
 
 	const createStripePayload = () => {
-
-		let lineItem = []; // this is the post param
+		const payload = {
+			lineItem: [],
+			metadata: {
+				order_id: user ? getActiveOrder().id : 'None'
+			}
+		};
 		
 		cartItems.forEach( (item) => {
-			lineItem.push({
+			payload.lineItem.push({
 				name: item.product.product_name,
 				price: item.product.retail_price,
 				quantity: item.quantity,
-				image: `${ 'http://localhost:3000/' + item.product.image }`
+				image: `${ 'http://localhost:3000/' + item.product.image }`,
 			});
 		});
+
 		return lineItem;
 	};
 	
@@ -56,29 +63,34 @@ const CartButton = () => {
         });
     };
 
-  const _handleClick = () => {
+	const getActiveOrder = () => (user.orders.find((e) => e.orderstatus === "active" ));
+	
+	const _handleClick = () => {
 
-    // if User
-    if (!guestStatus) {
-      console.log('Click - User')
+		// if User
+		if (!guestStatus) {
+			console.log('Click - User')
 
-      // Refreshes user to trigger reload of component
-      UserAPI.getUser(token).then((response) => {
-        setUser(response.data)})
+			// Refreshes user to trigger reload of component
+			UserAPI.getUser(token).then((response) => {
+				setUser(response.data)
+			});
 
-      const actOrder = (user.orders.find((e) => e.orderstatus === "active" ))
-      setCartItems(actOrder.cart_items)
+			const actOrder = getActiveOrder();
+			setCartItems(actOrder.cart_items)
 
-      CartAPI.getOrder(actOrder.id).then((response) => {
-        setCartItems(response.data.cart_items)})
-    };
+			console.log('active order', actOrder)
+			CartAPI.getOrder(actOrder.id).then((response) => {
+				setCartItems(response.data.cart_items)
+			});
+		};
 
-    // if Guest
-    if (guestStatus) {
-      console.log('Click - Guest')
-      setCartItems(guestAPI.getGuestCart().order.cart_items)
-    }
-  };
+		// if Guest
+		if (guestStatus) {
+		console.log('Click - Guest')
+		setCartItems(guestAPI.getGuestCart().order.cart_items)
+		};
+	};
 
   return (
     <Popover>
