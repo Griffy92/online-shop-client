@@ -31,6 +31,7 @@ const IndexPage = () => {
 			<div 
 			className="bg-cover bg-center h-auto text-white py-24 px-10"
 			style={{
+				marginTop: '-20px',
 				backgroundImage:`url(${headerImage})`,
 				color: `white`
 				}}>
