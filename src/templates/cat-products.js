@@ -34,6 +34,7 @@ const CatProductsTemplate = ({ pageContext }) => {
                 ) : (
                     <h2>No Items Found</h2>
                 )}
+
                 </div>
             </div>
         </div>

@@ -8,7 +8,7 @@ const SearchButton = () => {
 
     const _handleSubmit = (e) => {
         e.preventDefault();
-        navigate(`/search?query=${search}`);
+        navigate(`/search?query=${encodeURIComponent(search)}`);
     };
     
     const _handleChange = (e) => {
