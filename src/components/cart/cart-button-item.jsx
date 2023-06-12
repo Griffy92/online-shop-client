@@ -2,9 +2,9 @@ import { Link } from 'gatsby';
 import React from 'react';
 import { UserContext } from '../../providers/UserProvider'
 import { CartAPI } from "../../services/cart";
-import { UserAPI } from "../../services/users";
 import { guestAPI } from "../../services/guests";
 import { useState, useContext } from 'react';
+import CartPrice from './price-calc';
 
 const CartButtonItem = ( props ) => {
   const { guestStatus } = useContext(UserContext);
@@ -42,9 +42,8 @@ const CartButtonItem = ( props ) => {
       guestAPI.setGuestCart(sessionObj)
       setCount(count + 1);
       return
-      }
-    }
-
+    };
+  };
 
   const countCheck = (count) => {
     const prodCount = product.quantity + count
@@ -92,9 +91,9 @@ const CartButtonItem = ( props ) => {
         guestAPI.setGuestCart(sessionObj)
         setCount(count - 1)
         return
+      }
     }
-  }
-  }
+  };
 
     return (
       <tr>
@@ -109,8 +108,8 @@ const CartButtonItem = ( props ) => {
         <td className="w-4/6 text-black">
           <Link to={`/product/${product.product.id}`}><h2>{product.product.product_name}</h2></Link>
         </td>
-        <td className="w-1/6 text-center text-black">
-          <p>${product.product.retail_price}</p>
+        <td className="w-1/6 text-center">
+          <p className='text-black'>${product.product.retail_price}</p><span>(each)</span>
         </td>
         <td className="w-1/6 text-center text-black">
           <button className="btn btn-success btn-sm w-5" onClick={_handleAddCart}>+</button>

@@ -6,6 +6,7 @@ import { UserContext } from '../../providers/UserProvider'
 import { CartAPI } from '../../services/cart';
 import { guestAPI } from '../../services/guests';
 import { UserAPI } from '../../services/users';
+import CartPrice from './price-calc';
 
 const CartButton = () => {
   const [message, setMessage] = useState('')
@@ -89,12 +90,26 @@ const CartButton = () => {
       <Popover.Panel className="absolute z-10 bg-gray-50 lg:w-1/3 -translate-x-full md:w-1/2 sm:w-full overscroll-none px-2 pt-2">
           <div className="p-2">
               <table className="table-fixed w-full">
-              {cartItems !== null ? (
+              {cartItems.length > 0 ? (
                 <CardButtonItemGenerator cartItems={cartItems}/>
                 ) : (
                 <tbody>
                   <tr>
-                    <td>Loading Content...</td>
+                    <td>Cart is empty</td>
+                  </tr>
+                </tbody>
+                )}
+              </table>
+          </div>
+          <hr />
+          <div className="p-2">
+              <table className="table-fixed w-full">
+              {cartItems.length > 0 ? (
+                <CartPrice cartItems={cartItems}/>
+                ) : (
+                <tbody>
+                  <tr>
+                    <td>Loading...</td>
                   </tr>
                 </tbody>
                 )}

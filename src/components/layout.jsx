@@ -6,7 +6,7 @@ import Footer from './footer';
 import { UserAPI } from '../services/users'
 
 const Layout = ( {children} ) => {
-    const { user, setUser, guestStatus, setGuestStatus } = useContext(UserContext);
+    const { user, setUser, setGuestStatus } = useContext(UserContext);
     const token = localStorage.getItem('token');
 
     useEffect(() => {

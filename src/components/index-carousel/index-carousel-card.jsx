@@ -3,8 +3,6 @@ import { Link } from 'gatsby';
 
 const IndexCarouselCard = ({props}) => {
 
-    console.log(props)
-
     return (
         <div className="card bg-white shadow-x h-1/2 min-h-96">
             <Link to={`/product/${props.id}`} >

@@ -1,81 +1,19 @@
-import React, {useContext, useState} from 'react';
-import { Link } from 'gatsby'
+import React, {useState} from 'react';
 import IndexCarouselCard from './index-carousel-card';
-import { UserContext } from '../../providers/UserProvider';
 import { CartAPI } from '../../services/cart';
 
 const IndexCarousel = () => {
-    const { user, setUser, guestStatus } = useContext(UserContext);
     const [ carouselArray, setCarouselArray ] = useState([])
-    const [ render, setRender ] = useState(false)
 
     const getArray = () => {
         CartAPI.getProducts().then((response) => {
             setCarouselArray(response.data)
         })
-    }
+    };
     
     if (carouselArray.length <= 0) {
         getArray()
-        console.log('running')
-    }
-    
-    if (!guestStatus) {
-        console.log(user)
-    }
-
-    console.log(carouselArray)
-
-    // const carouselArray = [
-    //    { item: "Shoes",
-    //     description: "Item Description - Item 1",
-    //     bgcol: "red", 
-    //     url: "http://placekitten.com/500/500"},
-    //     { item: "Chewing Gum",
-    //     description: "Item Description - Item 2",
-    //     bgcol: "orange", 
-    //     url: "http://placekitten.com/501/501"},
-    //     { item: "Cats",
-    //     description: "Item Description - Item 3",
-    //     bgcol: "yellow", 
-    //     url: "http://placekitten.com/502/502"},
-    //     { item: "Teddy Bears",
-    //     description: "Item Description - Item 4",
-    //     bgcol: "green", 
-    //     url: "http://placekitten.com/501/503"},
-    //     { item: "Lego Blocks",
-    //     description: "Item Description - Item 5",
-    //     bgcol: "blue", 
-    //     url: "http://placekitten.com/500/504"},
-    //     { item: "Something Else",
-    //     description: "Item Description - Item 6",
-    //     bgcol: "indigo", 
-    //     url: "http://placekitten.com/501/505"},
-    //     { item: "Tea Cups",
-    //     description: "Item Description - Item 7",
-    //     bgcol: "violet", 
-    //     url: "http://placekitten.com/500/506"},
-    //     { item: "Water",
-    //     description: "Item Description - Item 8",
-    //     bgcol: "red", 
-    //     url: "http://placekitten.com/501/507"},
-    //     { item: "Flu Vax",
-    //     description: "Item Description - Item 9",
-    //     bgcol: "orange", 
-    //     url: "http://placekitten.com/500/508"},
-    //     { item: "Deoderant",
-    //     description: "Item Description - Item 10",
-    //     bgcol: "yellow", 
-    //     url: "http://placekitten.com/501/509"},
-    //     { item: "Keyboards",
-    //     description: "Item Description - Item 11",
-    //     bgcol: "green", 
-    //     url: "http://placekitten.com/500/510"},
-    //     { item: "Mice",
-    //     description: "Item Description - Item 12",
-    //     bgcol: "blue", 
-    //     url: "http://placekitten.com/501/511"},
-    // ]
+    };
 
     return (
         <div className="carousel w-full">
