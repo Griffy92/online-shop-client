@@ -26,6 +26,7 @@ const Search = () => {
                 
                 const searchProducts = fetchedProducts.filter((product) => {
                     return (
+                        product.animal_category.toLowerCase().includes(newSearch) ||
                         product.product_name.toLowerCase().includes(newSearch) ||
                         product.product_description.toLowerCase().includes(newSearch)
                     );
