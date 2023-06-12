@@ -3,6 +3,9 @@ import axios from 'axios';
 const baseURL = 'http://localhost:3000/';
 
 export const CartAPI = {
+    getProducts: function () {
+        return axios.get(baseURL + 'products');
+    },
     addProduct: function (order_id, product_id, payload) {
         return axios.put(baseURL + 'addcart/' + order_id + '/' + product_id, payload);
     },

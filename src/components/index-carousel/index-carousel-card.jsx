@@ -1,20 +1,24 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
-const IndexCarouselCard = (props) => {
+const IndexCarouselCard = ({props}) => {
+
+    console.log(props)
 
     return (
-        <div className="card bg-white shadow-x">
-            <figure><img src={props.props.url} alt="Shoes" /></figure>
+        <div className="card bg-white shadow-x h-1/2 min-h-96">
+            
+            <figure><img src={ "http://localhost:3000" + props.image } alt={ props.product_name } className='mx-auto max-h-80'/></figure>
             <div className="card-body">
-                <h2 className="card-title text-black">
-                {props.props.item}
-                <div className="badge badge-secondary">NEW</div>
-                </h2>
-                <p className="text-black">{props.props.description}</p>
+            <div className="badge badge-secondary">NEW</div>
+                <div className='h-12'>
+                <h2 className="card-title text-black text-ellipsis overflow-hidden">
+                {props.product_name}
+                </h2></div>
                 <div className="card-actions justify-end">
-                <div className="badge badge-outline text-black">{props.props.bgcol}</div> 
+                    <div className="badge badge-outline text-black">{props.product_category}</div> 
                 </div>
+                <p>${props.retail_price}</p>
             </div>
         </div>
     );
