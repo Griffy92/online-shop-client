@@ -7,7 +7,7 @@ const CartPrice = ({ cartItems }) => {
         cartItems.forEach(element => {
             runningTotal = runningTotal + (element.quantity * element.product.retail_price)
         });
-        return runningTotal
+        return runningTotal.toFixed(2); // Round to 2 decimal places
     };
 
     const getCount = (cartItems) => {
