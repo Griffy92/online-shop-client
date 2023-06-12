@@ -27,7 +27,7 @@ const DogProductsTemplate = ({ pageContext }) => {
                                 </Link>
                                 <div className="product-title">
                                     <h2 className="card-title text-black">{ product.product_name }</h2>
-                                    <p className="badge badge-secondary">${ product.retail_price }</p>
+                                    <p className="badge badge-secondary block mt-3 mb-3">${ product.retail_price }</p>
                                 </div>
                                 <div className="w-full mx-auto">
                                     <ProductControls product={product}/>
