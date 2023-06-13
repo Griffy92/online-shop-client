@@ -16,6 +16,7 @@ const DogProductsTemplate = ({ pageContext }) => {
         <div className="container mx-auto">
             <ProductFilter products={dogProducts} onApplyFilters={applyFilters} />
             <div className="ml-64">
+            <h1>Dog Products</h1>
                 <div className="bg-white place-content-center grid grid-cols-4 gap-4">
                     {filteredProducts.length > 0 ? (
                         filteredProducts.map(product => (
