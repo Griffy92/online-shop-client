@@ -38,11 +38,11 @@ const Navbar = ( props ) => {
             {/* nav background color and drop shadow effect */}
 
             {/* Handles margin-bottom of sticky nav bar  */}
-            <div style={{height: `120px`}}></div>
+            <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-11"></div>
 
             {/* Nav Bar */}
             <nav 
-                className="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600 shadow-lg" 
+                className="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 shadow-lg" 
                 style={{backgroundColor: `#01A473`}}>
                 <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                     <Link to="/" className="flex items-center">
@@ -174,7 +174,7 @@ const Navbar = ( props ) => {
                                 xmlns="http://www.w3.org/2000/svg">
                                 
                                 <path 
-                                    fill-rule="evenodd" 
+                                    fillRule="evenodd" 
                                     d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" 
                                     clip-rule="evenodd">
                                 </path>

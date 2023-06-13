@@ -3,7 +3,7 @@ import { useState, useContext } from 'react';
 import { UserContext } from '../providers/UserProvider';
 import { navigate } from 'gatsby';
 import { UserAPI } from '../services/users'
-
+import signIn from '../images/Sign-in.jpg';
 
 
 const Signup = () => {
@@ -46,7 +46,14 @@ const Signup = () => {
     
     return (
         <>
-        <section onSubmit={ _handleUserCreationSubmit } class="bg-gray-50 dark:bg-gray-900">
+        <section 
+            onSubmit={ _handleUserCreationSubmit } 
+            class="bg-gray-50 dark:bg-gray-900"
+            style={{
+                backgroundImage: `url(${signIn})`,
+                backgroundSize: `cover`,
+                marginTop: `-5%`
+                }}>
             <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
                 <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
                     <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
@@ -76,26 +83,14 @@ const Signup = () => {
                             </div>
                             <button type="submit" class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Create an account</button>
                             <p class="text-sm font-light text-gray-500 dark:text-gray-400">
-                                Already have an account? <a href="#" class="font-medium text-primary-600 hover:underline dark:text-primary-500">Login here </a>
-                                {/* update login link */}
+                                Already have an account? <a href="/signin" class="font-medium text-primary-600 hover:underline dark:text-primary-500">Login here </a>
+                                {/* link to? login link */}
                             </p>
                         </form>
                     </div>
                 </div>
             </div>
         </section>
-
-
-            <h1>Sign up here foo</h1>
-            <form onSubmit={ _handleUserCreationSubmit} >
-                <label>Name: </label>
-                <input name="fullname" value={name} onChange={_handleNameChange} />
-                <label>Email: </label>
-                <input type="email" value={email} onChange={_handleEmailChange}/>
-                <label>Password: </label>
-                <input type="password_digest" value={password} onChange={_handlePasswordChange} />
-                <button>Signup!</button>
-            </form>
         </>
     )
 }
