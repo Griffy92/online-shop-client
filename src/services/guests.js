@@ -27,7 +27,7 @@ export const guestAPI = {
         let JSONguestCart2 = JSON.parse(JSONguestCart)
         return JSONguestCart2
     },
-    AddGuestCart: function (product) {
+    AddGuestCart: function () {
         const guestCart = sessionStorage.getItem("guestCart")
         return JSON.parse(guestCart)
     },
