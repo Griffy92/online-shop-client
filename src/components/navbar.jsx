@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'gatsby';
+import { Link, useLocation } from 'gatsby';
 import CartButton from './cart/cart-button';
 import SearchButton from './search-button';
 import logo from '../images/Pocket-Cart-Logo.svg';
@@ -9,7 +9,6 @@ import { guestAPI } from '../services/guests';
 
 const Navbar = ( props ) => {
     const [isExpanded, toggleExpansion] = useState(false);
-
 
     const { user, handleSignOut } = props;
 
@@ -23,6 +22,14 @@ const Navbar = ( props ) => {
             console.log('found Session Storage Cart')
         }
     };
+
+    const _handleBorder = (e) => {
+        e.target.style.borderColor = "white";
+    };
+
+    const _handleResetBorder = (e) => {
+        e.target.style.borderColor = "transparent";
+    }
 
     return (
         <>
@@ -43,8 +50,9 @@ const Navbar = ( props ) => {
             {/* Nav Bar */}
             <nav 
                 className="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 shadow-lg" 
-                style={{backgroundColor: `#01A473`}}>
-                <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+                style={{backgroundColor: `#01A473`}}
+            >
+                <div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-4">
                     <Link to="/" className="flex items-center">
                         <img src={ logo } className="h-7 mr-1" alt="Pocket Cart Logo"/>
                         {/* <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span> */}
@@ -61,7 +69,11 @@ const Navbar = ( props ) => {
                                         onClick={ handleSignOut } 
                                         title="Sign out" 
                                         type="button" 
-                                        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                        className="text-white bg-white-700 hover:bg-white hover:bg-opacity-20 hover:border-white-700 hover:border-yellow rounded-lg p-2.5 text-center inline-flex items-center mr-2 shadow border-gray-400 hover:border-white transition duration-200 transition-bg" 
+                                        style={{ border: '1px solid transparent' }}
+                                        onMouseEnter={ _handleBorder }
+                                        onMouseLeave={ _handleResetBorder }
+                                    >
                                         <svg 
                                             aria-hidden="true" 
                                             xmlns="http://www.w3.org/2000/svg" 
@@ -85,7 +97,11 @@ const Navbar = ( props ) => {
 
                                     <button 
                                         type="button" 
-                                        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                        className="text-white bg-white-700 hover:bg-white hover:bg-opacity-20 hover:border-white-700 hover:border-yellow rounded-lg p-2.5 text-center inline-flex items-center mr-2 shadow border-gray-400 hover:border-white transition duration-200 transition-bg" 
+                                        style={{ border: '1px solid transparent' }}
+                                        onMouseEnter={ _handleBorder }
+                                        onMouseLeave={ _handleResetBorder }
+                                    >
 
                                         <Link to="/account">
                                             <svg 
@@ -111,7 +127,13 @@ const Navbar = ( props ) => {
                                     <button 
                                         type="button" 
                                         title="Sign in" 
-                                        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                        className="text-white bg-white-700 hover:bg-white hover:bg-opacity-20 hover:border-white-700 hover:border-yellow rounded-lg p-2.5 text-center inline-flex items-center mr-2 shadow border-gray-400 hover:border-white transition duration-200 transition-bg" 
+                                        style={{ border: '1px solid transparent' }}
+                                        onMouseEnter={ _handleBorder }
+                                        onMouseLeave={ _handleResetBorder }
+                                    >
+
+                                            {/* bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded */}
 
                                         <Link to="/signin">
                                             <svg 
@@ -137,7 +159,11 @@ const Navbar = ( props ) => {
                                     <button 
                                         type="button" 
                                         title="Sign up" 
-                                        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                        className="text-white bg-white-700 hover:bg-white hover:bg-opacity-20 hover:border-white-700 hover:border-yellow rounded-lg p-2.5 text-center inline-flex items-center mr-2 shadow border-gray-400 hover:border-white transition duration-200 transition-bg" 
+                                        style={{ border: '1px solid transparent' }}
+                                        onMouseEnter={ _handleBorder }
+                                        onMouseLeave={ _handleResetBorder }
+                                    >
                                             
                                         <Link to="/signup">
                                             <svg 
@@ -160,11 +186,12 @@ const Navbar = ( props ) => {
                             onClick={() => toggleExpansion(!isExpanded)} 
                             data-collapse-toggle="navbar-sticky" 
                             type="button" 
-                            className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" 
+                            className="inline-flex items-center p-2 text-sm text-white rounded-lg md:hidden" 
+                            style={{ border: '1px solid white' }} 
                             aria-controls="navbar-sticky" 
                             aria-expanded="false">
 
-                            <span className="sr-only">Open main menu</span>
+                            <span className="sr-only">Open menu</span>
 
                             <svg 
                                 className="w-6 h-6" 
@@ -182,34 +209,80 @@ const Navbar = ( props ) => {
                         </button>
                     </div>
               
-                    <div className={`items-center justify-between ${isExpanded ? 'block' : 'hidden'} w-full md:flex md:w-auto md:order-1`}>
+                     <div className={`items-center justify-between ${isExpanded ? 'block' : 'hidden'} w-full md:flex md:w-auto md:order-1`}>
 
-
-                                        {/* <div className={`items-center justify-between ${isExpanded ? 'block' : 'hidden'} w-full md:flex md:w-auto md:order-1`} id="navbar-sticky"> */}
+                        {/* KAREN TODO: INCLUDE SEARCH */}
+                                        {/* <div className={`items-center justify-between ${isExpanded ? 'block' : 'hidden'} w-full md:flex md:w-auto md:order-1`} id="navbar-sticky"> 
+                                        
+                                        
+                                        space-x-3*/}
                         <ul 
-                            className="font-poppins flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700" 
-                            style={{ backgroundColor: `#01A473`}}>
-                        <li>
-                            <a href="/products" className="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Products</a>
-                        </li>
-                        <li>
-                            <a href="/dog-products" className="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Dog</a>
-                        </li>
-                        <li>
-                            <a href="/cat-products" className="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Cat</a>
-                        </li>
-                        <li>
-                            <a href="/reptile-products" className="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Reptile</a>
-                        </li>
-                        <li>
-                            <a href="/bird-products" className="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Bird</a>
-                        </li>
-                        <li>
-                            <a href="/smallpet-products" className="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Small Pets</a>
-                        </li>
-                        <li>
-                            <a href="/admin" className="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Admin</a>
-                        </li>
+                            className="font-poppins flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white " 
+                            style={{ 
+                                backgroundColor: `#01A473`, 
+                                color:`#01a473`
+                            }}>
+                            
+                            <li>
+                                <Link 
+                                    to="/products" 
+                                    className="block py-2 pl-2 pr-2 text-white rounded md:hover:bg-transparent hover:bg-white hover:bg-opacity-10 hover:bg-sky-700"
+                                    id="nav-effect">
+                                        <span>Products</span>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link 
+                                    to="/dog-products" 
+                                    className="block py-2 pl-2 pr-2 text-white rounded md:hover:bg-transparent hover:bg-white hover:bg-opacity-10"
+                                    id="nav-effect">
+                                        <span>Dog</span>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    to="/cat-products" 
+                                    className="block py-2 pl-2 pr-2 text-white rounded md:hover:bg-transparent hover:bg-white hover:bg-opacity-10"
+                                    id="nav-effect">
+                                        <span>Cat</span>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    to="/reptile-products" 
+                                    className="block py-2 pl-2 pr-2 text-white rounded md:hover:bg-transparent hover:bg-white hover:bg-opacity-10"
+                                    id="nav-effect">
+                                        <span>Reptile</span>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link 
+                                    to="/bird-products" 
+                                    className="block py-2 pl-2 pr-2 text-white rounded md:hover:bg-transparent hover:bg-white hover:bg-opacity-10"
+                                    id="nav-effect">
+                                        <span>Bird</span>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link 
+                                    to="/smallpet-products" 
+                                    className="block py-2 pl-2 pr-2 text-white rounded md:hover:bg-transparent hover:bg-white hover:bg-opacity-10"
+                                    id="nav-effect">
+                                        <span>Small Pets</span>
+                                </Link>
+                            </li>
+
+                                { user.admin && 
+                                    <Link
+                                        to="/admin" 
+                                        className="block py-2 pl-2 pr-2 text-white rounded md:hover:bg-transparent hover:bg-white hover:bg-opacity-10" 
+                                        id="nav-effect">
+                                            <span>Admin</span>
+                                    </Link>
+                                }
+                            {/* <li>
+                                <a href="/admin" className="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Admin</a>
+                            </li> */}
                         </ul>
                     </div>
                 </div>
