@@ -9,8 +9,6 @@ import { guestAPI } from '../services/guests';
 
 const Navbar = ( props ) => {
     const [isExpanded, toggleExpansion] = useState(false);
-
-
     const { user, handleSignOut } = props;
 
     if (user === '') {
