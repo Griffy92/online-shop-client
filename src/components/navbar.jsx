@@ -222,7 +222,7 @@ const Navbar = ( props ) => {
                                 backgroundColor: `#01A473`, 
                                 color:`#01a473`
                             }}>
-
+                            
                             <li>
                                 <Link 
                                     to="/products" 
@@ -244,7 +244,7 @@ const Navbar = ( props ) => {
                                     to="/cat-products" 
                                     className="block py-2 pl-2 pr-2 text-white rounded md:hover:bg-transparent hover:bg-white hover:bg-opacity-10"
                                     id="nav-effect">
-                                        Cat
+                                        <span>Cat</span>
                                 </Link>
                             </li>
                             <li>
@@ -272,9 +272,6 @@ const Navbar = ( props ) => {
                                 </Link>
                             </li>
 
-                            <div className={`md:hidden ${isExpanded ? 'block' : 'hidden'}`}>
-                                <SearchButton />
-                            </div>
                                 { user.admin && 
                                     <Link
                                         to="/admin" 
