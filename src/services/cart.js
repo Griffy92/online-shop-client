@@ -20,5 +20,9 @@ export const CartAPI = {
     },
     getOrder: function (order_id) {
         return axios.get(baseURL + 'orders/' + order_id);
+    },
+    this: function () {
+        console.log(this)
+        return
     }
 }
