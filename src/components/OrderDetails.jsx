@@ -58,44 +58,40 @@ const handleSave = async () => {
     return null;
     }
 
-return React.createElement(
-    'div',
-    null,
-    React.createElement('h2', null, `Order ID: ${order.id}`),
-    React.createElement('p', null, `Product ID: ${order.product_id}`),
-    React.createElement('p', null, `User ID: ${order.user_id}`),
-    editing
-        ? React.createElement(
-            'div',
-            null,
-            React.createElement(
-            'label',
-            null,
-            'Quantity:',
-            React.createElement('input', {
-                type: 'number',
-                value: quantity,
-            onChange: (e) => setQuantity(e.target.value),
-            })
-        ),
-            React.createElement(
-            'label',
-            null,
-            'Status:',
-            React.createElement('input', {
-                type: 'text',
-                value: status,
-            onChange: (e) => setStatus(e.target.value),
-            })
-        ),
-        React.createElement('button', { onClick: handleSave }, 'Save')
-        )
-    : React.createElement('div', null,
-        React.createElement('p', null, `Quantity: ${order.quantity}`),
-        React.createElement('p', null, `Status: ${order.orderstatus}`),
-        React.createElement('button', { onClick: handleEdit }, 'Edit')
-        )
-    );
-};
+    return (
+        <div>
+          <h2>Order ID: {order.id}</h2>
+          <p>Product ID: {order.product_id}</p>
+          <p>User ID: {order.user_id}</p>
+          {editing ? (
+            <div>
+              <label>
+                Quantity:
+                <input
+                  type="number"
+                  value={quantity}
+                  onChange={(e) => setQuantity(e.target.value)}
+                />
+              </label>
+              <label>
+                Status:
+                <input
+                  type="text"
+                  value={status}
+                  onChange={(e) => setStatus(e.target.value)}
+                />
+              </label>
+              <button onClick={handleSave}>Save</button>
+            </div>
+          ) : (
+            <div>
+              <p>Quantity: {order.quantity}</p>
+              <p>Status: {order.orderstatus}</p>
+              <button onClick={handleEdit}>Edit</button>
+            </div>
+          )}
+        </div>
+      );
+          }
 
 export default OrderDetails;
