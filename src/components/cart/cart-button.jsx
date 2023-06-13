@@ -15,6 +15,7 @@ const CartButton = () => {
   const token = localStorage.getItem('token');
   const cartButtonRef = useRef(null);
 
+
     useEffect(() => {
         // Check to see if this is a redirect back from Checkout
         const query = new URLSearchParams(window.location.search);
@@ -27,21 +28,27 @@ const CartButton = () => {
         if (query.get("canceled")) {
           setMessage("Order canceled -- continue to shop around and checkout when you're ready.");
         };
+
 	}, []);
 
 	const createStripePayload = () => {
-
-		let lineItem = []; // this is the post param
+		const payload = {
+			lineItem: [],
+			metadata: {
+				order_id: user ? getActiveOrder().id : 'None'
+			}
+		};
 		
 		cartItems.forEach( (item) => {
-			lineItem.push({
+			payload.lineItem.push({
 				name: item.product.product_name,
 				price: item.product.retail_price,
 				quantity: item.quantity,
-				image: `${ 'http://localhost:3000/' + item.product.image }`
+				image: `${ 'http://localhost:3000/' + item.product.image }`,
 			});
 		});
-		return lineItem;
+
+		return payload;
 	};
 	
 	// Redirect buyer to stripe checkout
@@ -57,29 +64,34 @@ const CartButton = () => {
         });
     };
 
-  const _handleClick = () => {
+	const getActiveOrder = () => (user.orders.find((e) => e.orderstatus === "active" ));
+	
+	const _handleClick = () => {
 
-    // if User
-    if (!guestStatus) {
-      console.log('Click - User')
+		// if User
+		if (!guestStatus) {
+			console.log('Click - User')
 
-      // Refreshes user to trigger reload of component
-      UserAPI.getUser(token).then((response) => {
-        setUser(response.data)})
+			// Refreshes user to trigger reload of component
+			UserAPI.getUser(token).then((response) => {
+				setUser(response.data)
+			});
 
-      const actOrder = (user.orders.find((e) => e.orderstatus === "active" ))
-      setCartItems(actOrder.cart_items)
+			const actOrder = getActiveOrder();
+			setCartItems(actOrder.cart_items)
 
-      CartAPI.getOrder(actOrder.id).then((response) => {
-        setCartItems(response.data.cart_items)})
-    };
+			console.log('active order', actOrder)
+			CartAPI.getOrder(actOrder.id).then((response) => {
+				setCartItems(response.data.cart_items)
+			});
+		};
 
-    // if Guest
-    if (guestStatus) {
-      console.log('Click - Guest')
-      setCartItems(guestAPI.getGuestCart().order.cart_items)
-    }
-  };
+		// if Guest
+		if (guestStatus) {
+		console.log('Click - Guest')
+		setCartItems(guestAPI.getGuestCart().order.cart_items)
+		};
+	};
 
   return (
     <Popover>
@@ -123,6 +135,7 @@ const CartButton = () => {
       </Popover.Panel>
     </Popover>
   );
+
 };
 
 export default CartButton;
