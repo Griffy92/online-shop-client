@@ -1,6 +1,6 @@
 import { Link } from 'gatsby';
 import React from 'react';
-import { UserContext } from '../../providers/UserProvider'
+import { UserContext } from '../../providers/UserProvider';
 import { CartAPI } from "../../services/cart";
 import { guestAPI } from "../../services/guests";
 import { useState, useContext } from 'react';
@@ -116,7 +116,7 @@ const CartButtonItem = ( props ) => {
           <button className="btn btn-error btn-sm w-5" onClick={_handleRemoveCart}>-</button>
         </td>
       </tr>
-    );
+    )
 };
 
 export default CartButtonItem;

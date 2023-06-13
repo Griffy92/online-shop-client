@@ -9,7 +9,7 @@ const CardButtonItemGenerator = ( {cartItems} ) => {
                 <CartButtonItem product={e} key={Math.random()}/> 
             ))}        
         </tbody>
-    )
-}
+    );
+};
 
 export default CardButtonItemGenerator;

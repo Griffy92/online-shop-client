@@ -1,6 +1,6 @@
-import React from 'react';
+import * as React from "react"
 import AllOrders from '../components/AllOrders';
-
+import AllProducts from '../components/AllProducts';
 
 const Admin = () => {
     
@@ -13,6 +13,11 @@ const Admin = () => {
             <div>
                 <h2>Orders</h2>
                 <AllOrders />
+            </div>
+            <hr />
+            <div>
+                <h2>Products</h2>
+                <AllProducts />
             </div>
         </>
     )
