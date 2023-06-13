@@ -57,7 +57,7 @@ const ProductFilter = ({ products, onApplyFilters }) => {
                 <option value="newest">Newest</option>
             </select>
             <br />
-            <button onClick={ _handleApplyFilters } className="btn btn-success">Apply</button>
+            <button onClick={ _handleApplyFilters } className="py-4 px-8 text-white font-bold text-xs rounded hover:text-gray-950 sameasbg-color text-white">Apply</button>
         </div>
         </aside>
     );
