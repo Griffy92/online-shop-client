@@ -19,7 +19,7 @@ const IndexCarousel = () => {
         <div className="carousel w-full">
             <div id="slide1" className="carousel-item relative w-full justify-center">
                 <div className='columns-3'>
-                    <div className='overflow-hidden p-4 max-w-md' >
+                    <div className='overflow-hidden p-4' >
                         {carouselArray.length > 0 ? (<IndexCarouselCard props={carouselArray[0]}/>) : (<div className='overflow-hidden p-4' >Loading Content...</div>)}
                     </div>
                     <div className='overflow-hidden p-4' >
