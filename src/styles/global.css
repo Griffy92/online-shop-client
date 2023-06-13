@@ -25,3 +25,12 @@ body {
 .sameasbg-color {
     background-color: rgb(1, 164, 115);
 }
+
+.pd {
+    padding: 5em 15em 5em 10em;
+}
+
+.mr {
+    margin-left: 60px;
+    margin-top: 80px;
+}
