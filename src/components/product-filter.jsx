@@ -31,7 +31,7 @@ const ProductFilter = ({ products, onApplyFilters }) => {
     };
 
     return (
-        <aside id="default-sidebar" className="fixed px-4 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
+        <aside id="default-sidebar" className="fixed px-4 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0 top-[15%]" aria-label="Sidebar">
         <div className="menu bg-white w-56 space-y-4 form-control">
             <select className="select select-bordered w-full max-w-xs"
                 value={sortByCategory}
