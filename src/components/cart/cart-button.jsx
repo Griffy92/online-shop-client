@@ -1,16 +1,16 @@
 import React, { useState, useEffect, useContext} from 'react';
-import axios from 'axios'
+import axios from 'axios';
 import CardButtonItemGenerator from './cart-button-item-generator'
-import { Popover } from '@headlessui/react'
-import { UserContext } from '../../providers/UserProvider'
+import { Popover } from '@headlessui/react';
+import { UserContext } from '../../providers/UserProvider';
 import { CartAPI } from '../../services/cart';
 import { guestAPI } from '../../services/guests';
 import { UserAPI } from '../../services/users';
 import CartPrice from './price-calc';
 
 const CartButton = () => {
-  const [message, setMessage] = useState('')
-  const [cartItems, setCartItems] = useState([])
+  const [message, setMessage] = useState('');
+  const [cartItems, setCartItems] = useState([]);
   const { user, setUser, guestStatus } = useContext(UserContext);
   const token = localStorage.getItem('token');
 
@@ -40,7 +40,6 @@ const CartButton = () => {
 				image: `${ 'http://localhost:3000/' + item.product.image }`
 			});
 		});
-
 		return lineItem;
 	};
 	
@@ -109,7 +108,7 @@ const CartButton = () => {
                 ) : (
                 <tbody>
                   <tr>
-                    <td>Loading...</td>
+                    <td></td>
                   </tr>
                 </tbody>
                 )}

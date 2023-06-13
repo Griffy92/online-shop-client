@@ -1,5 +1,6 @@
 import React from 'react'
 import ProductControls from '../components/product-controls'
+import RemoveProductControls from '../components/remove-product-controls'
 
 export default function Product({ pageContext: { product } }) {
     return (
@@ -29,8 +30,10 @@ export default function Product({ pageContext: { product } }) {
             <strong>Stock: </strong>
             { product.quantity }* <small> Stock is not reserved until purchased. Available quantity may be lower than expected at time of checkout.</small>
         </div>
+        <br />
         <div className="w-full mx-auto">
             <ProductControls product={product}/>
+            <RemoveProductControls product={product}/>
         </div>
       </div>
     )

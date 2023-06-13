@@ -33,4 +33,7 @@ export const guestAPI = {
         const guestCart = sessionStorage.getItem("guestCart")
         return JSON.parse(guestCart)
     },
+    clearGuestCart: function () {
+        sessionStorage.removeItem("guestCart");
+    }
 }
