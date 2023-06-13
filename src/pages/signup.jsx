@@ -63,11 +63,17 @@ const Signup = () => {
                         <form class="space-y-4 md:space-y-6" onSubmit={ _handleUserCreationSubmit} >
                             <div>
                                 <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Full Name</label>
-                                <input name="fullname" value={ name } onChange={ _handleNameChange } class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Jane Smith" required=""/>
+                                <input name="fullname" value={ name } onChange={ _handleNameChange } class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" style={{ 
+                                                    WebkitTextFillColor: `black`, 
+                                                    WebkitBoxShadow: `0 0 0px 1000px white inset` 
+                                                }}placeholder="Jane Smith" required=""/>
                             </div>
                             <div>
                                 <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
-                                <input name="email" value={ email } onChange={ _handleEmailChange } class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required=""/>
+                                <input name="email" value={ email } onChange={ _handleEmailChange } class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" style={{ 
+                                                    WebkitTextFillColor: `black`, 
+                                                    WebkitBoxShadow: `0 0 0px 1000px white inset` 
+                                                }}placeholder="name@company.com" required=""/>
                             </div>
                             <div>
                                 <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>

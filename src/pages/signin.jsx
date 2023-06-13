@@ -77,7 +77,12 @@ const Signin = () => {
                                                 name="email" 
                                                 value={ email } 
                                                 onChange={ (e) => setEmail(e.target.value) } 
-                                                className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-300 block w-full p-2.5" placeholder="name@company.com" 
+                                                className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-300 block w-full p-2.5" 
+                                                style={{ 
+                                                    WebkitTextFillColor: `black`, 
+                                                    WebkitBoxShadow: `0 0 0px 1000px white inset` 
+                                                }}
+                                                placeholder="name@company.com" 
                                                 required 
                                             />
                                         </div>
