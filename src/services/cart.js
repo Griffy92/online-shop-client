@@ -2,6 +2,8 @@ import axios from 'axios';
 
 const baseURL = 'http://localhost:3000/';
 
+// API calls mostly relating to the Orders Controller 
+
 export const CartAPI = {
     getProducts: function () {
         return axios.get(baseURL + 'products');
@@ -21,8 +23,4 @@ export const CartAPI = {
     getOrder: function (order_id) {
         return axios.get(baseURL + 'orders/' + order_id);
     },
-    this: function () {
-        console.log(this)
-        return
-    }
 }

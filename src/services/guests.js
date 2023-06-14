@@ -1,3 +1,4 @@
+// below used as default to keep Guest Orders shape consistent with User orders stored on database
 const guestObjShape = ({
     fullname: "guest",
     admin: false,
@@ -8,6 +9,7 @@ const guestObjShape = ({
     }
 })
 
+// Functions relating to dealing with storage and retrieval of Guest Cart. Session storage used for development, however switch to LocalStorage could be possible
 export const guestAPI = {
     guestObj: function () {
         return guestObjShape
@@ -20,7 +22,6 @@ export const guestAPI = {
 
         const JSONcart = JSON.stringify(currCart)
         sessionStorage.setItem("guestCart", JSONcart)
-        // return JSON.parse(JSONcart)
     },
     getGuestCart: function () {
         let JSONguestCart = sessionStorage.getItem("guestCart")
