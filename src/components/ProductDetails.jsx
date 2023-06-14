@@ -180,8 +180,18 @@ const ProductDetails = ({ productId }) => {
         <p>Retail Price: {product.retail_price}</p>
         <p>Animal Category: {product.animal_category}</p>
         <p>Quantity: {product.quantity}</p>
-        <button onClick={handleEdit}>Edit</button>
-        <button onClick={handleDelete}>Delete</button>
+        <button
+              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+              onClick={handleEdit}
+            >
+              Edit
+            </button>
+            <button
+              className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+              onClick={handleDelete}
+            >
+              Delete
+            </button>
       </div>
     )}
   
