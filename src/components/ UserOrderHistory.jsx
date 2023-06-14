@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import {UserContext} from '/Users/stu/Projects/Major/Final/online-shop-client/src/providers/UserProvider.js';
+import {UserContext} from '../providers/UserProvider';
 import OrderDetails from './OrderDetails';
 
 const UserOrders = () => {

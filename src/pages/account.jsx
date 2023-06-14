@@ -5,6 +5,7 @@ import { UserContext } from '../providers/UserProvider'
 
 const Account = () => {
     const { user } = useContext(UserContext);
+    console.log(user)
 
     return (
         <>
