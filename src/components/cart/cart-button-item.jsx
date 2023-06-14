@@ -7,7 +7,7 @@ import { useState, useContext } from 'react';
 import CartPrice from './price-calc';
 
 const CartButtonItem = ( props ) => {
-  const { guestStatus } = useContext(UserContext);
+  const { guestStatus, cartStatus, setCartStatus } = useContext(UserContext);
   const { product } = props
   const [count, setCount] = useState(0)
 
@@ -28,6 +28,7 @@ const CartButtonItem = ( props ) => {
       };
       CartAPI.addProduct( order_id, product_id, payload )
       setCount(count + 1)
+      setCartStatus(Math.random)
     };
 
     if (guestStatus) {
@@ -41,6 +42,7 @@ const CartButtonItem = ( props ) => {
       sessionObj.order.cart_items = guestCart
       guestAPI.setGuestCart(sessionObj)
       setCount(count + 1);
+      setCartStatus(Math.random)
       return
     };
   };
@@ -69,6 +71,7 @@ const CartButtonItem = ( props ) => {
       };
       CartAPI.removeProduct( order_id, product_id, payload )
       setCount(count - 1)
+      setCartStatus(Math.random)
     }
 
     if (guestStatus) {
@@ -81,6 +84,7 @@ const CartButtonItem = ( props ) => {
         sessionObj.order.cart_items = guestCart
         guestAPI.setGuestCart(sessionObj)
         setCount(count - 1)
+        setCartStatus(Math.random)
 
       } else {
         guestCart.map(function(e){
@@ -90,6 +94,7 @@ const CartButtonItem = ( props ) => {
         sessionObj.order.cart_items = guestCart
         guestAPI.setGuestCart(sessionObj)
         setCount(count - 1)
+        setCartStatus(Math.random)
         return
       }
     }
