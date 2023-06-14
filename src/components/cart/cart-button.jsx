@@ -7,21 +7,22 @@ import { CartAPI } from '../../services/cart';
 import { guestAPI } from '../../services/guests';
 import { UserAPI } from '../../services/users';
 import CartPrice from './price-calc';
-import { navigate } from 'gatsby'
 
 const CartButton = () => {
     const [message, setMessage] = useState('');
     const [cartItems, setCartItems] = useState([]);
-    const { user, setUser, guestStatus } = useContext(UserContext);
+    const { user, setUser, guestStatus, cartStatus, setCartStatus } = useContext(UserContext);
     const token = localStorage.getItem('token');
     const cartButtonRef = useRef(null);
+
+    console.log(cartStatus)
 
     useEffect(() => {
         // Check to see if this is a redirect back from Checkout
         const query = new URLSearchParams(window.location.search);
     
         if (query.get("canceled")) {
-			setMessage("Order canceled -- continue to shop around and checkout when you're ready.");
+			  setMessage("Order canceled -- continue to shop around and checkout when you're ready.");
         };
 
 	}, []);
@@ -68,7 +69,7 @@ const CartButton = () => {
 		if (!guestStatus) {
 			console.log('Click - User')
 
-			// Refreshes user to trigger reload of component
+			// Refreshes user 
 			UserAPI.getUser(token).then((response) => {
 				setUser(response.data)
 			});
@@ -102,13 +103,20 @@ const CartButton = () => {
       console.log('guest')
 		  let consty = guestAPI.getGuestCart().order.cart_items
       setCartItems(consty)
-      };
+    };
+
     if (!guestStatus) {
       console.log('Not guest')
 
-    };
-  }, []);
+      const actOrder = getActiveOrder();
+			setCartItems(actOrder.cart_items)
 
+			console.log('active order', actOrder)
+			CartAPI.getOrder(actOrder.id).then((response) => {
+				setCartItems(response.data.cart_items)
+			});
+    };
+  }, [cartStatus]);
 
   return (
     <Popover>
