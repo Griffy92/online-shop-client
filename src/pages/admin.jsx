@@ -11,7 +11,7 @@ const Admin = () => {
         <div className="container mx-auto bg-white">
             <div className="p-4">
                 <div>
-                    <h1 class="text-3xl font-extrabold leading-none tracking-tight text-black-900 md:text-5xl" 
+                    <h1 className="text-3xl font-extrabold leading-none tracking-tight text-black-900 md:text-5xl" 
                     style={{
                         marginTop: `85px`,
                         color: `#383838`,}}
@@ -20,7 +20,7 @@ const Admin = () => {
                 </div>
 
                 <div>
-                    <h2 class="mb-5 text-xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl dark:text-white mt-10" 
+                    <h2 className="mb-5 text-xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl dark:text-white mt-10" 
                     style={{
                         color: `#383838`,}}
                         >Orders
@@ -30,7 +30,7 @@ const Admin = () => {
 
                 <hr />
                 <div>
-                    <h2 class="mb-5 text-xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl dark:text-white mt-10" 
+                    <h2 className="mb-5 text-xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl dark:text-white mt-10" 
                     style={{
                         color: `#383838`,}}
                         >Products
