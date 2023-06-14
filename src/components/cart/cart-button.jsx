@@ -15,8 +15,6 @@ const CartButton = () => {
     const token = localStorage.getItem('token');
     const cartButtonRef = useRef(null);
 
-    console.log(cartStatus)
-
     useEffect(() => {
         // Check to see if this is a redirect back from Checkout
         const query = new URLSearchParams(window.location.search);
@@ -24,7 +22,6 @@ const CartButton = () => {
         if (query.get("canceled")) {
 			  setMessage("Order canceled -- continue to shop around and checkout when you're ready.");
         };
-
 	}, []);
 
 	const createStripePayload = () => {
@@ -67,7 +64,6 @@ const CartButton = () => {
 
 		// if User
 		if (!guestStatus) {
-			console.log('Click - User')
 
 			// Refreshes user 
 			UserAPI.getUser(token).then((response) => {
@@ -85,7 +81,6 @@ const CartButton = () => {
 
 		// if Guest
 		if (guestStatus) {
-		console.log('Click - Guest')
 		setCartItems(guestAPI.getGuestCart().order.cart_items)
 		};
 	};
@@ -100,18 +95,16 @@ const CartButton = () => {
 
   useEffect(() => {
     if (guestStatus) {
-      console.log('guest')
-		  let consty = guestAPI.getGuestCart().order.cart_items
-      setCartItems(consty)
+      if (guestAPI.getGuestCart() !== null) {
+        let consty = guestAPI.getGuestCart().order.cart_items
+        setCartItems(consty)
+      }
     };
 
     if (!guestStatus) {
-      console.log('Not guest')
-
       const actOrder = getActiveOrder();
 			setCartItems(actOrder.cart_items)
 
-			console.log('active order', actOrder)
 			CartAPI.getOrder(actOrder.id).then((response) => {
 				setCartItems(response.data.cart_items)
 			});
@@ -154,25 +147,23 @@ const CartButton = () => {
                 </tbody>
                 )}
               </table>
-          </div>
+            </div>
           <hr />
-          <div className="p-2">
-              <table className="table-fixed w-full">
-              {cartItems.length > 0 ? (
-                <CartPrice cartItems={cartItems}/>
-                ) : (
-                <tbody>
-                  <tr>
-                    <td></td>
-                  </tr>
-                </tbody>
-                )}
-              </table>
-          </div>
-          <hr />
-          <div className='flex justify-center p-2'>
-              <button onClick={ _handleCheckout } className="btn btn-primary btn-wide btn-md">Checkout</button>
-          </div>
+            {cartItems.length > 0 ? (
+              <div className="p-2">
+                <table className="table-fixed w-full">
+                  <CartPrice cartItems={cartItems}/>
+                </table>
+              </div>
+            ) : (
+            <div></div>
+            )}
+            <div>
+              <hr />
+                <div className='flex justify-center p-2'>
+                  <button onClick={ _handleCheckout } className="btn btn-primary btn-wide btn-md">Checkout</button>
+                </div>
+            </div>
           {message}
       </Popover.Panel>
     </Popover>

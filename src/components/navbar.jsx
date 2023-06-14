@@ -27,7 +27,7 @@ const Navbar = ( props ) => {
 
     const _handleResetBorder = (e) => {
         e.target.style.borderColor = "transparent";
-    }
+    };
 
     return (
         <>
@@ -57,8 +57,8 @@ const Navbar = ( props ) => {
                 
                     <div className="flex md:order-2">
                         <div className="flex items-center">
-                            <SearchButton className="inline-block" />
-                            <CartButton user={user} className="inline-block" />
+                            <SearchButton  />
+                            <CartButton user={user}  />
                         
                             { user ? (
                                 <>
