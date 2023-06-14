@@ -5,8 +5,6 @@ import SearchButton from './search-button';
 import logo from '../images/Pocket-Cart-Logo.svg';
 import { guestAPI } from '../services/guests';
 
-
-
 const Navbar = ( props ) => {
     const [isExpanded, toggleExpansion] = useState(false);
 
@@ -29,7 +27,7 @@ const Navbar = ( props ) => {
 
     const _handleResetBorder = (e) => {
         e.target.style.borderColor = "transparent";
-    }
+    };
 
     return (
         <>
@@ -50,9 +48,8 @@ const Navbar = ( props ) => {
             {/* Nav Bar */}
             <nav 
                 className="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 shadow-lg" 
-                style={{backgroundColor: `#01A473`}}
-            >
-                <div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-4">
+                style={{backgroundColor: `#01A473`}}>
+                <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                     <Link to="/" className="flex items-center">
                         <img src={ logo } className="h-7 mr-1" alt="Pocket Cart Logo"/>
                         {/* <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span> */}
@@ -60,8 +57,8 @@ const Navbar = ( props ) => {
                 
                     <div className="flex md:order-2">
                         <div className="flex items-center">
-                            <SearchButton className="inline-block" />
-                            <CartButton user={user} className="inline-block" />
+                            <SearchButton  />
+                            <CartButton user={user}  />
                         
                             { user ? (
                                 <>
@@ -203,7 +200,7 @@ const Navbar = ( props ) => {
                                 <path 
                                     fillRule="evenodd" 
                                     d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" 
-                                    clip-rule="evenodd">
+                                    clipRule="evenodd">
                                 </path>
                             </svg>
                         </button>
@@ -217,7 +214,7 @@ const Navbar = ( props ) => {
                                         
                                         space-x-3*/}
                         <ul 
-                            className="font-poppins flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white " 
+                            className="font-poppinsSemi font-semi-bold flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white " 
                             style={{ 
                                 backgroundColor: `#01A473`, 
                                 color:`#01a473`
@@ -297,4 +294,3 @@ const Navbar = ( props ) => {
 };
 
 export default Navbar;
-

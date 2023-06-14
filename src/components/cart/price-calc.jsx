@@ -18,13 +18,12 @@ const CartPrice = ({ cartItems }) => {
         return runningTotal
     };
 
-
     // this does not re-render yet
     return (  
         <tbody>
             <tr >
                 <td className="w-2/6 text-center text-black">
-                    <p>Subtotal</p>
+                    <p>Subtotal</p> 
                 </td>
                 <td className="w-4/6 text-black text-center">
                 <p>{getCount(cartItems)} item{getCount(cartItems) > 1 ? (<span>s</span>):(<span></span>)}</p>

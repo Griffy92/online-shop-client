@@ -35,11 +35,12 @@ const IndexPage = () => {
 				}}>
 			
 				<div className="md:w-1/2">
-					<p className="text-3xl font-bold">Do you need something for your pets?</p>
-					<p className="text-2xl mb-10 leading-none">See all of the best brands inside!</p>
-					<a href="/products" className="bg-purple-800 py-4 px-8 text-white font-bold text-xs rounded hover:bg-gray-200 hover:text-gray-800" 
+					<p className="text-4xl font-bold font-poppins mb-2">Do you need something for your pets?</p>
+
+					<p className="text-xl mb-10 leading-tight font-poppinslight font-extra-light">Discover a curated selection of high-quality products, personalied for your pet's needs, and join us in creating a world where every pet thrives!</p>
+					<a href="/products" className="py-4 px-6 text-white font-poppinsSemi font-semi-bold text-xs rounded hover:text-gray-800 hover:bg-slate-700 shadow" 
 					style={{
-						backgroundColor: `#2563EB`
+						backgroundColor: `#ffbd23`
 						}}>Shop now!</a>
 
 					{/* bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full */}

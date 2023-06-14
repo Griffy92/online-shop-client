@@ -3,18 +3,18 @@ import { useLocation } from "@reach/router"
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "gatsby";
+import ProductControls from "../components/product-controls";
 
 const Search = () => {
-    const URL = "http://localhost:3000/";
+    const URL = "http://localhost:3000/"; 
 
     const location = useLocation();
     // using URLSearchParams to extract query from url 
     const search = new URLSearchParams(location.search).get("query");
     const newSearch = search ? search.toLowerCase() : "";
-
+    
     const  [ products, setProducts ] = useState([]);
-    const [loading, setLoading] = useState(true);
-
+    const [ loading, setLoading ] = useState(true);
 
     useEffect(() => {
         const fetchSearch = async () => {
@@ -44,31 +44,41 @@ const Search = () => {
     
     return (
         <div className="container mx-auto" pageTitle="search">
+            <div className="ml-64">
+                <h1 className="mt-10 mb-5 text-3xl font-extrabold font-poppins text-black">
+                        Searching for <span style={{ color: '#ffbd23' }}>{search}</span>
+                    </h1>
+                    <div className="bg-white place-content-center grid grid-cols-4 gap-4">
+                        {loading ? ( <h2>No Items Found</h2> ) : (
+                            products.map(( product ) => (
+                                <div 
+                                    key={ product.id }
+                                    className="card card-compact bg-white shadow-2xl p-4"
+                                >
+                                    
+                                    <Link to={`/product/${product.id}`}>
 
-            <h1>Searching for {search}</h1>
-            
-            <div className="bg-white place-content-center grid grid-cols-4 gap-4">
-                {loading ? ( <p>Loading...</p> ) : (
-                    products.map(( product ) => (
-                        <div key={ product.id }>
-                            
-                            <Link to={`/product/${product.id}`}>
+                                        <figure className="px-10 pt-10">
+                                            <img 
+                                                src={ URL + product.image } 
+                                                alt={ product.product_name }
+                                                className="h-60 object-cover product-img"
+                                            />
+                                        </figure>
+                                    </Link>
+                                    <div className="product-title">
+                                        <h2 className="card-title text-black">{ product.product_name }</h2>
+                                    </div>
 
-                                <figure className="px-10 pt-10 w-100 h-100">
-                                    <img src={ URL + product.image } alt={ product.product_name }/>
-                                </figure>
-
-                                <h2 className="card-title text-black">{ product.product_name }</h2>
-
-                                <p className="badge badge-secondary">${ product.retail_price }</p>
-
-                                <div className="card-actions">
-                                    <button className="btn btn-primary">Add to Cart</button>
+                                    <div className="w-full mx-auto">
+                                        <p className="badge badge-secondary block mt-3 mb-3">${ product.retail_price }</p>
+                                        <br></br>
+                                            <ProductControls product={product}/>
+                                    </div>
                                 </div>
-                            </Link>
-                        </div>
-                    ))
-                )}
+                            ))
+                        )}
+                    </div>
             </div>
         </div>
     );

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext, useRef} from 'react';
 import axios from 'axios';
-import CardButtonItemGenerator from './cart-button-item-generator'
+import CardButtonItemGenerator from './cart-button-item-generator';
 import { Popover } from '@headlessui/react';
 import { UserContext } from '../../providers/UserProvider';
 import { CartAPI } from '../../services/cart';
@@ -9,26 +9,19 @@ import { UserAPI } from '../../services/users';
 import CartPrice from './price-calc';
 
 const CartButton = () => {
-  const [message, setMessage] = useState('');
-  const [cartItems, setCartItems] = useState([]);
-  const { user, setUser, guestStatus } = useContext(UserContext);
-  const token = localStorage.getItem('token');
-  const cartButtonRef = useRef(null);
-
+    const [message, setMessage] = useState('');
+    const [cartItems, setCartItems] = useState([]);
+    const { user, setUser, guestStatus, cartStatus, setCartStatus } = useContext(UserContext);
+    const token = localStorage.getItem('token');
+    const cartButtonRef = useRef(null);
 
     useEffect(() => {
         // Check to see if this is a redirect back from Checkout
         const query = new URLSearchParams(window.location.search);
     
-        if (query.get("success")) {
-          // TODO: Redirect to the order confirmation page
-          setMessage("Order placed! You will receive an email confirmation.");
-        };
-    
         if (query.get("canceled")) {
-          setMessage("Order canceled -- continue to shop around and checkout when you're ready.");
+			  setMessage("Order canceled -- continue to shop around and checkout when you're ready.");
         };
-
 	}, []);
 
 	const createStripePayload = () => {
@@ -51,10 +44,10 @@ const CartButton = () => {
 		return payload;
 	};
   
-	
 	// Redirect buyer to stripe checkout
 	const _handleCheckout = () => {
 		const payload = createStripePayload();
+		if ( payload.lineItem.length === 0 ) return; // exit if cart is empty
 
 		// initiates a checkout session and gets back a redirect to stripe checkout
         axios.post('http://localhost:3000/checkouts', payload).then( (response) => {
@@ -71,9 +64,8 @@ const CartButton = () => {
 
 		// if User
 		if (!guestStatus) {
-			console.log('Click - User')
 
-			// Refreshes user to trigger reload of component
+			// Refreshes user 
 			UserAPI.getUser(token).then((response) => {
 				setUser(response.data)
 			});
@@ -89,11 +81,9 @@ const CartButton = () => {
 
 		// if Guest
 		if (guestStatus) {
-		console.log('Click - Guest')
 		setCartItems(guestAPI.getGuestCart().order.cart_items)
 		};
 	};
-
 
   const _handleBorder = (e) => {
     e.target.style.borderColor = "white";
@@ -101,7 +91,26 @@ const CartButton = () => {
 
   const _handleResetBorder = (e) => {
     e.target.style.borderColor = "transparent";
-  }
+  };
+
+  useEffect(() => {
+    if (guestStatus) {
+      if (guestAPI.getGuestCart() !== null) {
+        let consty = guestAPI.getGuestCart().order.cart_items
+        setCartItems(consty)
+      }
+    };
+
+    if (!guestStatus) {
+      const actOrder = getActiveOrder();
+			setCartItems(actOrder.cart_items)
+
+			CartAPI.getOrder(actOrder.id).then((response) => {
+				setCartItems(response.data.cart_items)
+			});
+    };
+  }, [cartStatus]);
+
   return (
     <Popover>
       <Popover.Button 
@@ -129,7 +138,7 @@ const CartButton = () => {
           <div className="p-2">
               <table className="table-fixed w-full">
               {cartItems.length > 0 ? (
-                <CardButtonItemGenerator cartItems={cartItems}/>
+                <CardButtonItemGenerator cartItems={cartItems} />
                 ) : (
                 <tbody>
                   <tr>
@@ -138,29 +147,28 @@ const CartButton = () => {
                 </tbody>
                 )}
               </table>
-          </div>
+            </div>
           <hr />
-          <div className="p-2">
-              <table className="table-fixed w-full">
-              {cartItems.length > 0 ? (
-                <CartPrice cartItems={cartItems}/>
-                ) : (
-                <tbody>
-                  <tr>
-                    <td></td>
-                  </tr>
-                </tbody>
-                )}
-              </table>
-          </div>
-          <hr />
-          <div className='flex justify-center p-2'>
-              <button onClick={ _handleCheckout } className="btn btn-primary btn-wide btn-md">Checkout</button>
-          </div>
+            {cartItems.length > 0 ? (
+              <div className="p-2">
+                <table className="table-fixed w-full">
+                  <CartPrice cartItems={cartItems}/>
+                </table>
+              </div>
+            ) : (
+            <div></div>
+            )}
+            <div>
+              <hr />
+                <div className='flex justify-center p-2'>
+                  <button onClick={ _handleCheckout } className="btn btn-primary btn-wide btn-md">Checkout</button>
+                </div>
+            </div>
           {message}
       </Popover.Panel>
     </Popover>
   );
+
 
 };
 

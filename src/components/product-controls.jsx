@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { useContext, useState } from 'react';
+import React from "react";
+import { useContext } from 'react';
 import { UserContext } from '../providers/UserProvider'
 import { CartAPI } from "../services/cart";
 import { UserAPI } from "../services/users";
