@@ -16,7 +16,7 @@ const AllProductsTemplate = ({ pageContext }) => {
             <ProductFilter products={allProducts} onApplyFilters={applyFilters} />
             <div className="ml-64">
                 <h1 
-                    class="mb-5 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white" 
+                    class="mb-5 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-5xl dark:text-white" 
                     style={{
                         marginTop: `85px`,
                         color: `#383838`,}}
