@@ -41,17 +41,36 @@ const ForgotPasswordForm = ( props ) => {
 
                                 <form className="space-y-4 md:space-y-6" onSubmit={ _handleSubmit } >
                                     <div>
-                                        <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
-                                        <input name="email" value={ email } onChange={ (e) => setEmail(e.target.value) } className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required />
+                                        <label 
+                                            className="block mb-2 text-sm font-medium text-gray-900">
+                                                Email
+                                        </label>
+
+                                        <input 
+                                            name="email" 
+                                            value={ email } 
+                                            onChange={ (e) => setEmail(e.target.value) }  
+                                            className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-300 block w-full p-2.5" 
+                                            style={{ 
+                                                    WebkitTextFillColor: `black`, 
+                                                    WebkitBoxShadow: `0 0 0px 1000px white inset` 
+                                            }}
+                                            placeholder="name@company.com" 
+                                            required 
+                                        />
                                     </div>
 
                                     <div className="flex items-end">
                                         <button onClick = { formDecider }>
-                                            <a href="#" className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">Sign in?</a>
+                                            <a href="/signin" className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">Sign in?</a>
                                         </button>
                                     </div>
 
-                                    <button type="submit" className="w-full text-blue bg-white hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                                    <button 
+                                        type="submit" 
+                                        className="
+                                            w-full text-blue bg-white focus:ring-4 focus:outline-none focus:ring-primary-300 rounded-lg text-sm px-5 py-2.5 text-center bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white border border-blue-500 hover:border-transparent 
+                                           ">
                                         Request Password Reset Email
                                     </button>
                                     <p className="text-sm font-light text-gray-500 dark:text-gray-400">
