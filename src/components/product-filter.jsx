@@ -31,7 +31,7 @@ const ProductFilter = ({ products, onApplyFilters }) => {
     };
 
     return (
-        <aside id="default-sidebar" className="mt-16 fixed px-4 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0 top-[15%] z-0" aria-label="Sidebar">
+        <aside id="default-sidebar" className="mt-16 fixed px-4 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0 top-[15%] z-4" aria-label="Sidebar">
 
         <div className="menu bg-white w-50 space-y-1 form-control ">
             {/* filter icon */}

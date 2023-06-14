@@ -116,7 +116,7 @@ const CartButton = () => {
         ref={cartButtonRef} 
         type="button" 
         onClick={_handleClick} 
-        className="text-white bg-white-700 hover:bg-white hover:bg-opacity-20 hover:border-white-700 hover:border-yellow rounded-lg p-2.5 text-center inline-flex items-center mr-2 shadow border-gray-400 hover:border-white transition duration-200 transition-bg" 
+        className="text-white bg-white-700 hover:bg-white hover:bg- opacity-20 hover:border-white-700 hover:border-yellow rounded-lg p-2.5 text-center inline-flex items-center mr-2 shadow border-gray-400 hover:border-white transition duration-200 transition-bg" 
         style={{ border: '1px solid transparent' }}
         onMouseEnter={ _handleBorder }
         onMouseLeave={ _handleResetBorder }
@@ -133,7 +133,7 @@ const CartButton = () => {
           <span className="sr-only">View Cart</span>
       </Popover.Button>
 
-      <Popover.Panel className="absolute z-10 bg-gray-50 lg:w-1/3 -translate-x-full md:w-1/2 sm:w-full overscroll-none px-2 pt-2">
+      <Popover.Panel className="absolute z-10 bg-gray-50 lg:w-1/3 -translate-x-full md:w-1/2 sm:w-full overscroll-none px-2 pt-2 z-100">
           <div className="p-2">
               <table className="table-fixed w-full">
               {cartItems.length > 0 ? (
