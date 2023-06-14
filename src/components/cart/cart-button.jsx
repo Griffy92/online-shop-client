@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useRef} from 'react';
+import React, { useState, useEffect, useContext, useRef, useMemo} from 'react';
 import axios from 'axios';
 import CardButtonItemGenerator from './cart-button-item-generator';
 import { Popover } from '@headlessui/react';
@@ -9,26 +9,35 @@ import { UserAPI } from '../../services/users';
 import CartPrice from './price-calc';
 
 const CartButton = () => {
-    const [message, setMessage] = useState('');
-    const [cartItems, setCartItems] = useState([]);
-    const { user, setUser, guestStatus, cartStatus, setCartStatus } = useContext(UserContext);
-    const token = localStorage.getItem('token');
-    const cartButtonRef = useRef(null);
+  const [message, setMessage] = useState('');
+  const [cartItems, setCartItems] = useState([]);
+  const { user, setUser, guestStatus, cartStatus } = useContext(UserContext);
+  const token = localStorage.getItem('token');
+  const cartButtonRef = useRef(null); 
 
-    useEffect(() => {
-        // Check to see if this is a redirect back from Checkout
-        const query = new URLSearchParams(window.location.search);
-    
-        if (query.get("canceled")) {
-			  setMessage("Order canceled -- continue to shop around and checkout when you're ready.");
-        };
-	}, []);
+  useEffect(() => {
+      // Check to see if this is a redirect back from Checkout
+      const query = new URLSearchParams(window.location.search);
+  
+      if (query.get("canceled")) {
+      setMessage("Order canceled -- continue to shop around and checkout when you're ready.");
+      };
+  }, []);
+
+  // Saves result of .find() into memory. Used for performance as made updating cart feel more responsive.
+  const orderMemo = useMemo(() => {
+    if ((Object.entries(user).length) > 0){
+      if (user.orders.length > 0) {
+        return user.orders.find((e) => e.orderstatus === "active")
+      };
+    };
+  }, [user]);
 
 	const createStripePayload = () => {
 		const payload = {
 			lineItem: [],
 			metadata: {
-				order_id: user ? getActiveOrder().id : 'None'
+				order_id: user ? orderMemo.id : 'None'
 			}
 		};
 		
@@ -58,30 +67,21 @@ const CartButton = () => {
         });
     };
 
-	const getActiveOrder = () => (user.orders.find((e) => e.orderstatus === "active" ));
-	
+  // This handles the loading of the cart when the cart button is clicked
 	const _handleClick = () => {
 
 		// if User
 		if (!guestStatus) {
 
-			// Refreshes user 
-			UserAPI.getUser(token).then((response) => {
-				setUser(response.data)
-			});
-
-			const actOrder = getActiveOrder();
-			setCartItems(actOrder.cart_items)
-
-			console.log('active order', actOrder)
-			CartAPI.getOrder(actOrder.id).then((response) => {
-				setCartItems(response.data.cart_items)
+      // CartItems is sent to components below
+			CartAPI.getOrder(orderMemo.id).then((response) => {
+				setCartItems(response.data.cart_items);
 			});
 		};
 
 		// if Guest
 		if (guestStatus) {
-		setCartItems(guestAPI.getGuestCart().order.cart_items)
+		setCartItems(guestAPI.getGuestCart().order.cart_items);
 		};
 	};
 
@@ -93,19 +93,19 @@ const CartButton = () => {
     e.target.style.borderColor = "transparent";
   };
 
+  // CartStatus state is changed when product is added or removed from cart
+  // That triggers this useEffect to update the CartItems object, which is a prop passed down to the children components
+  // That in turn triggers the re-rendering of the dropdown
   useEffect(() => {
     if (guestStatus) {
       if (guestAPI.getGuestCart() !== null) {
-        let consty = guestAPI.getGuestCart().order.cart_items
-        setCartItems(consty)
+        let cartState = guestAPI.getGuestCart().order.cart_items;
+        setCartItems(cartState);
       }
     };
 
     if (!guestStatus) {
-      const actOrder = getActiveOrder();
-			setCartItems(actOrder.cart_items)
-
-			CartAPI.getOrder(actOrder.id).then((response) => {
+			CartAPI.getOrder(orderMemo.id).then((response) => {
 				setCartItems(response.data.cart_items)
 			});
     };
