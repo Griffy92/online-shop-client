@@ -49,7 +49,7 @@ const Navbar = ( props ) => {
             <nav 
                 className="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 shadow-lg" 
                 style={{backgroundColor: `#01A473`}}>
-                <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+                <div className="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-4">
                     <Link to="/" className="flex items-center">
                         <img src={ logo } className="h-7 mr-1" alt="Pocket Cart Logo"/>
                         {/* <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span> */}
