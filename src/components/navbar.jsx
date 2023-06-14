@@ -5,8 +5,6 @@ import SearchButton from './search-button';
 import logo from '../images/Pocket-Cart-Logo.svg';
 import { guestAPI } from '../services/guests';
 
-
-
 const Navbar = ( props ) => {
     const [isExpanded, toggleExpansion] = useState(false);
 

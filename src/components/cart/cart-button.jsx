@@ -46,7 +46,6 @@ const CartButton = () => {
 		return payload;
 	};
   
-	
 	// Redirect buyer to stripe checkout
 	const _handleCheckout = () => {
 		const payload = createStripePayload();
@@ -90,14 +89,27 @@ const CartButton = () => {
 		};
 	};
 
-
   const _handleBorder = (e) => {
     e.target.style.borderColor = "white";
   };
 
   const _handleResetBorder = (e) => {
     e.target.style.borderColor = "transparent";
-  }
+  };
+
+  useEffect(() => {
+    if (guestStatus) {
+      console.log('guest')
+		  let consty = guestAPI.getGuestCart().order.cart_items
+      setCartItems(consty)
+      };
+    if (!guestStatus) {
+      console.log('Not guest')
+
+    };
+  }, []);
+
+
   return (
     <Popover>
       <Popover.Button 
@@ -125,7 +137,7 @@ const CartButton = () => {
           <div className="p-2">
               <table className="table-fixed w-full">
               {cartItems.length > 0 ? (
-                <CardButtonItemGenerator cartItems={cartItems}/>
+                <CardButtonItemGenerator cartItems={cartItems} />
                 ) : (
                 <tbody>
                   <tr>
