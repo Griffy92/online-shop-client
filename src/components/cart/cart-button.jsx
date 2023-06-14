@@ -11,8 +11,7 @@ import CartPrice from './price-calc';
 const CartButton = () => {
   const [message, setMessage] = useState('');
   const [cartItems, setCartItems] = useState([]);
-  const { user, setUser, guestStatus, cartStatus } = useContext(UserContext);
-  const token = localStorage.getItem('token');
+  const { user, guestStatus, cartStatus } = useContext(UserContext);
   const cartButtonRef = useRef(null); 
 
   useEffect(() => {

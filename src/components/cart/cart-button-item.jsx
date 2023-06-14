@@ -8,7 +8,7 @@ import { useState, useContext } from 'react';
 // this component handles the logic for adding / removing items from cart as well as rendering the individual table rows
 
 const CartButtonItem = ( props ) => {
-  const { user, guestStatus, setCartStatus } = useContext(UserContext);
+  const { guestStatus, setCartStatus } = useContext(UserContext);
   const { product } = props;
   const [count, setCount] = useState(0); // count used to enforce positive quantities, also triggers re-render of quantity but this could be achieved elsewhere  
 
@@ -116,8 +116,8 @@ const CartButtonItem = ( props ) => {
           <p className='text-black'>${product.product.retail_price}</p><span>(each)</span>
         </td>
         <td className="w-1/6 text-center text-black">
-          <button className="btn btn-success btn-sm w-5" onClick={_handleAddCart}>+</button>
-          <button className="btn btn-error btn-sm w-5" onClick={_handleRemoveCart}>-</button>
+          <button className="btn btn-success btn-sm w-5 text-white font-bold text-xs rounded hover:text-gray-950 sameasbg-color" onClick={_handleAddCart}>+</button>
+          <button className="btn btn-error btn-sm w-5 text-white font-bold text-xs rounded hover:text-gray-950" onClick={_handleRemoveCart}>-</button>
         </td>
       </tr>
     )
