@@ -30,7 +30,7 @@ const SearchButton = () => {
 
     return (
 
-    <div className="flex flex-wrap items-center justify-between mx-auto p-4">
+    <div className="flex flex-wrap items-center justify-between mx-auto p-4 ">
     
         {/* <div className="relative hidden md:block p-2.5"> */}
 

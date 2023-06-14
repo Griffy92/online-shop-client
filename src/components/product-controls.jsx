@@ -58,12 +58,13 @@ const ProductControls = ({product}) => {
             if (guestCart.length === 0) {
                 guestCart.push({quantity: 1, product: product})
                 guestAPI.setGuestCart(sessionObj)
+                setCartStatus(Date.now()) // CartStatus included here to trigger update on cart count badge
                 return
             } if ((guestCart.length !== 0) && (!guestCart.find(i => i.product.id === product.id))) {
                 guestCart.push({quantity: 1, product: product})
                 sessionObj.order.cart_items = guestCart
                 guestAPI.setGuestCart(sessionObj)
-
+                setCartStatus(Date.now())
                 return
             } else {
                 guestCart.map(function(e){
@@ -73,6 +74,7 @@ const ProductControls = ({product}) => {
                     }})
                 sessionObj.order.cart_items = guestCart
                 guestAPI.setGuestCart(sessionObj)
+                setCartStatus(Date.now())
                 return
             };
         };
