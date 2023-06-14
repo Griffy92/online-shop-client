@@ -1,6 +1,7 @@
 import * as React from "react"
 import AllOrders from '../components/AllOrders';
 import AllProducts from '../components/AllProducts';
+import UserOrders from "../components/ UserOrderHistory";
 
 const Admin = () => {
     
@@ -19,6 +20,7 @@ const Admin = () => {
                 <h2>Products</h2>
                 <AllProducts />
             </div>
+
         </>
     )
 }
