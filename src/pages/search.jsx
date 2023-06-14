@@ -45,8 +45,12 @@ const Search = () => {
     return (
         <div className="container mx-auto" pageTitle="search">
             <div className="ml-64">
-                <h1 className="mt-10 mb-5 text-3xl font-extrabold font-poppins text-black">
-                        Searching for <span style={{ color: '#ffbd23' }}>{search}</span>
+                <h1 
+                    className="mb-5 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-5xl dark:text-white"  
+                    style={{
+                        marginTop: `85px`,
+                        color: `#383838`,}}
+                    > Searching for <span style={{ color: '#ffbd23' }}>{search}</span>
                     </h1>
                     <div className="place-content-center grid grid-cols-4 gap-4">
                         {loading ? ( <h2>Loading</h2> ) : (
