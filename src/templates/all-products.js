@@ -15,7 +15,7 @@ const AllProductsTemplate = ({ pageContext }) => {
         <div className="container mx-auto">
             <ProductFilter products={allProducts} onApplyFilters={applyFilters} />
             <div className="ml-64">
-                <h1>All Products</h1>
+                <h1 className="mt-10 mb-5 text-3xl font-extrabold font-poppins text-black">All Products</h1>
                     <div className="bg-white place-content-center grid grid-cols-4 gap-4 p-4">
                         {filteredProducts.map(product => (
                             <div key={product.id} className="card card-compact bg-white shadow-2xl p-4">
