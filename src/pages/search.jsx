@@ -49,7 +49,7 @@ const Search = () => {
                         Searching for <span style={{ color: '#ffbd23' }}>{search}</span>
                     </h1>
                     <div className="place-content-center grid grid-cols-4 gap-4">
-                        {loading ? ( <h2>No Items Found</h2> ) : (
+                        {loading ? ( <h2>Loading</h2> ) : (
                             products.map(( product ) => (
                                 <div 
                                     key={ product.id }
