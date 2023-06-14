@@ -33,7 +33,7 @@ const Admin = () => {
 
                 <hr />
                 <div>
-                    <h2 class="mb-5 text-xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl dark:text-white mt-20" 
+                    <h2 class="mb-5 text-xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl dark:text-white mt-10" 
                     style={{
                         color: `#383838`,}}
                         >Products
