@@ -7,7 +7,12 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        poppins:["'Poppins', SemiBold"],
+        poppinsSemi:["Poppins, SemiBold"],
+        poppinsLight: ["Poppins, ExtraLight"],
+      },
+      fontWeight: {
+        'semi-bold': '600',
+        'extra-light': '200',
       }
     },
   },

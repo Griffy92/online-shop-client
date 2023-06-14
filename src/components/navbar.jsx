@@ -214,7 +214,7 @@ const Navbar = ( props ) => {
                                         
                                         space-x-3*/}
                         <ul 
-                            className="font-poppins flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white " 
+                            className="font-poppinsSemi font-semi-bold flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white " 
                             style={{ 
                                 backgroundColor: `#01A473`, 
                                 color:`#01a473`
@@ -294,4 +294,3 @@ const Navbar = ( props ) => {
 };
 
 export default Navbar;
-
