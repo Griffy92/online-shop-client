@@ -48,7 +48,7 @@ const Search = () => {
                 <h1 className="mt-10 mb-5 text-3xl font-extrabold font-poppins text-black">
                         Searching for <span style={{ color: '#ffbd23' }}>{search}</span>
                     </h1>
-                    <div className="bg-white place-content-center grid grid-cols-4 gap-4">
+                    <div className="place-content-center grid grid-cols-4 gap-4">
                         {loading ? ( <h2>No Items Found</h2> ) : (
                             products.map(( product ) => (
                                 <div 

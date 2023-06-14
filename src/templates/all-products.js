@@ -15,20 +15,50 @@ const AllProductsTemplate = ({ pageContext }) => {
         <div className="container mx-auto">
             <ProductFilter products={allProducts} onApplyFilters={applyFilters} />
             <div className="ml-64">
-                <h1 className="mt-10 mb-5 text-3xl font-extrabold font-poppins text-black">All Products</h1>
-                    <div className="bg-white place-content-center grid grid-cols-4 gap-4 p-4">
+                <h1 
+                    class="mb-5 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white" 
+                    style={{
+                        marginTop: `85px`,
+                        color: `#383838`,}}
+                >All Products</h1>
+
+
+                    <div className="place-content-center grid grid-cols-4 gap-4">
                         {filteredProducts.map(product => (
-                            <div key={product.id} className="card card-compact bg-white shadow-2xl p-4">
+                            <div
+                                key={product.id} 
+                                className="card card-compact bg-white shadow-2xl p-4"
+                            >
+
                                 <Link to={`/product/${product.id}`} >
                                     <figure className="px-10 pt-10">
-                                        <img src={`http://localhost:3000${product.image}`} alt={product.product_name} className="h-60 object-cover product-img" />
+                                        <img 
+                                            src={`http://localhost:3000${product.image}`} 
+                                            alt={product.product_name} 
+                                            className="w-full h-60 object-cover product-img" 
+                                        />
                                     </figure>
                                 </Link>
+
                                 <div className="product-title">
-                                    <h2 className="card-title text-black">{ product.product_name }</h2>
+                                    <h2 
+                                        className="card-title text-black font-poppinsSemi font-semi-bold" 
+                                        style={{
+                                            fontSize: `13pt`, 
+                                            lineHeight: `1.4`}}>
+                                            { product.product_name }
+                                    </h2>
                                 </div>
                                 <div className="w-full mx-auto">
-                                    <p className="badge badge-secondary block mt-3 mb-3">${ product.retail_price }</p>
+                                    <p 
+                                        className="badge block mt-3 mb-3 font-poppinsMed font-medium bg-sky-500 text-s" 
+                                        style={{
+                                            backgroundColor: `#8986FF`, 
+                                            color: `white`, 
+                                            border: `1px solid transparent`, 
+                                        }}>
+                                        ${ product.retail_price }
+                                    </p>
                                     <br></br>
                                     <ProductControls product={product}/>
                                 </div>

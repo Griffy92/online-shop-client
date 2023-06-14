@@ -16,7 +16,13 @@ const SmallpetProductsTemplate = ({ pageContext }) => {
         <div className="container mx-auto">
             <ProductFilter products={smallpetProducts} onApplyFilters={applyFilters} />
             <div className="ml-64">
-                <h1 className="mt-10 mb-5 text-3xl font-extrabold font-poppins text-black">Small Pet Products</h1>
+                <h1 
+                    class="mb-5 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white" 
+                    style={{
+                        marginTop: `85px`,
+                        color: `#383838`,}}
+                    > Small Pet Products
+                </h1>
                     <div className="bg-white place-content-center grid grid-cols-4 gap-4">
                         {filteredProducts.length > 0 ? (
                             filteredProducts.map(product => (
@@ -27,10 +33,24 @@ const SmallpetProductsTemplate = ({ pageContext }) => {
                                         </figure>
                                     </Link>
                                     <div className="product-title">
-                                        <h2 className="card-title text-black">{product.product_name}</h2>
+                                        <h2 
+                                            className="card-title text-black font-poppinsSemi font-semi-bold" 
+                                            style={{
+                                                fontSize: `13pt`, 
+                                                lineHeight: `1.4`}}>
+                                                {product.product_name}
+                                        </h2>
                                     </div>
                                     <div className="w-full mx-auto">
-                                        <p className="badge badge-secondary block mt-3 mb-3">${ product.retail_price }</p>
+                                        <p 
+                                            className="badge block mt-3 mb-3 font-poppinsMed font-medium bg-sky-500 text-s" 
+                                            style={{
+                                                backgroundColor: `#8986FF`, 
+                                                color: `white`, 
+                                                border: `1px solid transparent`, 
+                                            }}>
+                                                ${ product.retail_price }
+                                        </p>
                                         <br></br>
                                         <ProductControls product={product}/>
                                     </div>
