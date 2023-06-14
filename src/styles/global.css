@@ -6,6 +6,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 
 @layer base {
+    .h-screen-half {
+        height: 75vh;
+    }
     .font-outline {
         -webkit-text-stroke: .5px black;
     }
