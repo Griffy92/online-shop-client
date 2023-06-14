@@ -9,10 +9,12 @@ module.exports = {
       fontFamily: {
         poppinsSemi:["Poppins, SemiBold"],
         poppinsLight: ["Poppins, ExtraLight"],
+        poppinsMed:["Poppins, Medium"]
       },
       fontWeight: {
         'semi-bold': '600',
         'extra-light': '200',
+        'medium': '500',
       }
     },
   },
