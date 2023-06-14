@@ -108,51 +108,103 @@ const AllProducts = () => {
 
 return (
   <div>
-    <h1>List of Products</h1>
-    <button onClick={toggleAddProduct}>Add New Product</button>
-    {showAddProduct && <AddProduct onAddProduct={handleAddProduct} />}
-    <input type="text" value={filterValue} onChange={handleFilterChange} placeholder="Filter..." />
+  <h1 className="text-2xl font-bold mb-4">List of Products</h1>
+  <button
+    onClick={toggleAddProduct}
+    className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
+  >
+    Add New Product
+  </button>
+  {showAddProduct && (
+    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+      <div className="bg-white p-6 rounded shadow-lg">
+        <h2 className="text-xl font-bold mb-4">Add New Product</h2>
+        <AddProduct onAddProduct={handleAddProduct} />
+        <button
+          onClick={toggleAddProduct}
+          className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded mt-4"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  )}
+  <div className="text-right">
+  <input
+    type="text"
+    value={filterValue}
+    onChange={handleFilterChange}
+    placeholder="Filter..."
+    className="border border-gray-300 rounded px-4 py-2 mt-4"
+  />
+</div>
 
-    <table>
-      <thead>
-        <tr>
-          <th onClick={() => handleSort('product_code')}>Product Code</th>
-          <th onClick={() => handleSort('product_name')}>Product Name</th>
-          <th onClick={() => handleSort('product_category')}>Product Category</th>
-          <th onClick={() => handleSort('product_description')}>Product Description</th>
-          <th onClick={() => handleSort('cost_price')}>Cost Price</th>
-          <th onClick={() => handleSort('retail_price')}>Retail Price</th>
-          <th onClick={() => handleSort('animal_category')}>Animal Category</th>
-          <th onClick={() => handleSort('quantity')}>Quantity</th>
-          <th>Actions</th>
+<table className="table-auto">
+    <thead>
+      <tr>
+        <th onClick={() => handleSort('product_code')} className="cursor-pointer">
+          Product Code
+        </th>
+        <th onClick={() => handleSort('product_name')} className="cursor-pointer">
+          Product Name
+        </th>
+        <th onClick={() => handleSort('product_category')} className="cursor-pointer">
+          Product Category
+        </th>
+        <th onClick={() => handleSort('product_description')} className="cursor-pointer">
+          Product Description
+        </th>
+        <th onClick={() => handleSort('cost_price')} className="cursor-pointer">
+          Cost Price
+        </th>
+        <th onClick={() => handleSort('retail_price')} className="cursor-pointer">
+          Retail Price
+        </th>
+        <th onClick={() => handleSort('animal_category')} className="cursor-pointer">
+          Animal Category
+        </th>
+        <th onClick={() => handleSort('quantity')} className="cursor-pointer">
+          Quantity
+        </th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {filteredProducts.map((product) => (
+        <tr key={product.id}>
+          <td>{product.product_code}</td>
+          <td>{product.product_name}</td>
+          <td>{product.product_category}</td>
+          <td>{product.product_description}</td>
+          <td>{product.cost_price}</td>
+          <td>{product.retail_price}</td>
+          <td>{product.animal_category}</td>
+          <td>{product.quantity}</td>
+          <td>
+            <button
+              onClick={() => openProductDetails(product.id)}
+              className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
+            >
+              Product Details
+            </button>
+          </td>
         </tr>
-      </thead>
-      <tbody>
-        {filteredProducts.map((product) => (
-          <tr key={product.id}>
-            <td>{product.product_code}</td>
-            <td>{product.product_name}</td>
-            <td>{product.product_category}</td>
-            <td>{product.product_description}</td>
-            <td>{product.cost_price}</td>
-            <td>{product.retail_price}</td>
-            <td>{product.animal_category}</td>
-            <td>{product.quantity}</td>
-            <td>
-              <button onClick={() => openProductDetails(product.id)}>Product Details</button>
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+      ))}
+    </tbody>
+  </table>
 
     {selectedProductId && (
-      <div>
-        <h2>Product Details</h2>
-        <ProductDetails productId={selectedProductId} onActionCompletion={handleActionCompletion} />
-        <button onClick={closeProductDetails}>Close</button>
-      </div>
-    )}
+  <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+    <div className="bg-white p-6 rounded shadow-lg">
+      <h2 className="text-xl font-bold mb-4">Product Details</h2>
+      <ProductDetails productId={selectedProductId} onActionCompletion={handleActionCompletion} />
+      <button onClick={closeProductDetails} className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
+        Close
+      </button>
+    </div>
+  </div>
+)}
+
   </div>
 );
     }
