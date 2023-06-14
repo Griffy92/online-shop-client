@@ -145,7 +145,7 @@ const CartButton = () => {
           <span className="sr-only">View Cart</span>
       </Popover.Button>
 
-      <Popover.Panel className="absolute z-10 bg-gray-50 lg:w-1/3 -translate-x-full md:w-1/2 sm:w-full overscroll-none px-2 pt-2">
+      <Popover.Panel className="absolute z-10 bg-gray-50 lg:w-1/3 -translate-x-full md:w-1/2 sm:w-full overscroll-none px-2 pt-2 z-100">
           <div className="p-2">
               <table className="table-fixed w-full">
               {cartItems.length > 0 ? (
