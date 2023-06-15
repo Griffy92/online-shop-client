@@ -1,6 +1,5 @@
 import * as React from "react"
 import { useState } from 'react';
-// import { useEffect } from 'react';
 import axios from 'axios';
 import IndexCarousel from "../components/index-carousel/index-carousel"
 import headerImage from '../images/header-temp.jpg';
@@ -8,20 +7,6 @@ import headerImage from '../images/header-temp.jpg';
 const IndexPage = () => {
 
 	const [ user ] = useState({});
-
-    // // fetch user
-    // useEffect(() => {
-    //     let token = localStorage.getItem('token');
-    //     if(token) {
-    //         axios.get('http://localhost:3000/profile', {
-    //             headers: {
-    //                 "Authorization": `Bearer ${token}`
-    //             }
-    //         }).then((response) => {
-    //             setUser(response.data);
-    //         })
-    //     }
-    // }, [])
 
 	return (
 		<>	

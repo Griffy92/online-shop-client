@@ -1,7 +1,7 @@
 import React , { useState } from "react";
-import { Link } from "gatsby";
 import ProductFilter from "../components/product-filter";
 import ProductControls from "../components/product-controls";
+import { Link } from "gatsby";
 
 const BirdProductsTemplate = ({ pageContext }) => {
     const { birdProducts } = pageContext;

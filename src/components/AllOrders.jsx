@@ -1,80 +1,79 @@
 import * as React from "react"
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import OrderDetails from './OrderDetails';
 
 const AllOrders = () => {
-  const [orders, setOrders] = useState([]);
-  const [filteredOrders, setFilteredOrders] = useState([]);
-  const [selectedOrderId, setSelectedOrderId] = useState(null);
-  const [sortConfig, setSortConfig] = useState({ key: null, direction: null });
-  const [filterValue, setFilterValue] = useState(''); // State to hold the filter value
-  let token = localStorage.getItem('token');
+	const [orders, setOrders] = useState([]);
+	const [filteredOrders, setFilteredOrders] = useState([]);
+	const [selectedOrderId, setSelectedOrderId] = useState(null);
+	const [sortConfig, setSortConfig] = useState({ key: null, direction: null });
+	const [filterValue, setFilterValue] = useState(''); // State to hold the filter value
+	let token = localStorage.getItem('token');
 
-  useEffect(() => {
-    const fetchOrders = async () => {
-      try {
-        const response = await axios.get('http://localhost:3000/orders', {
-          headers: {
-            "Authorization": `Bearer ${token}`
-          }
-        });
-        console.log(response.data);
-        setOrders(response.data || []);
-      } catch (error) {
-        console.error('Error fetching orders:', error);
-      }
-    };
+	useEffect(() => {
+		const fetchOrders = async () => {
+			try {
+				const response = await axios.get('http://localhost:3000/orders', {
+					headers: {
+						"Authorization": `Bearer ${token}`
+					}
+				});
+				console.log(response.data);
+				setOrders(response.data || []);
+			} catch (error) {
+				console.error('Error fetching orders:', error);
+			}
+		};
 
-    fetchOrders();
-  }, []);
+		fetchOrders();
+	}, []);
 
-  useEffect(() => {
-    const filtered = orders.filter(order => {
-      return (
-        order.id.toString().includes(filterValue) ||
-        order.user_id.toString().includes(filterValue) ||
-        order.orderstatus.toLowerCase().includes(filterValue.toLowerCase()) ||
-        order.created_at.includes(filterValue) ||
-        (order.email && order.email.toLowerCase().includes(filterValue.toLowerCase())) ||
-        (order.shipping_address && order.shipping_address.toLowerCase().includes(filterValue.toLowerCase())) ||
-        (order.shipping_cost &&  order.shipping_cost.toString().includes(filterValue)) ||
-        (order.shipping_cost && order.shipping_cost.toLowerCase().includes(filterValue.toLowerCase())) ||
-        (order.amount_subtotal && order.amount_subtotal.toString().includes(filterValue)) ||
-        (order.amount_total && order.amount_total.toString().includes(filterValue))
-      )
-    });
-    setFilteredOrders(filtered);
-  }, [orders, filterValue]);
+	useEffect(() => {
+		const filtered = orders.filter(order => {
+			return (
+				order.id.toString().includes(filterValue) ||
+				order.user_id.toString().includes(filterValue) ||
+				order.orderstatus.toLowerCase().includes(filterValue.toLowerCase()) ||
+				order.created_at.includes(filterValue) ||
+				(order.email && order.email.toLowerCase().includes(filterValue.toLowerCase())) ||
+				(order.shipping_address && order.shipping_address.toLowerCase().includes(filterValue.toLowerCase())) ||
+				(order.shipping_cost &&  order.shipping_cost.toString().includes(filterValue)) ||
+				(order.shipping_cost && order.shipping_cost.toLowerCase().includes(filterValue.toLowerCase())) ||
+				(order.amount_subtotal && order.amount_subtotal.toString().includes(filterValue)) ||
+				(order.amount_total && order.amount_total.toString().includes(filterValue))
+			)
+		});
+		setFilteredOrders(filtered);
+	}, [orders, filterValue]);
 
-  const openOrderDetails = (orderId) => {
-    setSelectedOrderId(orderId);
-  };
+	const openOrderDetails = (orderId) => {
+		setSelectedOrderId(orderId);
+	};
 
-  const closeOrderDetails = () => {
-    setSelectedOrderId(null);
-  };
+	const closeOrderDetails = () => {
+		setSelectedOrderId(null);
+	};
 
-  const handleSort = (key) => {
-    let direction = 'ascending';
-    if (sortConfig && sortConfig.key === key && sortConfig.direction === 'ascending') {
-      direction = 'descending';
-    }
-    setSortConfig({ key, direction });
+	const handleSort = (key) => {
+		let direction = 'ascending';
+		if (sortConfig && sortConfig.key === key && sortConfig.direction === 'ascending') {
+			direction = 'descending';
+		}
+		setSortConfig({ key, direction });
 
-    // Sort the filteredOrders based on the selected key and direction
-    const sortedOrders = [...filteredOrders].sort((a, b) => {
-      if (a[key] < b[key]) return direction === 'ascending' ? -1 : 1;
-      if (a[key] > b[key]) return direction === 'ascending' ? 1 : -1;
-      return 0;
-    });
+		// Sort the filteredOrders based on the selected key and direction
+		const sortedOrders = [...filteredOrders].sort((a, b) => {
+			if (a[key] < b[key]) return direction === 'ascending' ? -1 : 1;
+			if (a[key] > b[key]) return direction === 'ascending' ? 1 : -1;
+			return 0;
+		});
 
-    setFilteredOrders(sortedOrders);
-  };
+		setFilteredOrders(sortedOrders);
+	};
 
-  const handleFilterChange = (e) => {
-    setFilterValue(e.target.value);
-  };
+	const handleFilterChange = (e) => {
+		setFilterValue(e.target.value);
+	};
 
   return (
     <div>
