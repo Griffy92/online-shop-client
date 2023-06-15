@@ -21,9 +21,13 @@ const Account = () => {
             <div className="bg-cover bg-center text-white h-[20vh] flex items-center" style={{
                 backgroundImage: `url(${headerImage})`,
             }}>
-                <h1 className="ml-20 text-4xl font-extrabold tracking-tight leading-none md:text-5xl lg:text-6xl dark:text-white" style={{
-                color: '#01a473'
-                }}>My Account</h1>
+                <h1 
+                    className="ml-20 text-4xl font-extrabold tracking-tight leading-none md:text-5xl lg:text-6xl dark:text-white" 
+                    style={{
+                    color: '#01a473'
+                    }}>
+                    My Account
+                </h1>
             </div>
             <div className="lg:h-[80vh] container mx-auto py-8 px-4 max-w-screen-xl h-screen lg:py-10 lg:px-12"> 
                 <div className="flex flex-col lg:flex-row justify-between">
