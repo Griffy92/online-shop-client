@@ -9,19 +9,19 @@ const IndexPage = () => {
 
 	const [ user, setUser ] = useState({});
 
-    // fetch user
-    useEffect(() => {
-        let token = localStorage.getItem('token');
-        if(token) {
-            axios.get('http://localhost:3000/profile', {
-                headers: {
-                    "Authorization": `Bearer ${token}`
-                }
-            }).then((response) => {
-                setUser(response.data);
-            })
-        }
-    }, [])
+    // // fetch user
+    // useEffect(() => {
+    //     let token = localStorage.getItem('token');
+    //     if(token) {
+    //         axios.get('http://localhost:3000/profile', {
+    //             headers: {
+    //                 "Authorization": `Bearer ${token}`
+    //             }
+    //         }).then((response) => {
+    //             setUser(response.data);
+    //         })
+    //     }
+    // }, [])
 
 	return (
 		<>	

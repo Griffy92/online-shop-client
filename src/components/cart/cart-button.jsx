@@ -23,7 +23,7 @@ const CartButton = () => {
 
   // Saves result of .find() into memory. Used for performance as made updating cart feel more responsive.
 	const orderMemo = useMemo(() => {
-		if ((Object.entries(user).length) > 0){     
+		if ((Object.entries(user).length) > 1){     
 			if (user.orders.length > 0) {
 				return user.orders.find((e) => e.orderstatus === "active")
 			};
