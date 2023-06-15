@@ -16,7 +16,7 @@
 * Contact
 <br><br>
 ## 📄 General Info
-Pocket Palette is a web-based platform that offers a convenient and comprehensive shopping experience for pet owners. With a wide range of products including food, treats, flea, tick and worm treatments, litter, accessories, and toys for various pets, our website is designed to meet the needs of pet owners and ensure the happiness and well-being of their furry companions.
+Pocket Cart is a web-based platform that offers a convenient and comprehensive shopping experience for pet owners. With a wide range of products including food, treats, flea, tick and worm treatments, litter, accessories, and toys for various pets, our website is designed to meet the needs of pet owners and ensure the happiness and well-being of their furry companions.
 
 This project is led by a dedicated team comprising Dom, Karen, Riley, Roxanne, and Stuart. As part of our journey in the General Assembly Software Engineering Immersive course, we have come together to create this eCommerce website, leveraging our skills and knowledge in web development. Despite being located in different time zones, we collaborate effectively to ensure continuous progress and deliver a high-quality product to our users.
 <br><br>
@@ -30,7 +30,7 @@ This project is led by a dedicated team comprising Dom, Karen, Riley, Roxanne, a
 
 [![Gatsby](https://img.shields.io/badge/gatsby-8a4baf?style=for-the-badge&logo=gatsby&logoColor=#8a4baf)](https://www.gatsbyjs.com)
 
-[![Rails](https://img.shields.io/badge/rails-A91401?style=for-the-badge&logo=rubyonrails&logoColor=FFFFF)](https://rubyonrails.org)
+[![Rails](https://img.shields.io/badge/rails-A91401?style=for-the-badge&logo=rubyonrails&logoColor=FFFFFF)](https://rubyonrails.org)
 
 
 [![TailwindCSS](https://img.shields.io/badge/tailwindcss-4A4A55?style=for-the-badge&logo=tailwindcss&logoColor=fffff)](https://tailwindcss.com)
@@ -83,7 +83,7 @@ rails server
 ```
 <br><br>
 ## 🛍️ Features
-There are four aspects to Pocket Palette at the moment: Admin, User Authentication, Search, Filter, Cart, Orders, Shipping and Payment.
+There are several aspects of Pocket Cart at the moment: Admin, User Authentication, Search, Filter, Cart, Orders, Shipping and Payment.
 
 - ### Admin
   - Product Management: Access an admin dashboard to manage products, including adding new products, updating existing product details, and removing products from the inventory.
