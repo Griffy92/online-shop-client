@@ -21,10 +21,10 @@ Pocket Palette is a web-based platform that offers a convenient and comprehensiv
 This project is led by a dedicated team comprising Dom, Karen, Riley, Roxanne, and Stuart. As part of our journey in the General Assembly Software Engineering Immersive course, we have come together to create this eCommerce website, leveraging our skills and knowledge in web development. Despite being located in different time zones, we collaborate effectively to ensure continuous progress and deliver a high-quality product to our users.
 <br><br>
 ## ✏️ Planning & Problem Solving
+![image](https://raw.githubusercontent.com/Rox-Liu/online-shop-client/main/src/images/readme_assets/miro1.png)
 
-
-
-
+![image](https://raw.githubusercontent.com/Rox-Liu/online-shop-client/main/src/images/readme_assets/miro2.png)
+<br></br>
 ## 🦾 Built With
 [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
 
@@ -114,25 +114,25 @@ There are four aspects to Pocket Palette at the moment: Admin, User Authenticati
 ## 📸 Screenshots
 
 ### Home Page
-
+![image](https://raw.githubusercontent.com/Rox-Liu/online-shop-client/main/src/images/readme_assets/Home.png)
 ### Sign In Page
-
-### Search
-
-### Cart
-
-### Product Page
-
-### Payment Page
-
+![image](https://raw.githubusercontent.com/Rox-Liu/online-shop-client/main/src/images/readme_assets/Sign%20in.png)
 ### My Account Page
-
+![image](https://raw.githubusercontent.com/Rox-Liu/online-shop-client/main/src/images/readme_assets/My%20Account.png)
+### Search
+![image](https://raw.githubusercontent.com/Rox-Liu/online-shop-client/main/src/images/readme_assets/Search.png)
+### Cart
+![image](https://raw.githubusercontent.com/Rox-Liu/online-shop-client/main/src/images/readme_assets/Cart.png)
+### Product Page
+![image](https://raw.githubusercontent.com/Rox-Liu/online-shop-client/main/src/images/readme_assets/Product.png)
+### Payment Page
+![image](https://raw.githubusercontent.com/Rox-Liu/online-shop-client/main/src/images/readme_assets/shipping%20%26%20payment.png)
 ### Admin Page
-
+![image]()
 ### Order Confirmation
-
+![image](https://raw.githubusercontent.com/Rox-Liu/online-shop-client/main/src/images/readme_assets/Order%20Confirmation.png)
 ### Password Reset
-
+![image](https://raw.githubusercontent.com/Rox-Liu/online-shop-client/main/src/images/readme_assets/Password%20Reset.png)
 
 <br><br>
 ## 🚀 Room for improvement
