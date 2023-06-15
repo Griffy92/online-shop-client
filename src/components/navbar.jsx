@@ -14,7 +14,6 @@ const Navbar = ( props ) => {
         if (sessionStorage.getItem("guestCart") == null) {
             console.log('setting session storage cart')
             const defaultCart = guestAPI.defaultCart()
-            console.log(defaultCart)
             guestAPI.setGuestCart(defaultCart)
         } else {
             console.log('found Session Storage Cart')

@@ -3,7 +3,7 @@ import { useState, useContext } from 'react';
 import { UserContext } from '../providers/UserProvider';
 import { navigate } from 'gatsby';
 import { UserAPI } from '../services/users'
-import accountImage from '../images/create-account.jpeg';
+import accountImage from '../images/create-account-new.jpg';
 
 
 const Signup = () => {
@@ -47,7 +47,6 @@ const Signup = () => {
     return (
         <>
         <section 
-            onSubmit={ _handleUserCreationSubmit } 
             className="bg-gray-50 dark:bg-gray-900"
             style={{
                 backgroundImage: `url(${accountImage})`,
@@ -67,7 +66,7 @@ const Signup = () => {
                         >
                             <div>
                                 <label 
-                                    for="email" 
+                                    htmlFor="email" 
                                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Full Name
                                 </label>
 
@@ -86,7 +85,7 @@ const Signup = () => {
 
                             <div>
                                 <label 
-                                    for="email" 
+                                    htmlFor="email" 
                                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                                         Email
                                 </label>
@@ -107,7 +106,7 @@ const Signup = () => {
 
                             <div>
                                 <label 
-                                    for="password" 
+                                    htmlFor="password" 
                                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                                         Password
                                 </label>
@@ -135,7 +134,7 @@ const Signup = () => {
 
                                 <div className="ml-3 text-sm">
                                     <label 
-                                        for="terms" 
+                                        htmlFor="terms" 
                                         className="font-light text-gray-500 dark:text-gray-300">I accept the 
                                             <a 
                                                 className="font-medium text-primary-600 hover:underline dark:text-primary-500" 
