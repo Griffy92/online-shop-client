@@ -104,8 +104,8 @@ There are several aspects of Pocket Cart at the moment: Admin, User Authenticati
   - Manage Cart: View and modify the items in your cart, update quantities, and remove products if needed.
 
  - ### Order
-  - Proceed to the checkout process to review your order details and provide shipping information.
-  - Review your historical orders once you logged in.
+   - Proceed to the checkout process to review your order details and provide shipping information.
+   - Review your historical orders once you logged in.
   
 - ### Shipping & Payment
   Enjoy a seamless and secure shopping experience with a variety of payment methods. We integrate with Stripe to ensure the safety and convenience of your financial transactions.
