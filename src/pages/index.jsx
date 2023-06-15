@@ -35,7 +35,7 @@ const IndexPage = () => {
 				}}>
 			
 				<div className="w-1/2 mx-auto pt-10">
-					<p className="text-4xl font-bold font-poppins mb- text-black text-center mb-3" style={{marginTop: `60px`, color: `#01a473`}}>Do you need something for your pets?</p>
+					<p className="text-4xl font-bold font-poppins mb- text-black text-center mb-3" style={{marginTop: `10px`, color: `#01a473`}}>Do you need something for your pets?</p>
 					<p className="text-xl mb-4 leading-tight font-poppinslight font-extra-light text-black text-center">Discover a curated selection of high-quality products, personalied for your pet's needs, and join us in creating a world where every pet thrives!</p>
 					<div className="flex justify-center">
 
