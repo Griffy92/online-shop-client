@@ -1,7 +1,6 @@
 import * as React from "react"
 import AllOrders from '../components/AllOrders';
-import AllProducts from '../components/AllProducts';
-import UserOrders from "../components/ UserOrderHistory";
+import AllProducts from '../components/AllProducts'
 
 const Admin = () => {
     
