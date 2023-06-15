@@ -12,34 +12,43 @@ export default function Product({ pageContext: { product } }) {
                         </div>
                     </div>
                 </div>
+                
                 <div className="w-full md:w-1/2 pl-6 flex flex-col justify-center">
                     <div className='p-4'>
-                        <strong>{ product.product_name }</strong>
+                        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{ product.product_name }</h2>
                     </div>
-                    <div className='p-4'>
+
+                    <div className='p-4 font-medium text-gray-700'>
                         <strong>Animal Category: </strong> 
-                        { product.animal_category }
+                        <p className="font-light text-gray-700">{ product.animal_category }</p>
+                        
                     </div>
-                    <div className='p-4'> 
+
+                    <div className='p-4 font-medium text-gray-700'> 
                         <strong>Product Category: </strong> 
-                        { product.product_category }
+                        <p className="font-light text-gray-700">{ product.product_category }</p>
                     </div>
-                    <div className='p-4'> 
+
+                    <div className='p-4 font-medium text-gray-700'> 
                         <strong>Price: </strong>
-                        ${ product.retail_price }
+                        <p className="font-light text-gray-700"> ${ product.retail_price } </p>
                     </div>
-                    <div className='p-4'>
+
+                    <div className='p-4 font-medium text-gray-700'>
                         <strong>Stock: </strong>
-                        { product.quantity }* <small> Stock is not reserved until purchased. Available quantity may be lower than expected at time of checkout.</small>
+                        <p className="font-light text-gray-700"> { product.quantity }* <small style={{color: `grey`}}> Stock is not reserved until purchased. Available quantity may be lower than expected at time of checkout.</small></p>
                     </div>
+
                     <br />
                     <div className="w-full p-4">
                         <ProductControls product={product}/>
                     </div>
+
                 </div>
-                <div className='mt-6 p-4 mr'>
+
+                <div className='p-4 font-medium text-gray-700'>
                     <strong>Description: </strong>
-                    { product.product_description }
+                    <p className="font-light text-gray-700"> { product.product_description } </p>
                 </div>
             </div>
         </div>

@@ -4,6 +4,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "gatsby";
 import ProductControls from "../components/product-controls";
+import ProductFilter from "../components/product-filter";
 
 const Search = () => {
     const URL = "http://localhost:3000/"; 
@@ -15,7 +16,8 @@ const Search = () => {
     
     const  [ products, setProducts ] = useState([]);
     const [ loading, setLoading ] = useState(true);
-
+    const [filteredProducts, setFilteredProducts] = useState([]);
+      
     useEffect(() => {
         const fetchSearch = async () => {
             try {
@@ -32,6 +34,7 @@ const Search = () => {
                     );
                 });
                 setProducts(searchProducts);
+                setFilteredProducts(searchProducts);
                 setLoading(false);
             } catch (error) {
                 console.error("ERROR", error);
@@ -41,16 +44,24 @@ const Search = () => {
         fetchSearch();
     }, [newSearch]);
       
+    const ApplyFilters = (updatedProducts) => {
+        setFilteredProducts(updatedProducts);
+    };
     
     return (
         <div className="container mx-auto" pageTitle="search">
+            <ProductFilter products={products} onApplyFilters={ApplyFilters} />
             <div className="ml-64">
-                <h1 className="mt-10 mb-5 text-3xl font-extrabold font-poppins text-black">
-                        Searching for <span style={{ color: '#ffbd23' }}>{search}</span>
+                <h1 
+                    className="mb-5 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-5xl dark:text-white"  
+                    style={{
+                        marginTop: `85px`,
+                        color: `#383838`,}}
+                    > Searching for <span style={{ color: '#ffbd23' }}>{search}</span>
                     </h1>
-                    <div className="bg-white place-content-center grid grid-cols-4 gap-4">
-                        {loading ? ( <h2>No Items Found</h2> ) : (
-                            products.map(( product ) => (
+                    <div className="place-content-center grid grid-cols-4 gap-4">
+                        {loading ? ( <h2>Loading</h2> ) : (
+                            filteredProducts.map(( product ) => (
                                 <div 
                                     key={ product.id }
                                     className="card card-compact bg-white shadow-2xl p-4"
@@ -66,12 +77,26 @@ const Search = () => {
                                             />
                                         </figure>
                                     </Link>
+
                                     <div className="product-title">
-                                        <h2 className="card-title text-black">{ product.product_name }</h2>
+                                        <h2 
+                                            className="card-title text-black font-poppinsSemi font-semi-bold" 
+                                            style={{
+                                                fontSize: `13pt`, 
+                                                lineHeight: `1.4`}}>
+                                                    { product.product_name }
+                                        </h2>
                                     </div>
 
                                     <div className="w-full mx-auto">
-                                        <p className="badge badge-secondary block mt-3 mb-3">${ product.retail_price }</p>
+                                        <p 
+                                            className="badge block mt-3 mb-3 font-poppinsMed font-medium bg-sky-500 text-s" 
+                                            style={{
+                                                backgroundColor: `#8986FF`, 
+                                                color: `white`, 
+                                                border: `1px solid transparent`, 
+                                            }}>
+                                            ${ product.retail_price }</p>
                                         <br></br>
                                             <ProductControls product={product}/>
                                     </div>

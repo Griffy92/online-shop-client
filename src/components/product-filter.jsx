@@ -31,9 +31,30 @@ const ProductFilter = ({ products, onApplyFilters }) => {
     };
 
     return (
-        <aside id="default-sidebar" className="fixed px-4 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0 top-[15%]" aria-label="Sidebar">
-        <div className="menu bg-white w-56 space-y-4 form-control">
-            <select className="select select-bordered w-full max-w-xs"
+        <aside id="default-sidebar" className="mt-16 fixed px-4 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0 top-[18%] z-4" aria-label="Sidebar">
+
+        <div className="menu bg-white w-50 space-y-1 form-control ">
+            {/* filter icon */}
+            <div className="flex justify-center my-1">
+                <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke-width="1.5" 
+                    stroke="currentColor" 
+                    className="w-6 h-6"
+                >
+                    <path 
+                        stroke-linecap="round" 
+                        stroke-linejoin="round" 
+                        d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" 
+                    />
+                </svg>
+            </div>
+
+            {/* Category Filter */}
+            <select 
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 value={sortByCategory}
                 onChange={ (e) => setSortByCategory(e.target.value) }
             >
@@ -47,7 +68,10 @@ const ProductFilter = ({ products, onApplyFilters }) => {
                 <option value="Toys">Toys</option>
             </select>
             <br />
-            <select className="select select-bordered w-full max-w-xs"
+
+            {/* Soft By Filter */}
+            <select 
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 value={sortBy}
                 onChange={ (e) => setSortBy(e.target.value) }
             >
@@ -57,7 +81,11 @@ const ProductFilter = ({ products, onApplyFilters }) => {
                 <option value="newest">Newest</option>
             </select>
             <br />
-            <button onClick={ _handleApplyFilters } className="py-4 px-8 text-white font-bold text-xs rounded hover:text-gray-950 sameasbg-color text-white">Apply</button>
+            <button 
+                onClick={ _handleApplyFilters } 
+                className="font-poppinsMed font-medium py-3 px-7 text-red font-bold text-sm rounded text-white hover:text-white outline-offset-0 bg-green-400 hover:bg-sky-500 duration-500 shadow">
+                Apply
+            </button>
         </div>
         </aside>
     );

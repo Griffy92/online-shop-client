@@ -81,101 +81,121 @@ const AllOrders = () => {
       <h1 className="text-2xl font-bold mb-4">List of Orders</h1>
 
       <div className="text-right">
-    <input
-    type="text"
-    value={filterValue}
-    onChange={handleFilterChange}
-    placeholder="Filter..."
-    className="border border-gray-300 rounded px-4 py-2 mt-4"
-    />
+        <input
+          type="text"
+          value={filterValue}
+          onChange={handleFilterChange}
+          placeholder="Filter..."
+          className="border border-gray-300 rounded px-4 py-2 mt-4 mb-3"
+        />
     </div>
 
-    <table className="table-auto">
-  <thead>
-    <tr>
-      <th onClick={() => handleSort('id')}>Order ID</th>
-      <th onClick={() => handleSort('user_id')}>User ID</th>
-      <th onClick={() => handleSort('orderstatus')}>Status</th>
-      <th onClick={() => handleSort('created_at')}>Created At</th>
-      <th onClick={() => handleSort('email')}>Email</th>
-      <th onClick={() => handleSort('shipping_address')}>Shipping Address</th>
-      <th onClick={() => handleSort('shipping_cost')}>Shipping Cost</th>
-      <th onClick={() => handleSort('shipping_name')}>Shipping Name</th>
-      <th onClick={() => handleSort('amount_subtotal')}>Amount Subtotal</th>
-      <th onClick={() => handleSort('amount_total')}>Amount Total</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    {filteredOrders.map((order) => (
-      <tr key={order.id}>
-        <td>{order.id}</td>
-        <td>{order.user_id}</td>
-        <td>{order.orderstatus}</td>
-        <td>{order.created_at}</td>
-        <td>{order.email}</td>
-        <td>{order.shipping_address}</td>
-        <td>{order.shipping_cost}</td>
-        <td>{order.shipping_name}</td>
-        <td>{order.amount_subtotal}</td>
-        <td>{order.amount_total}</td>
-        <td>
-          <button
-            onClick={() => openOrderDetails(order.id)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
-          >
-            Order Details
-          </button>
-        </td>
-      </tr>
-    ))}
-  </tbody>
-</table>
+    <div className="relative overflow-x-auto">
+      <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <tr>
+            <th scope="col" className="px-6 py-3" onClick={() => handleSort('id')}>Order ID</th>
+            <th scope="col" className="px-6 py-3" onClick={() => handleSort('user_id')}>User ID</th>
+            <th scope="col" className="px-6 py-3" onClick={() => handleSort('orderstatus')}>Status</th>
+            <th scope="col" className="px-6 py-3" onClick={() => handleSort('created_at')}>Created At</th>
+            <th scope="col" className="px-6 py-3" onClick={() => handleSort('email')}>Email</th>
+            <th scope="col" className="px-6 py-3" onClick={() => handleSort('shipping_address')}>Shipping Address</th>
+            <th scope="col" className="px-6 py-3" onClick={() => handleSort('shipping_cost')}>Shipping Cost</th>
+            <th scope="col" className="px-6 py-3" onClick={() => handleSort('shipping_name')}>Shipping Name</th>
+            <th scope="col" className="px-6 py-3" onClick={() => handleSort('amount_subtotal')}>Amount Subtotal</th>
+            <th scope="col" className="px-6 py-3" onClick={() => handleSort('amount_total')}>Amount Total</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {filteredOrders.map((order) => (
+            <tr key={order.id} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+              <td className="px-6 py-4">{order.id}</td>
+              <td className="px-6 py-4">{order.user_id}</td>
+              <td className="px-6 py-4">{order.orderstatus}</td>
+              <td className="px-6 py-4">{order.created_at}</td>
+              <td className="px-6 py-4">{order.email}</td>
+              <td className="px-6 py-4">{order.shipping_address}</td>
+              <td className="px-6 py-4">{order.shipping_cost}</td>
+              <td className="px-6 py-4">{order.shipping_name}</td>
+              <td className="px-6 py-4">{order.amount_subtotal}</td>
+              <td className="px-6 py-4">{order.amount_total}</td>
+              <td>
+                <button
+                  onClick={() => openOrderDetails(order.id)}
+                  className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+                >
+                  Order Details
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
 
 
 
     {selectedOrderId && (
-        <div className="fixed top-0 left-0 right-0 bottom-0 flex justify-center items-center bg-black bg-opacity-50">
-        <div className="bg-white rounded-lg p-6 mt-20">
-          <h2 className="text-2xl font-bold mb-4">Order Details</h2>
-          {orders.map((order) => {
-            if (order.id === selectedOrderId) {
-              return (
-                <div key={order.id}>
-                  <p>Order ID: {order.id}</p>
-                  <p>User ID: {order.user_id}</p>
-                  <p>Order Status: {order.orderstatus}</p>
-                  <p>Created At: {order.created_at}</p>
-                  <p>Email: {order.email}</p>
-                  <p>Shipping Address: {order.shipping_address}</p>
-                  <p>Shipping Cost: {order.shipping_cost}</p>
-                  <p>Shipping Name: {order.shipping_name}</p>
-                  <p>Amount Subtotal: {order.amount_subtotal}</p>
-                  <p>Amount Total: {order.amount_total}</p>
+        <div className="fixed top-0 left-0 right-0 bottom-0 flex justify-center items-center bg-black bg-opacity-50 z-10">
+          <div className="bg-white rounded-lg p-6 mt-20">
 
-                  <h3 className="text-lg font-semibold mt-4">Products:</h3>
-                  <ul>
-                    {order.products.map((product) => (
-                      <li key={product.id}>
-                        <p>Product ID: {product.id}</p>
-                        <p>Product Code: {product.product_code}</p>
-                        <p>Product Name: {product.product_name}</p>
-                         {/* Display other product information here */}
-                      </li>
-                    ))}
-                  </ul>
-                  <button
-                    onClick={closeOrderDetails}
-                    className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 mt-4 rounded"
-                  >
-                    Close
-                  </button>
-                </div>
-              );
-            }
-            return null;
-          })}
-        </div>
+            <div className="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
+
+              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
+                  Order Details
+              </h3>
+
+              <button type="button" onClick={closeOrderDetails} className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="defaultModal">
+                  <svg aria-hidden="true" className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                  </svg>
+                  <span className="sr-only" >Close modal</span>
+              </button>
+
+            </div>
+            <div className="p-6 space-y-6">
+              {orders.map((order) => {
+                if (order.id === selectedOrderId) {
+                  return (
+                    <div className="text-base leading-relaxed text-gray-500 dark:text-gray-400" key={order.id}>
+                      <p className="mb-1">Order ID: {order.id}</p>
+                      <p className="mb-1">User ID: {order.user_id}</p>
+                      <p className="mb-1">Order Status: {order.orderstatus}</p>
+                      <p className="mb-1">Created At: {order.created_at}</p>
+                      <p className="mb-1">Email: {order.email}</p>
+                      <p className="mb-1">Shipping Address: {order.shipping_address}</p>
+                      <p className="mb-1">Shipping Cost: {order.shipping_cost}</p>
+                      <p className="mb-1">Shipping Name: {order.shipping_name}</p>
+                      <p className="mb-1">Amount Subtotal: {order.amount_subtotal}</p>
+                      <p className="mb-1">Amount Total: {order.amount_total}</p>
+
+                      <h3 className="text-lg font-semibold mt-4 text-black">Products:</h3>
+                      <ul>
+                        {order.products.map((product) => (
+                          <li key={product.id}>
+                            <p>Product ID: {product.id}</p>
+                            <p>Product Code: {product.product_code}</p>
+                            <p>Product Name: {product.product_name}</p>
+                            {/* Display other product information here */}
+                          </li>
+                        ))}
+                      </ul>
+                      <button
+                        onClick={closeOrderDetails}
+                        className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 mt-4 rounded"
+                      >
+                        Close
+                      </button>
+                    </div>
+                  
+                );
+              }
+              return null;
+            })}
+            </div>
+          </div>
       </div>
     )}
     </div>

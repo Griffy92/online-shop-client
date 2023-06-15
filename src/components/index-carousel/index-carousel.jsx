@@ -3,7 +3,7 @@ import IndexCarouselCard from './index-carousel-card';
 import { CartAPI } from '../../services/cart';
 
 const IndexCarousel = () => {
-    const [ carouselArray, setCarouselArray ] = useState([])
+    const [ carouselArray, setCarouselArray ] = useState([]);
 
     const getArray = () => {
         CartAPI.getProducts().then((response) => {
