@@ -7,7 +7,7 @@ import headerImage from '../images/header-temp.jpg';
 
 const IndexPage = () => {
 
-	const [ user, setUser ] = useState({});
+	const [ user ] = useState({});
 
     // // fetch user
     // useEffect(() => {
