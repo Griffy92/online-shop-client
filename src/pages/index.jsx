@@ -27,7 +27,7 @@ const IndexPage = () => {
 		<>	
 			{/* cover image with CTA button */}
 			<div 
-			className="bg-cover bg-center text-white px-10 h-screen-half"
+			className="bg-cover bg-center text-white px-10 h-screen-half "
 			style={{
 				// marginTop: '-20px',
 				backgroundImage:`url(${headerImage})`,
@@ -48,6 +48,9 @@ const IndexPage = () => {
 					</div>
 
 				</div>  
+			</div>
+			<div className="w-1/2 mx-auto pt-10">
+				<h1 className="text-3xl font-bold font-poppins mb- text-black text-center mb-3">New Products</h1>
 			</div>
 			{/* <IndexCarousel />	 */}
 			<IndexCarousel user={user}/>
