@@ -4,6 +4,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "gatsby";
 import ProductControls from "../components/product-controls";
+import ProductFilter from "../components/product-filter";
 
 const Search = () => {
     const URL = "http://localhost:3000/"; 
@@ -15,7 +16,8 @@ const Search = () => {
     
     const  [ products, setProducts ] = useState([]);
     const [ loading, setLoading ] = useState(true);
-
+    const [filteredProducts, setFilteredProducts] = useState([]);
+      
     useEffect(() => {
         const fetchSearch = async () => {
             try {
@@ -32,6 +34,7 @@ const Search = () => {
                     );
                 });
                 setProducts(searchProducts);
+                setFilteredProducts(searchProducts);
                 setLoading(false);
             } catch (error) {
                 console.error("ERROR", error);
@@ -41,9 +44,13 @@ const Search = () => {
         fetchSearch();
     }, [newSearch]);
       
+    const ApplyFilters = (updatedProducts) => {
+        setFilteredProducts(updatedProducts);
+    };
     
     return (
         <div className="container mx-auto" pageTitle="search">
+            <ProductFilter products={products} onApplyFilters={ApplyFilters} />
             <div className="ml-64">
                 <h1 
                     className="mb-5 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-5xl dark:text-white"  
@@ -54,7 +61,7 @@ const Search = () => {
                     </h1>
                     <div className="place-content-center grid grid-cols-4 gap-4">
                         {loading ? ( <h2>Loading</h2> ) : (
-                            products.map(( product ) => (
+                            filteredProducts.map(( product ) => (
                                 <div 
                                     key={ product.id }
                                     className="card card-compact bg-white shadow-2xl p-4"
