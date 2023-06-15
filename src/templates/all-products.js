@@ -4,12 +4,12 @@ import ProductFilter from "../components/product-filter";
 import ProductControls from "../components/product-controls";
 
 const AllProductsTemplate = ({ pageContext }) => {
-  const { allProducts } = pageContext;
-  const [filteredProducts, setFilteredProducts] = useState(allProducts);
+    const { allProducts } = pageContext;
+    const [filteredProducts, setFilteredProducts] = useState(allProducts);
   
-  const applyFilters = (updatedProducts) => {
+    const applyFilters = (updatedProducts) => {
       setFilteredProducts(updatedProducts);
-  };
+    };
 
     return (
         <div className="container mx-auto">

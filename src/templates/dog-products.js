@@ -5,7 +5,6 @@ import ProductControls from "../components/product-controls";
 
 const DogProductsTemplate = ({ pageContext }) => {
     const { dogProducts } = pageContext;
-
     const [filteredProducts, setFilteredProducts] = useState(dogProducts);
 
     const applyFilters = (updatedProducts) => {
