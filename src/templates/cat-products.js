@@ -5,7 +5,6 @@ import ProductControls from "../components/product-controls";
 
 const CatProductsTemplate = ({ pageContext }) => {
     const { catProducts } = pageContext;
-
     const [filteredProducts, setFilteredProducts] = useState(catProducts);
 
     const applyFilters = (updatedProducts) => {

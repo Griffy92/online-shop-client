@@ -33,22 +33,22 @@ body {
     z-index: 0;
 }
   
-    #nav-effect span::before {
-        content: '';
-        position: absolute;
-        z-index: -1;
-        bottom: 2px;
-        left: -4px;
-        right: 100%;
-        display: block;
-        height: 6px;
-        transition: right 0.3s;
-    }
+#nav-effect span::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    bottom: 2px;
+    left: -4px;
+    right: 100%;
+    display: block;
+    height: 6px;
+    transition: right 0.3s;
+}
 
-    #nav-effect:hover span::before {
-        right: -4px;
-        background-color: #fcae04;
-    }
+#nav-effect:hover span::before {
+    right: -4px;
+    background-color: #fcae04;
+}
   
 .product-img {
     height: 15rem;

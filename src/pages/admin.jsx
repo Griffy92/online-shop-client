@@ -1,26 +1,24 @@
 import * as React from "react"
-import AllOrders from '../components/AllOrders';
-import AllProducts from '../components/AllProducts';
-import UserOrders from "../components/ UserOrderHistory";
+// import AllOrders from '../components/AllOrders';
+// import AllProducts from '../components/AllProducts';
+// import UserOrders from "../components/ UserOrderHistory";
 import { Link } from 'gatsby';
-import adminOrders from "./admin/orders";
+// import adminOrders from "./admin/orders";
 
 
 
 const Admin = () => {
-    
-
     return (
         <>
-     
             <div className="container mx-auto bg-white h-screen ">
                 <div className="p-8 w-9/12 m-auto">
                     <div>
                         <h1 
                             className="text-3xl font-extrabold leading-none tracking-tight text-black-900 md:text-5xl text-center mb-10 mt-20" 
                             style={{
-                                color: `#383838`,}}
-                            >Admin Page
+                                color: `#383838`,
+                            }}>
+                            Admin Page
                         </h1>
                     </div>
 
@@ -43,8 +41,6 @@ const Admin = () => {
                                 </Link>
                             </div>
                         </div>
-
-
   
                         <div class="w-1/2 h-30 ml-1">
                             <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-auto">

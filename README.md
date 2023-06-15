@@ -16,7 +16,7 @@
 * Contact
 <br><br>
 ## 📄 General Info
-Pocket Cart is a web-based platform that offers a convenient and comprehensive shopping experience for pet owners. With a wide range of products including food, treats, flea, tick and worm treatments, litter, accessories, and toys for various pets, our website is designed to meet the needs of pet owners and ensure the happiness and well-being of their furry companions.
+Pocket Cart is a web-based platform that offers a convenient and comprehensive shopping experience for pet owners. With a wide range of products including food, treats, flea, tick and worm treatments, litter, accessories, and toys for various pets, our website is designed to meet the needs of pet owners and ensure the happiness and well-being of their beloved companions.
 
 This project is led by a dedicated team comprising Dom, Karen, Riley, Roxanne, and Stuart. As part of our journey in the General Assembly Software Engineering Immersive course, we have come together to create this eCommerce website, leveraging our skills and knowledge in web development. Despite being located in different time zones, we collaborate effectively to ensure continuous progress and deliver a high-quality product to our users.
 <br><br>
@@ -55,7 +55,8 @@ npm
 npm install npm@latest -g
 ```
 ### Installation
-You can clone this repository and run it locally on your machine. Use the following command to clone the repository:
+You can clone these repositories and run them locally on your machine. Use the following command to clone them:
+
 For the front end:
 ```
 git clone https://github.com/Griffy92/online-shop-client.git
@@ -65,7 +66,8 @@ For the back end:
 git clone https://github.com/Griffy92/online-shop-server.git
 ```
 ### Running the Project
-After cloning the repository, navigate to the project directory and install the necessary dependencies. Given that this project uses Gastby and React as front end and Rails as the back end, you can use the following commands:
+After cloning the repositories, navigate to the project directory and install the necessary dependencies. Given that this project uses Gastby and React as front end and Rails as the back end, you can use the following commands:
+
 For the front end:
 ```
 cd online-shop-client
@@ -128,7 +130,7 @@ There are several aspects of Pocket Cart at the moment: Admin, User Authenticati
 ### Payment Page
 ![image](https://raw.githubusercontent.com/Rox-Liu/online-shop-client/main/src/images/readme_assets/shipping%20%26%20payment.png)
 ### Admin Page
-![image]()
+![image](https://raw.githubusercontent.com/Rox-Liu/online-shop-client/main/src/images/readme_assets/Admin.png)
 ### Order Confirmation
 ![image](https://raw.githubusercontent.com/Rox-Liu/online-shop-client/main/src/images/readme_assets/Order%20Confirmation.png)
 ### Password Reset

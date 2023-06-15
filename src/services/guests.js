@@ -12,25 +12,24 @@ const guestObjShape = ({
 // Functions relating to dealing with storage and retrieval of Guest Cart. Session storage used for development, however switch to LocalStorage could be possible
 export const guestAPI = {
     guestObj: function () {
-        return guestObjShape
+        return guestObjShape;
     },
     defaultCart: function () {
-    return guestObjShape
+        return guestObjShape;
     },
     setGuestCart: function (currCart) {
         sessionStorage.removeItem("guestCart");
-
-        const JSONcart = JSON.stringify(currCart)
-        sessionStorage.setItem("guestCart", JSONcart)
+        const JSONcart = JSON.stringify(currCart);
+        sessionStorage.setItem("guestCart", JSONcart);
     },
     getGuestCart: function () {
-        let JSONguestCart = sessionStorage.getItem("guestCart")
-        let JSONguestCart2 = JSON.parse(JSONguestCart)
-        return JSONguestCart2
+        let JSONguestCart = sessionStorage.getItem("guestCart");
+        let JSONguestCart2 = JSON.parse(JSONguestCart);
+        return JSONguestCart2;
     },
     AddGuestCart: function () {
-        const guestCart = sessionStorage.getItem("guestCart")
-        return JSON.parse(guestCart)
+        const guestCart = sessionStorage.getItem("guestCart");
+        return JSON.parse(guestCart);
     },
     clearGuestCart: function () {
         sessionStorage.removeItem("guestCart");
