@@ -1,59 +1,137 @@
+# 🛒🐾 Pocket Cart
 
-test
+# Discover a curated selection of high-quality products and join us in creating a world where every pet thrives!🐶🐱🐭🐦🐹
+## 🪄 Live demo [here](https://pocket-palette.netlify.app/)!
+
+## 📖 Table of Contents
+* General Info
+* Planning & Problem Solving
+* Built With
+* Getting Started
+* Features
+* Screenshots
+* Room for Improvement
+* License
+* Contributing
+* Contact
+<br><br>
+## 📄 General Info
+Pocket Palette is a web-based platform that offers a convenient and comprehensive shopping experience for pet owners. With a wide range of products including wet food, dry food, treats, flea, tick and worm treatments, litter, accessories, and toys for various pets, our website is designed to meet the needs of pet owners and ensure the happiness and well-being of their furry companions.
+
+This project, led by Dom, Karen, Riley, Roxanne, and Stuart, is a collaborative effort representing our forth undertaking within the General Assembly Software Engineering Immersive course. With the aim of embracing a challenging endeavor that elevates our skills and knowledge in web development, our diverse team, spanning three different time zones, effectively collaborates to ensure continuous progress on the project.
+<br><br>
+## ✏️ Planning & Problem Solving
 
 
-testing
 
 
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby Minimal Starter
-</h1>
+## 🦾 Built With
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
 
-## 🚀 Quick start
+[![Gatsby](https://img.shields.io/badge/gatsby-8a4baf?style=for-the-badge&logo=gatsby&logoColor=#8a4baf)](https://www.gatsbyjs.com)
 
-1.  **Create a Gatsby site.**
+[![Rails](https://img.shields.io/badge/rails-A91401?style=for-the-badge&logo=rubyonrails&logoColor=FFFFF)](https://rubyonrails.org)
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
 
-    ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
-    ```
+[![TailwindCSS](https://img.shields.io/badge/tailwindcss-4A4A55?style=for-the-badge&logo=tailwindcss&logoColor=fffff)](https://tailwindcss.com)
 
-2.  **Start developing.**
+[![Node.js](https://img.shields.io/badge/Node.js-35495E?style=for-the-badge&logo=nodedotjs&logoColor=4FC08D)](https://nodejs.org/en)
 
-    Navigate into your new site’s directory and start it up.
+[![stripe](https://img.shields.io/badge/stripe-d6d6d6?style=for-the-badge&logo=stripe&logoColor=6772E5)](https://stripe.com/en-au)
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+<br><br>
 
-3.  **Open the code and start customizing!**
+## ⚙️ Getting Started
+### Prerequisites
 
-    Your site is now running at http://localhost:8000!
+Please note that these instructions assume you have Node.js and npm installed on your machine. If not, please install them before proceeding.
 
-    Edit `src/pages/index.js` to see your site update in real-time!
+Node.js
 
-4.  **Learn more**
+Head to [Node.js](https://nodejs.org/en/download) and install the correct version for your operating system.
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-    - [Tutorials](https://www.gatsbyjs.com/docs/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-    - [Guides](https://www.gatsbyjs.com/docs/how-to/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+npm
+```sh
+npm install npm@latest -g
+```
+### Installation
+You can clone this repository and run it locally on your machine. Use the following command to clone the repository:
+For the front end:
+```
+git clone https://github.com/Griffy92/online-shop-client.git
+```
+For the back end:
+```
+git clone https://github.com/Griffy92/online-shop-server.git
+```
+### Running the Project
+After cloning the repository, navigate to the project directory and install the necessary dependencies. Given that this project uses Gastby and React as front end and Rails as the back end, you can use the following commands:
+For the front end:
+```
+cd online-shop-client
+npm install
+npm run clean
+npm run develop
+```
+For the back end:
+```
+cd online-shop-server
+rails db:migrate
+rails db:seed
+bundle install
+rails server
+```
+<br><br>
+## 🛍️ Features
+There are four aspects to Pocket Palette at the moment: User Authentication, Search, Filter, Cart, Shipping and Payment.
 
-## 🚀 Quick start (Netlify)
+- ### User Authentication
+  Sign Up, Log In, Password Reset, Log Out, Confirmation Email
 
-Deploy this starter with one click on [Netlify](https://app.netlify.com/signup):
+- ### Search
+- ### Filter
 
-[<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-minimal)
+- ### Cart 
+  
+- ### Shippping & Payment
+  Stripe API
+<br><br>
+## 📸 Screenshots
 
-test
+### Home Page
+### All Products Page
 
+### Cart Page
+
+### Payment Page
+
+
+<br><br>
+## 🚀 Room for improvement
+- Improved UI
+- Optimize the application to ensure mobile compatibility and a seamless user experience on all devices
+- Add "Buy Now" button for better customer experience
+<br><br>
+## 🔐 License
+This project is licensed under the [MIT License](LICENSE).
+<br><br>
+## 🌱 Contributing
+Contributions are welcome! If you would like to contribute to this project, please follow these steps:
+
+- Fork the repository
+- Create a new branch for your feature or bug fix
+- Make your modifications and commit changes
+- Push your changes to your forked repository
+- Submit a pull request explaining your changes
+<br><br>
+## 📧 Contact
+
+- Dom -- dominicwong09@gmail.com
+- Karen -- karenliang9546@gmail.com
+- Riley -- riley.mercer4@gmail.com
+- Roxanne -- roxanneliu819@gmail.com
+- Stuart -- stuartcannone@gmail.com
+
+<br><br>
+
+![image](https://raw.githubusercontent.com/Rox-Liu/project-02/main/public/readme_assets/Group%20Image/readme_everyone_v4.png)
