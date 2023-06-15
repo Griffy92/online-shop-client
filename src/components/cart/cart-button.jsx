@@ -16,7 +16,6 @@ const CartButton = () => {
 	useEffect(() => {
 		// Check to see if this is a redirect back from Checkout
 		const query = new URLSearchParams(window.location.search);
-
 		if (query.get("canceled")) {
 		setMessage("Order canceled -- continue to shop around and checkout when you're ready.");
 		};
@@ -26,9 +25,6 @@ const CartButton = () => {
 	const orderMemo = useMemo(() => {
 		if ((Object.entries(user).length) > 0){     
 			if (user.orders.length > 0) {
-				// if (user.orders.find((e) => e.orderstatus === "active" ) == null) {
-				//   return CartAPI.newOrder( user.id );
-				// };
 				return user.orders.find((e) => e.orderstatus === "active")
 			};
 		};
@@ -69,11 +65,10 @@ const CartButton = () => {
 
   // This handles the loading of the cart when the cart button is clicked
 	const _handleClick = () => {
-console.log(orderMemo)
 		// if User
 		if (!guestStatus) {
 
-      // CartItems is sent to components below
+      	// CartItems is sent to components below
 			CartAPI.getOrder(orderMemo.id).then((response) => {
 				setCartItems(response.data.cart_items);
 			});
@@ -146,8 +141,8 @@ console.log(orderMemo)
 				<span className="sr-only">View Cart</span>
 			</Popover.Button>
 
-			<Popover.Panel className="absolute z-10 bg-gray-50 lg:w-1/3 -translate-x-full md:w-1/2 sm:w-full overscroll-none px-2 pt-2 z-100">
-				<div className="p-2">
+			<Popover.Panel className="absolute z-10 bg-gray-50 lg:w-1/3 -translate-x-full md:w-1/2 sm:w-full px-2 pt-2 z-100 max-h-screen ">
+				<div className="p-2 max-h-screen-half overflow-y-auto">
 					<table className="table-fixed w-full ">
 					{cartItems.length > 0 ? (
 						<CardButtonItemGenerator cartItems={cartItems} />
@@ -163,7 +158,7 @@ console.log(orderMemo)
 				<hr />
 					{cartItems.length > 0 ? (
 					<div className="p-2">
-						<table className="table-fixed w-full">
+						<table className="table-fixed w-full ">
 						<CartPrice cartItems={cartItems}/>
 						</table>
 					</div>
