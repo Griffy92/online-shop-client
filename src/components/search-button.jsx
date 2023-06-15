@@ -68,11 +68,27 @@ const SearchButton = () => {
                     <input 
                         type="text" 
                         id="search-navbar" 
-                        className="block w-full p-2 pl-10 text-sm text-white border border-white rounded-lg bg-transparent font-poppinsLight font-extra-light"       
+                        className="block w-full sm:w-40 lg:w-50 p-2 pl-10  text-sm text-white border border-white rounded-lg bg-transparent font-poppinsLight font-extra-light"       
                         placeholder="Search..." 
                         value={search}
                         onChange={_handleChange}
                         onKeyDown={_handleKeyDown}
+                         style={{
+    color: 'white',
+    '::placeholder': {
+      color: 'white',
+    },
+    '::-webkit-input-placeholder': {
+      color: 'white',
+    },
+    '::-moz-placeholder': {
+      color: 'white',
+    },
+    ':-ms-input-placeholder': {
+      color: 'white',
+    },
+  }}
+                        
                     />
                 </div>
             </div>

@@ -39,13 +39,12 @@ const Navbar = ( props ) => {
                 textAlign: `center`,
                 color: `white`,
                 fontFamily: `sans-serif`,
-                }}>Free shipping for orders over $50! 🐶🐱🐭🐦🐹 </div> */}
-            {/* nav background color and drop shadow effect */}
+                }}>Free shipping for orders over $50! 🐶🐱🐭🐦🐹 
+        </div> 
+          */}
 
             {/* Handles margin-bottom of sticky nav bar  */}
 
-
-            
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-11"></div>
 
             {/* Nav Bar */}
@@ -53,9 +52,10 @@ const Navbar = ( props ) => {
                 
 
             <nav 
-            
                 className="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 shadow-lg" 
-                style={{backgroundColor: `#01A473`}}>
+                style={{backgroundColor: `#01A473`}}
+                >
+
                 <div className="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-4">
                     <Link to="/" className="flex items-center">
                         <img src={ logo } className="h-7 mr-1" alt="Pocket Cart Logo"/>
@@ -73,7 +73,7 @@ const Navbar = ( props ) => {
                                         onClick={ handleSignOut } 
                                         title="Sign out" 
                                         type="button" 
-                                        className="text-white bg-white-700 hover:bg-white hover:bg-opacity-20 hover:border-white-700 hover:border-yellow rounded-lg p-2.5 text-center inline-flex items-center mr-2 shadow border-gray-400 hover:border-white transition duration-200 transition-bg" 
+                                        className="text-white bg-white-700 hover:bg-white hover:bg-opacity-20 hover:border-white-700 hover:border-yellow rounded-lg p-2.5 text-center inline-flex items-center mr-2 shadow border-gray-400 hover:border-white transition duration-200 transition-bg placeholder-white" 
                                         style={{ border: '1px solid transparent' }}
                                         onMouseEnter={ _handleBorder }
                                         onMouseLeave={ _handleResetBorder }

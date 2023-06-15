@@ -49,6 +49,9 @@ const IndexPage = () => {
 
 				</div>  
 			</div>
+			<div className="w-1/2 mx-auto pt-10">
+				<h1 className="text-3xl font-bold font-poppins mb- text-black text-center mb-3">New Products</h1>
+			</div>
 			{/* <IndexCarousel />	 */}
 			<IndexCarousel user={user}/>
 			{/* <FeaturedProducts /> */}
