@@ -142,7 +142,7 @@ const CartButton = () => {
 			</Popover.Button>
 
 			<Popover.Panel className="absolute z-10 bg-gray-50 lg:w-1/3 -translate-x-full md:w-1/2 sm:w-full px-2 pt-2 z-100 max-h-screen ">
-				<div className="p-2 max-h-screen-half  overflow-y-auto">
+				<div className="p-2 max-h-screen-half overflow-y-auto">
 					<table className="table-fixed w-full ">
 					{cartItems.length > 0 ? (
 						<CardButtonItemGenerator cartItems={cartItems} />
