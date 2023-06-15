@@ -21,7 +21,6 @@ export default function Product({ pageContext: { product } }) {
                     <div className='p-4 font-medium text-gray-700'>
                         <strong>Animal Category: </strong> 
                         <p className="font-light text-gray-700">{ product.animal_category }</p>
-                        
                     </div>
 
                     <div className='p-4 font-medium text-gray-700'> 
