@@ -27,7 +27,7 @@ const CartButtonItem = ( props ) => {
       // Setting cartState triggers re-render of cart dropdown / popover. Dependant on adding to cart to enforce order
       // Without '.then()' cart dropdown would occassionally re-render before AddProduct request had been finished 
       CartAPI.addProduct(order_id, product_id, payload).then((e) => {
-        setCartStatus(e.status * Date.now())}) 
+        setCartStatus(e.status * Date.now())});
 
       setCount(count + 1); // Probably redundant at this stage      
     };
@@ -49,7 +49,7 @@ const CartButtonItem = ( props ) => {
   };
 
   const countCheck = (count) => { // Possibly redundant
-    const prodCount = product.quantity + count
+    const prodCount = product.quantity + count;
     if (prodCount > 0) {
       return prodCount;
     } else {
@@ -57,11 +57,11 @@ const CartButtonItem = ( props ) => {
     };
   };
 
-  // Functionally very similar to AddCart, see above for comments
+  // Functionally very similar to _handleAddCart
   const _handleRemoveCart = () => {
     if (!guestStatus) {
-      const order_id = product.order_id
-      const product_id = product.product_id
+      const order_id = product.order_id;
+      const product_id = product.product_id;
       const payload = {
           product: {
               product_id: product_id
@@ -71,7 +71,7 @@ const CartButtonItem = ( props ) => {
           },
       };
       CartAPI.removeProduct(order_id, product_id, payload).then((e) => {
-        setCartStatus(e.status * Date.now())})
+        setCartStatus(e.status * Date.now())});
       setCount(count - 1);
     };
 
@@ -90,9 +90,9 @@ const CartButtonItem = ( props ) => {
           if (e.product.id === product.product.id){
               e.quantity = e.quantity - 1
           }});
-        sessionObj.order.cart_items = guestCart
-        guestAPI.setGuestCart(sessionObj)
-        setCartStatus(Math.random)
+        sessionObj.order.cart_items = guestCart;
+        guestAPI.setGuestCart(sessionObj);
+        setCartStatus(Math.random);
         return
       };
     };
