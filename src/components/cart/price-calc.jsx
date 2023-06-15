@@ -27,13 +27,13 @@ const CartPrice = ({ cartItems }) => {
                 <td className="w-2/6 text-center text-black">
                     <p>Subtotal</p> 
                 </td>
-                <td className="w-4/6 text-black text-center">
+                <td className="w-4/6 text-center text-black">
                  <p>{getCount(cartItems)} item{getCount(cartItems) > 1 ? (<span>s</span>):(<span></span>)}</p> {/* ternary used to make item(s) display correctly */}
                 </td>
                 <td className="w-1/6 text-center text-black">
-                    <p>${getPrice(cartItems)}</p>
+                    <p>${Intl.NumberFormat("en-US").format(getPrice(cartItems))}</p>
                 </td>
-                <td className="w-1/6 text-center">
+                <td className="w-1/6 text-center text-black">
                 </td>
             </tr>
     </tbody>
