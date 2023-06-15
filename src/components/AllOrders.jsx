@@ -36,13 +36,13 @@ const AllOrders = () => {
         order.user_id.toString().includes(filterValue) ||
         order.orderstatus.toLowerCase().includes(filterValue.toLowerCase()) ||
         order.created_at.includes(filterValue) ||
-        order.email.toLowerCase().includes(filterValue.toLowerCase()) ||
-        order.shipping_address.toLowerCase().includes(filterValue.toLowerCase()) ||
-        order.shipping_cost.toString().includes(filterValue) ||
-        order.shipping_name.toLowerCase().includes(filterValue.toLowerCase()) ||
-        order.amount_subtotal.toString().includes(filterValue) ||
-        order.amount_total.toString().includes(filterValue)
-      );
+        (order.email && order.email.toLowerCase().includes(filterValue.toLowerCase())) ||
+        (order.shipping_address && order.shipping_address.toLowerCase().includes(filterValue.toLowerCase())) ||
+        (order.shipping_cost &&  order.shipping_cost.toString().includes(filterValue)) ||
+        (order.shipping_cost && order.shipping_cost.toLowerCase().includes(filterValue.toLowerCase())) ||
+        (order.amount_subtotal && order.amount_subtotal.toString().includes(filterValue)) ||
+        (order.amount_total && order.amount_total.toString().includes(filterValue))
+      )
     });
     setFilteredOrders(filtered);
   }, [orders, filterValue]);
@@ -78,19 +78,18 @@ const AllOrders = () => {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-4">List of Orders</h1>
 
-      <div className="text-right">
+      <div className=" justify-center">
         <input
           type="text"
           value={filterValue}
           onChange={handleFilterChange}
           placeholder="Filter..."
-          className="border border-gray-300 rounded px-4 py-2 mt-4 mb-3"
+          className="m-auto h-10 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block px-5 p-2.5 mb-10"
         />
-    </div>
+      </div>
 
-    <div className="relative overflow-x-auto">
+    <div className="relative overflow-x-auto overflow-y-auto">
       <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
@@ -124,7 +123,7 @@ const AllOrders = () => {
               <td>
                 <button
                   onClick={() => openOrderDetails(order.id)}
-                  className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+                  className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded font-poppins-medium font-medium"
                 >
                   Order Details
                 </button>

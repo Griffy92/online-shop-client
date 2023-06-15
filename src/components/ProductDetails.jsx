@@ -28,6 +28,7 @@ const ProductDetails = ({ productId }) => {
     }
   };
 
+
   const handleEdit = () => {
     setEditing(true);
   };
@@ -90,115 +91,162 @@ const ProductDetails = ({ productId }) => {
     return null;
   }
 
-  return (
-  <div>
-    <section class="bg-white dark:bg-gray-900">
-      <h2>{productId ? 'Product Details' : 'Create New Product'}</h2>
-      {editing ? (
-        <div>
-          <label>
-            Product Code:
-            <input
-              type="text"
-              name="product_code"
-              value={formData.product_code || ''}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            Product Name:
-            <input
-              type="text"
-              name="product_name"
-              value={formData.product_name || ''}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            Product Category:
-            <input
-              type="text"
-              name="product_category"
-              value={formData.product_category || ''}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            Product Description:
-            <input
-              type="text"
-              name="product_description"
-              value={formData.product_description || ''}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            Cost Price:
-            <input
-              type="number"
-              name="cost_price"
-              value={formData.cost_price || ''}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            Retail Price:
-            <input
-              type="number"
-              name="retail_price"
-              value={formData.retail_price || ''}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            Animal Category:
-            <input
-              type="text"
-              name="animal_category"
-              value={formData.animal_category || ''}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            Quantity:
-            <input
-              type="number"
-              name="quantity"
-              value={formData.quantity || ''}
-              onChange={handleChange}
-            />
-          </label>
-          <button onClick={handleSave}>Save</button>
-        </div>
-      ) : (
-        <div>
-          <p>Product Code: {product.product_code}</p>
-          <p>Product Name: {product.product_name}</p>
-          <p>Product Category: {product.product_category}</p>
-          <p>Product Description: {product.product_description}</p>
-          <p>Cost Price: {product.cost_price}</p>
-          <p>Retail Price: {product.retail_price}</p>
-          <p>Animal Category: {product.animal_category}</p>
-          <p>Quantity: {product.quantity}</p>
-          <button
-                className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-                onClick={handleEdit}
-              >
-                Edit
+return (
+    <div>
+      <section className="bg-white dark:bg-gray-900">
+        
+        {editing ? (
+          <div>
+            <div className="w-full m-auto max-w-xl">
+
+            <label className="mt-5 leading-7 block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+              Product Code:
+              <input
+                type="text"
+                name="product_code"
+                value={formData.product_code || ''}
+                onChange={handleChange}
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 mb-4"
+              />
+            </label>
+
+            <div className="w-full">
+              <label className="leading-7 block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                Product Name:
+                <input
+                  type="text"
+                  name="product_name"
+                  value={formData.product_name || ''}
+                  onChange={handleChange}
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 mb-4"
+                />
+              </label>
+            </div>
+
+            <div className="w-full">
+              <label className="leading-7 block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                Product Category:
+                <input
+                  type="text"
+                  name="product_category"
+                  value={formData.product_category || ''}
+                  onChange={handleChange}
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 mb-4"
+                />
+              </label>
+            </div>
+        
+            <div className="w-full">
+              <label className="leading-7 block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                Product Description:
+                <input
+                  type="text"
+                  name="product_description"
+                  value={formData.product_description || ''}
+                  onChange={handleChange}
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 mb-4"
+                />
+              </label>
+            </div>
+
+
+            <div className="w-full">
+              <label className="leading-7 block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                Cost Price:
+                <input
+                  type="number"
+                  name="cost_price"
+                  value={formData.cost_price || ''}
+                  onChange={handleChange}
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 mb-4"
+                />
+              </label>
+            </div>
+
+
+            <div className="w-full">
+              <label className="leading-7 block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                Retail Price:
+                <input              type="number"
+                  name="retail_price"
+                  value={formData.retail_price || ''}
+                  onChange={handleChange}
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 mb-4"
+                />
+              </label>
+            </div>
+
+
+            <div className="w-full">
+              <label className="leading-7 block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                Animal Category:
+                <input
+                  type="text"
+                  name="animal_category"
+                  value={formData.animal_category || ''}
+                  onChange={handleChange}
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 mb-4"
+                />
+              </label>
+            </div>
+
+
+            <div className="w-full">
+              <label className="leading-7 block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                Quantity:
+                <input
+                  type="number"
+                  name="quantity"
+                  value={formData.quantity || ''}
+                  onChange={handleChange}
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 mb-4"
+                />
+              </label>
+            </div>
+
+
+            <button  
+              className="bg-green-400 hover:bg-green-600 transition duration-500 text-white font-semibold py-2 px-4 mt-2 rounded"
+              onClick={handleSave}>
+                Save
               </button>
+          </div>
+        </div>
+
+        ) : (
+
+          <>
+            <div className="p-6 space-y-6 text-base leading-relaxed text-gray-800 dark:text-gray-400">
+              <p className="mb-1">Product Code: {product.product_code}</p>
+              <p className="mb-1">Product Name: {product.product_name}</p>
+              <p className="mb-1">Product Category: {product.product_category}</p>
+              <p className="mb-1">Product Description: {product.product_description}</p>
+              <p className="mb-1">Cost Price: {product.cost_price}</p>
+              <p className="mb-1">Retail Price: {product.retail_price}</p>
+              <p className="mb-1">Animal Category: {product.animal_category}</p>
+              <p className="mb-1">Quantity: {product.quantity}</p>
+
               <button
-                className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+                className="bg-blue-600 hover:bg-blue-700 
+                transition duration-500 text-white font-semibold py-2 px-6 mt-4 rounded mr-2"
+                onClick={handleEdit}
+                >
+                  Edit
+              </button>
+
+              <button
+                className="bg-red-500 hover:bg-red-700 transition duration-500 text-white font-semibold py-2 px-4 mt-4 rounded"
                 onClick={handleDelete}
               >
                 Delete
               </button>
-        </div>
-      )}
-    </section>
-    </div>
-    
 
-);
-    }
+            </div>
+          </>
+        )}
+      </section>
+    </div>
+  );
+}
   
-      export default ProductDetails;
+export default ProductDetails;

@@ -108,22 +108,43 @@ const AllProducts = () => {
 
 return (
   <>
-    <h1 className="text-2xl font-bold mb-4">List of Products</h1>    
+  {/* CONTAINER */}
+   <div className="p-8 w-9/12 m-auto">
+    <div class="flex mr-1" style={{marginTop: `-30px`}}>
 
-    <button
-      onClick={toggleAddProduct}
-      className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
-    >
-      Add New Product
-    </button>
+      <div class="w-1/2 h-30 grid justify-items-center">
+        {/* ADD NEW PRODUCT BUTTON */}
+        <button
+          onClick={toggleAddProduct}
+          className="m-auto font-poppinsMed font-medium h-10 text-white px-5 transition-colors duration-500 rounded-lg focus:shadow-outline bg-sky-400 hover:bg-sky-500 duration-500 shadow"
+        >
+          Add New Product
+        </button>
+      </div>
 
+      <div class="w-1/2 h-30 grid justify-items-center">
+
+        {/* FILTER BUTTON */}
+        <input
+          type="text"
+          value={filterValue}
+          onChange={handleFilterChange}
+          placeholder="Filter..."
+          className="m-auto h-10 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block px-5 p-2.5"
+        />
+      </div>
+      </div>
+  </div>
+
+
+    {/* ADD NEW PRODUCT FORM */}
     {showAddProduct && (
-      <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-10">
+      <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
         <div className="bg-white p-6 rounded shadow-lg">
           <AddProduct onAddProduct={handleAddProduct} />
           <button
             onClick={toggleAddProduct}
-            className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded mt-4"
+            className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold ml-4 py-2 px-4 rounded"
           >
             Close
           </button>
@@ -131,18 +152,9 @@ return (
       </div>
     )}
     
-    <div className="text-right">
-    {/* Filter */}
-    <input
-      type="text"
-      value={filterValue}
-      onChange={handleFilterChange}
-      placeholder="Filter..."
-      className="border border-gray-300 rounded px-4 py-2 mt-4 mb-3"
-    />
-  </div>
 
-    <div className="relative overflow-x-auto z-1">
+    {/* TABLE OF INFO - CLICK TO FILTER */}
+    <div className="relative max-h-screen-half overflow-scroll z-1">
       <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
@@ -189,7 +201,7 @@ return (
                 <td>
                   <button
                     onClick={() => openProductDetails(product.id)}
-                    className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
+                    className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded font-poppins-medium font-medium"
                   >
                     Product Details
                   </button>
@@ -199,15 +211,42 @@ return (
           </tbody>
       </table>
     </div>
+    
 
+    {/* VIEW AND EDIT PRODUCT DETAILS */}
     {selectedProductId && (
-      <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-        <div className="bg-white p-6 rounded shadow-lg">
-          <h2 className="text-xl font-bold mb-4">Product Details</h2>
-          <ProductDetails productId={selectedProductId} onActionCompletion={handleActionCompletion} />
-          <button onClick={closeProductDetails} className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
-            Close
-          </button>
+      <div className="m-auto w-screen fixed top-0 left-0 right-0 bottom-0 flex justify-center items-center">
+        <div className=" w-screen m-auto fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="w-4/5 bg-white p-6 rounded shadow-lg">
+
+            {/* Product Details heading and 'x' button */}
+            <div class="flex mb-4 mr-1">
+              <div class="w-1/2 h-30">
+                <h2  
+                  className=" px-6 text-2xl font-bold text-gray-900 dark:text-white">
+                    Product Details
+                </h2>
+              </div>
+
+                <button 
+                    type="button" 
+                    onClick={closeProductDetails} 
+                    className="mr-6 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" 
+                    data-modal-hide="defaultModal">
+                  <svg aria-hidden="true" className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                  </svg>
+                  <span className="sr-only" >Close modal</span>
+                </button>
+            </div>
+
+            <hr className="mx-6"/>
+
+            <ProductDetails 
+              productId={selectedProductId} 
+              onActionCompletion={handleActionCompletion} 
+            />
+          </div>
         </div>
       </div>
     )}
