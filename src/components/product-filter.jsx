@@ -23,7 +23,7 @@ const ProductFilter = ({ products, onApplyFilters }) => {
             updatedProducts.sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
         };
 
-        onApplyFilters(updatedProducts);
+        applyFilters(updatedProducts);
     }
 
     const _handleApplyFilters = () => {
