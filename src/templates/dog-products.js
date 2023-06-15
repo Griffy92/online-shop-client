@@ -16,11 +16,14 @@ const DogProductsTemplate = ({ pageContext }) => {
         <div className="container mx-auto">
             <ProductFilter products={dogProducts} onApplyFilters={applyFilters} />
             <div className="ml-64">
-                <h1 class="mb-5 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-5xl dark:text-white" 
-                    style={{
-                        marginTop: `85px`,
-                        color: `#383838`,}}
-                >Dog Products</h1>
+                <h1 
+                class="mb-5 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-5xl dark:text-white" 
+                style={{
+                    marginTop: `85px`,
+                    color: `#383838`,
+                }}
+                >Dog Products
+                </h1>
 
                     <div className="place-content-center grid grid-cols-4 gap-4">
                         {filteredProducts.length > 0 ? (
@@ -36,7 +39,8 @@ const DogProductsTemplate = ({ pageContext }) => {
                                             className="card-title text-black font-poppinsSemi font-semi-bold" 
                                             style={{
                                                 fontSize: `13pt`, 
-                                                lineHeight: `1.4`}}>
+                                                lineHeight: `1.4`
+                                            }}>
                                             { product.product_name }
                                         </h2>
                                     </div>
@@ -48,7 +52,8 @@ const DogProductsTemplate = ({ pageContext }) => {
                                                 color: `white`, 
                                                 border: `1px solid transparent`, 
                                             }}>
-                                            ${ product.retail_price }</p>
+                                            ${ product.retail_price }
+                                        </p>
                                         <br></br>
                                         <ProductControls product={product}/>
                                     </div>

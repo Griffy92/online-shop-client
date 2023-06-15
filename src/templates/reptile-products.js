@@ -17,16 +17,17 @@ const ReptileProductsTemplate = ({ pageContext }) => {
             <ProductFilter products={reptileProducts} onApplyFilters={applyFilters} />
             <div className="ml-64">
                 <h1 
-                    class="mb-5 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-5xl dark:text-white" 
-                    style={{
-                        marginTop: `85px`,
-                        color: `#383838`,}}
-                    > Reptile Products
+                class="mb-5 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-5xl dark:text-white" 
+                style={{
+                    marginTop: `85px`,
+                    color: `#383838`,
+                }}
+                > Reptile Products
                 </h1>
                     <div className="place-content-center grid grid-cols-4 gap-4">
                         {filteredProducts.length > 0 ? (
                             filteredProducts.map(product => (
-                                <div key={product.id} className="card card-compact shadow-2xl p-4">
+                                <div key={product.id} className="card card-compact bg-white shadow-2xl p-4">
                                     <Link to={`/product/${product.id}`} >
                                         <figure className="px-10 pt-10">
                                             <img src={`http://localhost:3000${product.image}`} alt={product.product_name} className="w-full h-60 object-cover product-img" />
@@ -37,7 +38,8 @@ const ReptileProductsTemplate = ({ pageContext }) => {
                                             className="card-title text-black font-poppinsSemi font-semi-bold" 
                                             style={{
                                                 fontSize: `13pt`, 
-                                                lineHeight: `1.4`}}>
+                                                lineHeight: `1.4`
+                                            }}>
                                             { product.product_name }
                                         </h2>                              
                                     </div>
@@ -49,7 +51,8 @@ const ReptileProductsTemplate = ({ pageContext }) => {
                                                 color: `white`, 
                                                 border: `1px solid transparent`, 
                                             }}>
-                                            ${ product.retail_price }</p>
+                                            ${ product.retail_price }
+                                        </p>
                                         <br></br>
                                         <ProductControls product={product}/>
                                     </div>
