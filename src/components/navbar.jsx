@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from 'gatsby';
+import { Link } from 'gatsby';
 import CartButton from './cart/cart-button';
 import SearchButton from './search-button';
 import logo from '../images/Pocket-Cart-Logo.svg';
-import smallLogo from '../images/small-pocket-cart-logo.png';
 import { guestAPI } from '../services/guests';
 
 const Navbar = ( props ) => {
@@ -32,38 +31,35 @@ const Navbar = ( props ) => {
 
     return (
         <>
-        {/* strip on top of website */}
-        {/* <div className="header-banner" 
-            style={{
-                backgroundColor: `#26d36d`,
-                padding: `5px`,
-                textAlign: `center`,
-                color: `white`,
-                fontFamily: `sans-serif`,
-                }}>Free shipping for orders over $50! 🐶🐱🐭🐦🐹 
-        </div> 
-          */}
-
+      
             {/* Handles margin-bottom of sticky nav bar  */}
+            <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-16"></div>
 
-            <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-11"></div>
 
             {/* Nav Bar */}
+            <nav 
+                className="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 shadow-lg" 
+                style={{backgroundColor: `#01A473`}}>
 
+                    {/* Free shipping stripe */}
+                    <div className="header-banner p-2 text-white font-poppinsLight font-extra-light text-center border-b-white" 
+                        style={{
+                            backgroundColor: `#38bdf8`,
+                            }}>Free shipping for orders site-wide! 🐶🐱🐭🐦🐹 
+                    </div> 
+
+                {/* Logo */}
+                <div className="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-4">
+                    <Link to="/" className="flex items-center m-auto">
+                        <img 
+                            src={ logo } 
+                            className="h-7 mr-1 my-3" 
+                            alt="Pocket Cart Logo"
+                        />
+                    </Link>
                 
 
-            <nav 
-                className="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 shadow-lg " 
-                style={{backgroundColor: `#01A473`}}
-                >
-
-                <div className="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-4">
-                    <Link to="/" className="flex items-center">
-                        <img src={ logo } className='h-6 mr-1 ' alt="Pocket Cart Logo"/>
-                        <img src={ smallLogo } className='h-7 mr-1 hidden' alt="Pocket Cart Logo"/>
-                    </Link>
-
-                    <div className="flex md:order-2 ml-auto">
+                    <div className="flex md:order-2 content-center m-auto" >
                         <div className="flex items-center">
                             <SearchButton  />
                             <CartButton user={user}  />
@@ -74,7 +70,7 @@ const Navbar = ( props ) => {
                                         onClick={ handleSignOut } 
                                         title="Sign out" 
                                         type="button" 
-                                        className="text-white bg-white-700 hover:bg-white hover:bg-opacity-20 hover:border-white-700 hover:border-yellow rounded-lg p-2.5 text-center inline-flex items-center mr-2 shadow border-gray-400 hover:border-white transition duration-200 transition-bg placeholder-gray-400" 
+                                        className="text-white bg-white-700 hover:bg-white hover:bg-opacity-20 hover:border-white-700 hover:border-yellow rounded-lg p-2.5 text-center inline-flex items-center mr-2 shadow border-gray-400 hover:border-white transition duration-200 transition-bg" 
                                         style={{ border: '1px solid transparent' }}
                                         onMouseEnter={ _handleBorder }
                                         onMouseLeave={ _handleResetBorder }
@@ -97,7 +93,6 @@ const Navbar = ( props ) => {
                                         </svg>
                                         
                                         <span className="sr-only">Sign out</span>
-                                    
                                     </button>
 
                                     <button 
@@ -137,8 +132,6 @@ const Navbar = ( props ) => {
                                         onMouseEnter={ _handleBorder }
                                         onMouseLeave={ _handleResetBorder }
                                     >
-
-                                            {/* bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded */}
 
                                         <Link to="/signin">
                                             <svg 
@@ -214,8 +207,8 @@ const Navbar = ( props ) => {
                         </button>
                     </div>
               
-                     <div className={`items-center justify-between ${isExpanded ? 'inline-block' : 'hidden'} w-full md:flex md:w-auto md:order-1`}>
-
+                    {/* small menu on mobile screens */}
+                    <div className={`items-center justify-between ${isExpanded ? 'inline-block' : 'hidden'} w-full md:flex md:w-auto md:order-1 m-auto`}>
                         <ul 
                             className="font-poppinsSemi font-semi-bold flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white " 
                             style={{ 
@@ -231,6 +224,7 @@ const Navbar = ( props ) => {
                                         <span>Products</span>
                                 </Link>
                             </li>
+
                             <li>
                                 <Link 
                                     to="/dog-products" 
@@ -239,6 +233,7 @@ const Navbar = ( props ) => {
                                         <span>Dog</span>
                                 </Link>
                             </li>
+
                             <li>
                                 <Link
                                     to="/cat-products" 
@@ -247,6 +242,7 @@ const Navbar = ( props ) => {
                                         <span>Cat</span>
                                 </Link>
                             </li>
+
                             <li>
                                 <Link
                                     to="/reptile-products" 
@@ -255,6 +251,7 @@ const Navbar = ( props ) => {
                                         <span>Reptile</span>
                                 </Link>
                             </li>
+
                             <li>
                                 <Link 
                                     to="/bird-products" 
@@ -263,6 +260,7 @@ const Navbar = ( props ) => {
                                         <span>Bird</span>
                                 </Link>
                             </li>
+
                             <li>
                                 <Link 
                                     to="/smallpet-products" 
@@ -272,29 +270,19 @@ const Navbar = ( props ) => {
                                 </Link>
                             </li>
 
-                                { user.admin && 
-                                    <Link
-                                        to="/admin" 
-                                        className="block py-2 pl-2 pr-2 text-white rounded md:hover:bg-transparent hover:bg-white hover:bg-opacity-10" 
-                                        id="nav-effect">
-                                            <span>Admin</span>
-                                    </Link>
-                                }
-
-                     
-        
+                            { user.admin && 
+                                <Link
+                                    to="/admin" 
+                                    className="block py-2 pl-2 pr-2 text-white rounded md:hover:bg-transparent hover:bg-white hover:bg-opacity-10" 
+                                    id="nav-effect">
+                                        <span>Admin</span>
+                                </Link>
+                            }
                         </ul>
-
-
-                        
                     </div>
                 </div>
-                {/* </div> */}
-            </nav>
 
-
-            
-                                
+            </nav>                  
         </>
     );
 };
