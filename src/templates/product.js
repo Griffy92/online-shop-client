@@ -11,11 +11,11 @@ export default function Product({ pageContext: { product } }) {
                         <img src={ "http://localhost:3000" + product.image } alt={ product.product_name } className="w-full h-full object-cover" style={ { height: '470px' } }/>
                         </div>
                     </div>
-                </div>
-                
+                </div>  
+                                
                 <div className="w-full md:w-1/2 pl-6 flex flex-col justify-center">
                     <div className='p-4'>
-                        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{ product.product_name }</h2>
+                        <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{ product.product_name }</h2>
                     </div>
 
                     <div className='p-4 font-medium text-gray-700'>

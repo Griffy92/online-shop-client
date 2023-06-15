@@ -1,25 +1,21 @@
 import React, { useContext } from "react";
 import { UserContext } from '../providers/UserProvider'
 import { CartAPI } from "../services/cart";
-import { UserAPI } from "../services/users";
 import { guestAPI } from "../services/guests";
 
-
 const ProductControls = ({product}) => {
-    const { user, setUser, guestStatus, setCartStatus } = useContext(UserContext);
-    const token = localStorage.getItem('token');
+    const { user, guestStatus, setCartStatus } = useContext(UserContext);
 
     const getActiveOrder = () => {
         if (!guestStatus) {
-            const actOrder = (user.orders.find((e) => e.orderstatus === "active" ))
+            const actOrder = (user.orders.find((e) => e.orderstatus === "active" ));
             if (actOrder) {
-                return actOrder
+                return actOrder;
             };
         };
     };
 
     // Checks to see if there's an active order for the current user / guest
-    // Creation of new Order possibly redundant given alterations made to DB structrue, however included for robustness
     const checkActiveOrder = () => {
         if (guestStatus) {
             return guestAPI.getGuestCart();
@@ -35,9 +31,9 @@ const ProductControls = ({product}) => {
     // Further work to ensure DRYness is on stretchgoal list 
     const _handleAddCart = () => {
         if (!guestStatus) {
-            checkActiveOrder()
-            const order_id = getActiveOrder().id
-            const product_id = product.id
+            checkActiveOrder();
+            const order_id = getActiveOrder().id;
+            const product_id = product.id;
             const payload = {
                 product: {
                     product_id: product.id
@@ -52,30 +48,30 @@ const ProductControls = ({product}) => {
         };
 
         if (guestStatus) {
-            const sessionObj = guestAPI.getGuestCart()
-            const guestCart = sessionObj.order.cart_items
+            const sessionObj = guestAPI.getGuestCart();
+            const guestCart = sessionObj.order.cart_items;
 
             if (guestCart.length === 0) {
-                guestCart.push({quantity: 1, product: product})
-                guestAPI.setGuestCart(sessionObj)
-                setCartStatus(Date.now()) // CartStatus included here to trigger update on cart count badge
-                return
+                guestCart.push({quantity: 1, product: product});
+                guestAPI.setGuestCart(sessionObj);
+                setCartStatus(Date.now()); // CartStatus included here to trigger update on cart count badge
+                return;
             } if ((guestCart.length !== 0) && (!guestCart.find(i => i.product.id === product.id))) {
-                guestCart.push({quantity: 1, product: product})
-                sessionObj.order.cart_items = guestCart
-                guestAPI.setGuestCart(sessionObj)
-                setCartStatus(Date.now())
-                return
+                guestCart.push({quantity: 1, product: product});
+                sessionObj.order.cart_items = guestCart;
+                guestAPI.setGuestCart(sessionObj);
+                setCartStatus(Date.now());
+                return;
             } else {
                 guestCart.map(function(e){
                     if (e.product.id === product.id){
-                        console.log(e.quantity)
-                        e.quantity = e.quantity + 1
-                    }})
-                sessionObj.order.cart_items = guestCart
-                guestAPI.setGuestCart(sessionObj)
-                setCartStatus(Date.now())
-                return
+                        console.log(e.quantity);
+                        e.quantity = e.quantity + 1;
+                    }});
+                sessionObj.order.cart_items = guestCart;
+                guestAPI.setGuestCart(sessionObj);
+                setCartStatus(Date.now());
+                return;
             };
         };
     };
