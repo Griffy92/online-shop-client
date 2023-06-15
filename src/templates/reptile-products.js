@@ -5,7 +5,6 @@ import ProductControls from "../components/product-controls";
 
 const ReptileProductsTemplate = ({ pageContext }) => {
     const { reptileProducts } = pageContext;
-
     const [filteredProducts, setFilteredProducts] = useState(reptileProducts);
 
     const applyFilters = (updatedProducts) => {
