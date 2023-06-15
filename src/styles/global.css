@@ -9,6 +9,9 @@
     .h-screen-half {
         height: 75vh;
     }
+    .max-h-screen-half {
+        max-height: 50vh;
+    }
     .font-outline {
         -webkit-text-stroke: .5px black;
     }
