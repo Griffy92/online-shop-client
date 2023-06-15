@@ -1,7 +1,7 @@
 # 🛒🐾 Pocket Cart
 
 # Discover a curated selection of high-quality products and join us in creating a world where every pet thrives!🐶🐱🐭🐦🐹
-## 🪄 Live demo [here](https://pocket-palette.netlify.app/)!
+
 
 ## 📖 Table of Contents
 * General Info
@@ -16,9 +16,9 @@
 * Contact
 <br><br>
 ## 📄 General Info
-Pocket Palette is a web-based platform that offers a convenient and comprehensive shopping experience for pet owners. With a wide range of products including wet food, dry food, treats, flea, tick and worm treatments, litter, accessories, and toys for various pets, our website is designed to meet the needs of pet owners and ensure the happiness and well-being of their furry companions.
+Pocket Palette is a web-based platform that offers a convenient and comprehensive shopping experience for pet owners. With a wide range of products including food, treats, flea, tick and worm treatments, litter, accessories, and toys for various pets, our website is designed to meet the needs of pet owners and ensure the happiness and well-being of their furry companions.
 
-This project, led by Dom, Karen, Riley, Roxanne, and Stuart, is a collaborative effort representing our forth undertaking within the General Assembly Software Engineering Immersive course. With the aim of embracing a challenging endeavor that elevates our skills and knowledge in web development, our diverse team, spanning three different time zones, effectively collaborates to ensure continuous progress on the project.
+This project is led by a dedicated team comprising Dom, Karen, Riley, Roxanne, and Stuart. As part of our journey in the General Assembly Software Engineering Immersive course, we have come together to create this eCommerce website, leveraging our skills and knowledge in web development. Despite being located in different time zones, we collaborate effectively to ensure continuous progress and deliver a high-quality product to our users.
 <br><br>
 ## ✏️ Planning & Problem Solving
 
@@ -83,27 +83,55 @@ rails server
 ```
 <br><br>
 ## 🛍️ Features
-There are four aspects to Pocket Palette at the moment: User Authentication, Search, Filter, Cart, Shipping and Payment.
+There are four aspects to Pocket Palette at the moment: Admin, User Authentication, Search, Filter, Cart, Orders, Shipping and Payment.
+
+- ### Admin
+  - Product Management: Access an admin dashboard to manage products, including adding new products, updating existing product details, and removing products from the inventory.
+  - Inventory Management: Monitor and track product stock levels and manage inventory to ensure availability of products.
+  - Order Management: View and filter customer orders.
+  - User Management: Manage user accounts, including creating new accounts, and handling user permissions and roles.
 
 - ### User Authentication
-  Sign Up, Log In, Password Reset, Log Out, Confirmation Email
+  Sign Up, Sign In, Password Reset (You will get an email to reset your password), Log Out, Confirmation Email (Once you placed an order successfully).
 
 - ### Search
+  Use the search functionality to find specific products by keywords, product names, or categories.
+  
 - ### Filter
-
+  Utilize advanced filtering options to narrow down product listings based on category, price range, new item and more. Easily find the products that match your preferences and requirements.
 - ### Cart 
+  - Add to Cart: Select your desired products and add them to your shopping cart.
+  - Manage Cart: View and modify the items in your cart, update quantities, and remove products if needed.
+
+  ### Order
+  - Proceed to the checkout process to review your order details and provide shipping information.
+  - Review your historical orders once you logged in.
   
 - ### Shippping & Payment
-  Stripe API
+  Enjoy a seamless and secure shopping experience with a variety of payment methods. We ingrate with Stripe to ennsure the safety and convenience of your financial transactions. 
+
 <br><br>
 ## 📸 Screenshots
 
 ### Home Page
-### All Products Page
 
-### Cart Page
+### Sign In Page
+
+### Search
+
+### Cart
+
+### Product Page
 
 ### Payment Page
+
+### My Account Page
+
+### Admin Page
+
+### Order Confirmation
+
+### Password Reset
 
 
 <br><br>
