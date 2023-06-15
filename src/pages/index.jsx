@@ -31,7 +31,7 @@ const IndexPage = () => {
 			style={{
 				// marginTop: '-20px',
 				backgroundImage:`url(${headerImage})`,
-				color: `white`
+				color: `#01a473`
 				}}>
 			
 				<div className="w-1/2 mx-auto pt-10">
