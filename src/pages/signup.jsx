@@ -3,7 +3,7 @@ import { useState, useContext } from 'react';
 import { UserContext } from '../providers/UserProvider';
 import { navigate } from 'gatsby';
 import { UserAPI } from '../services/users'
-import accountImage from '../images/create-account.jpeg';
+import accountImage from '../images/create-account-new.jpg';
 
 
 const Signup = () => {
