@@ -92,7 +92,7 @@ There are four aspects to Pocket Palette at the moment: Admin, User Authenticati
   - User Management: Manage user accounts, including creating new accounts, and handling user permissions and roles.
 
 - ### User Authentication
-  Sign Up, Log In, Password Reset (You will get an email to reset your password), Log Out, Confirmation Email (Once you placed an order successfully).
+  Sign Up, Sign In, Password Reset (You will get an email to reset your password), Log Out, Confirmation Email (Once you placed an order successfully).
 
 - ### Search
   Use the search functionality to find specific products by keywords, product names, or categories.
@@ -114,11 +114,24 @@ There are four aspects to Pocket Palette at the moment: Admin, User Authenticati
 ## 📸 Screenshots
 
 ### Home Page
-### All Products Page
 
-### Cart Page
+### Sign In Page
+
+### Search
+
+### Cart
+
+### Product Page
 
 ### Payment Page
+
+### My Account Page
+
+### Admin Page
+
+### Order Confirmation
+
+### Password Reset
 
 
 <br><br>
