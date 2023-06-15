@@ -61,9 +61,7 @@ const ForgotPasswordForm = ( props ) => {
                                     </div>
 
                                     <div className="flex items-end">
-                                        <button onClick = { formDecider }>
-                                            <a href="/signin" className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">Sign in?</a>
-                                        </button>
+                                            <a onClick= {formDecider} href="/signin" className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">Sign in?</a>
                                     </div>
 
                                     <button 
