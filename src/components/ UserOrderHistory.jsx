@@ -64,13 +64,13 @@ const UserOrders = () => {
 
     return (
         <div>
-            <table className="table-auto">
+            <table>
                 <thead>
                     <tr>
                         {/* <th onClick={() => handleSort('id')}>Order ID</th> */}
                         {/* <th onClick={() => handleSort('user_id')}>User ID</th> */}
-                        <th onClick={() => handleSort('orderstatus')}>Status</th>
-                        <th onClick={() => handleSort('created_at')}>Created At</th>
+                        {/* <th className='px-6 py-4 text-left' onClick={() => handleSort('orderstatus')}>Status</th> */}
+                        {/* <th className='px-6 py-4 text-left' onClick={() => handleSort('created_at')}>Created At</th> */}
                         {/* <th onClick={() => handleSort('email')}>Email</th> */}
                         {/* <th onClick={() => handleSort('shipping_address')}>Shipping Address</th>
                         <th onClick={() => handleSort('shipping_cost')}>Shipping Cost</th>
@@ -82,18 +82,18 @@ const UserOrders = () => {
                 </thead>
                 <tbody>
                     {orders.map((order) => (
-                    <tr key={order.id}>
+                    <tr className='border-b dark:bg-gray-800 dark:border-gray-700' key={order.id}>
                         {/* <td>{order.id}</td> */}
                         {/* <td>{order.user_id}</td> */}
-                        <td>{order.orderstatus}</td>
-                        <td>{localTime(order.created_at)}</td>
+                        <td className='px-6 py-4 text-left text-slate-800'>{order.orderstatus}</td>
+                        <td className='px-6 py-4 text-left text-slate-800'>{localTime(order.created_at)}</td>
                         {/* <td>{order.email}</td> */}
                         {/* <td>{order.shipping_address}</td>
                         <td>{order.shipping_cost}</td>
                         <td>{order.shipping_name}</td>
                         <td>{order.amount_subtotal}</td>
                         <td>{order.amount_total}</td> */}
-                        <td>
+                        <td className='px-6 py-4 text-left text-slate-800'>
                             <button
                             onClick={() => openOrderDetails(order.id)}
                             className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
@@ -108,16 +108,16 @@ const UserOrders = () => {
 
             {selectedOrderId && (
             <div className="fixed top-0 left-0 right-0 bottom-0 flex justify-center items-center bg-black bg-opacity-50">
-                <div className="bg-white rounded-lg p-6 mt-20">
+                <div className="w-96 max-h-[80vh] overflow-y-auto bg-white rounded-lg p-6 mt-20">
                     <h2 className="text-2xl font-bold mb-4">Order Details</h2>
                     {orders.map((order) => {
                         if (order.id === selectedOrderId) {
                             return (
                                 <div key={order.id}>
-                                    <p>Order ID: {order.id}</p>
+                                    {/* <p>Order ID: {order.id}</p> */}
                                     {/* <p>User ID: {order.user_id}</p> */}
                                     <p>Order Status: {order.orderstatus}</p>
-                                    <p>Created At: {order.created_at}</p>
+                                    {/* <p>Created At: {order.created_at}</p> */}
                                     <p>Email: {order.email}</p>
                                     <p>Shipping Address: {order.shipping_address}</p>
                                     <p>Shipping Cost: {order.shipping_cost}</p>
@@ -129,9 +129,9 @@ const UserOrders = () => {
                                     <ul>
                                     {order.products.map((product) => (
                                         <li key={product.id}>
-                                        <p>Product ID: {product.id}</p>
-                                        <p>Product Code: {product.product_code}</p>
-                                        <p>Product Name: {product.product_name}</p>
+                                        {/* <p>Product ID: {product.id}</p> */}
+                                        {/* <p>Product Code: {product.product_code}</p> */}
+                                        <p>{product.product_name}</p>
                                         </li>
                                     ))}
                                     </ul>
