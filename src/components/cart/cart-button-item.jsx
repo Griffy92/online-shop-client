@@ -1,9 +1,8 @@
+import React, { useState, useContext } from 'react';
 import { Link } from 'gatsby';
-import React from 'react';
 import { UserContext } from '../../providers/UserProvider';
 import { CartAPI } from "../../services/cart";
 import { guestAPI } from "../../services/guests";
-import { useState, useContext } from 'react';
 
 // this component handles the logic for adding / removing items from cart as well as rendering the individual table rows
 
@@ -95,8 +94,8 @@ const CartButtonItem = ( props ) => {
         guestAPI.setGuestCart(sessionObj)
         setCartStatus(Math.random)
         return
-      }
-    }
+      };
+    };
   };
 
     return (
