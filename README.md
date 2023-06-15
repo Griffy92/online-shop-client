@@ -92,7 +92,7 @@ There are several aspects of Pocket Cart at the moment: Admin, User Authenticati
   - User Management: Manage user accounts, including creating new accounts, and handling user permissions and roles.
 
 - ### User Authentication
-  Sign Up, Sign In, Password Reset (You will get an email to reset your password), Log Out, Confirmation Email (Once you placed an order successfully).
+  Sign Up, Sign In, Password Reset (You will get an email to reset your password), Log Out, Confirmation Email (Once you place an order successfully).
 
 - ### Search
   Use the search functionality to find specific products by keywords, product names, or categories.
@@ -103,12 +103,12 @@ There are several aspects of Pocket Cart at the moment: Admin, User Authenticati
   - Add to Cart: Select your desired products and add them to your shopping cart.
   - Manage Cart: View and modify the items in your cart, update quantities, and remove products if needed.
 
-  ### Order
+ - ### Order
   - Proceed to the checkout process to review your order details and provide shipping information.
   - Review your historical orders once you logged in.
   
-- ### Shippping & Payment
-  Enjoy a seamless and secure shopping experience with a variety of payment methods. We ingrate with Stripe to ennsure the safety and convenience of your financial transactions. 
+- ### Shipping & Payment
+  Enjoy a seamless and secure shopping experience with a variety of payment methods. We integrate with Stripe to ensure the safety and convenience of your financial transactions.
 
 <br><br>
 ## 📸 Screenshots
