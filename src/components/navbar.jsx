@@ -3,6 +3,7 @@ import { Link, useLocation } from 'gatsby';
 import CartButton from './cart/cart-button';
 import SearchButton from './search-button';
 import logo from '../images/Pocket-Cart-Logo.svg';
+import smallLogo from '../images/small-pocket-cart-logo.png';
 import { guestAPI } from '../services/guests';
 
 const Navbar = ( props ) => {
@@ -52,17 +53,17 @@ const Navbar = ( props ) => {
                 
 
             <nav 
-                className="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 shadow-lg" 
+                className="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 shadow-lg " 
                 style={{backgroundColor: `#01A473`}}
                 >
 
                 <div className="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-4">
                     <Link to="/" className="flex items-center">
-                        <img src={ logo } className="h-7 mr-1" alt="Pocket Cart Logo"/>
-                        {/* <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span> */}
+                        <img src={ logo } className='h-6 mr-1 ' alt="Pocket Cart Logo"/>
+                        <img src={ smallLogo } className='h-7 mr-1 hidden' alt="Pocket Cart Logo"/>
                     </Link>
-                
-                    <div className="flex md:order-2">
+
+                    <div className="flex md:order-2 ml-auto">
                         <div className="flex items-center">
                             <SearchButton  />
                             <CartButton user={user}  />
@@ -73,7 +74,7 @@ const Navbar = ( props ) => {
                                         onClick={ handleSignOut } 
                                         title="Sign out" 
                                         type="button" 
-                                        className="text-white bg-white-700 hover:bg-white hover:bg-opacity-20 hover:border-white-700 hover:border-yellow rounded-lg p-2.5 text-center inline-flex items-center mr-2 shadow border-gray-400 hover:border-white transition duration-200 transition-bg placeholder-white" 
+                                        className="text-white bg-white-700 hover:bg-white hover:bg-opacity-20 hover:border-white-700 hover:border-yellow rounded-lg p-2.5 text-center inline-flex items-center mr-2 shadow border-gray-400 hover:border-white transition duration-200 transition-bg placeholder-gray-400" 
                                         style={{ border: '1px solid transparent' }}
                                         onMouseEnter={ _handleBorder }
                                         onMouseLeave={ _handleResetBorder }

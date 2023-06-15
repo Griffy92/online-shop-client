@@ -27,7 +27,7 @@ const IndexPage = () => {
 		<>	
 			{/* cover image with CTA button */}
 			<div 
-			className="bg-cover bg-center text-white px-10 h-screen-half"
+			className="bg-cover bg-center text-white px-10 h-screen-half "
 			style={{
 				// marginTop: '-20px',
 				backgroundImage:`url(${headerImage})`,
