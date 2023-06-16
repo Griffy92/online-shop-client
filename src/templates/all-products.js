@@ -8,7 +8,7 @@ const AllProductsTemplate = ({ pageContext }) => {
     const [filteredProducts, setFilteredProducts] = useState(allProducts);
   
     const applyFilters = (updatedProducts) => {
-      setFilteredProducts(updatedProducts);
+        setFilteredProducts(updatedProducts);
     };
 
     return (
