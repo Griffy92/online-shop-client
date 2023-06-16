@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { useContext, useEffect } from 'react';
-import { UserContext } from '../providers/UserProvider'
 import Navbar from './navbar';
 import Footer from './footer';
+import { useContext, useEffect } from 'react';
+import { UserContext } from '../providers/UserProvider'
 import { UserAPI } from '../services/users'
 
 const Layout = ( {children} ) => {

@@ -1,9 +1,9 @@
 import React from 'react';
+import UserOrders from '../components/UserOrderHistory';
+import headerImage from '../images/header.png';
 import { useContext } from 'react';
 import { UserContext } from '../providers/UserProvider'
-import UserOrders from '../components/ UserOrderHistory';
 import { useEffect } from 'react';
-import headerImage from '../images/header.png';
 import { navigate} from 'gatsby'
 
 

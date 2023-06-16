@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useContext, useRef, useMemo} from 'react';
 import axios from 'axios';
 import CardButtonItemGenerator from './cart-button-item-generator';
+import CartPrice from './price-calc';
 import { Popover } from '@headlessui/react';
 import { UserContext } from '../../providers/UserProvider';
 import { CartAPI } from '../../services/cart';
 import { guestAPI } from '../../services/guests';
-import CartPrice from './price-calc';
 
 const CartButton = () => {
 	const [message, setMessage] = useState('');

@@ -1,10 +1,10 @@
 import React from 'react';
+import ForgotPasswordForm from '../components/ForgotPassword';
+import signIn from '../images/Sign-in.jpg';
 import { useState, useContext, useEffect } from 'react';
 import { navigate, Link } from 'gatsby';
 import { UserContext } from '../providers/UserProvider'
 import { UserAPI } from '../services/users'
-import ForgotPasswordForm from '../components/ForgotPassword';
-import signIn from '../images/Sign-in.jpg';
 
 const Signin = () => {
     const [ email, setEmail ] = useState('');
