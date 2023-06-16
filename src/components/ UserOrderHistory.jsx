@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import {UserContext} from '../providers/UserProvider';
-import OrderDetails from './OrderDetails';
 
 const UserOrders = () => {
     const { user } = useContext(UserContext);
