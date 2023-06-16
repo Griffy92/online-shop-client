@@ -1,10 +1,10 @@
 import * as React from "react";
-import { useLocation } from "@reach/router"
 import axios from "axios";
-import { useEffect, useState } from "react";
-import { Link } from "gatsby";
 import ProductControls from "../components/product-controls";
 import ProductFilter from "../components/product-filter";
+import { useLocation } from "@reach/router"
+import { useEffect, useState } from "react";
+import { Link } from "gatsby";
 import items from "../images/no-items-found-cat.png"
 
 const Search = () => {

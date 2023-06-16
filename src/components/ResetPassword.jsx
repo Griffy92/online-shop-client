@@ -21,7 +21,7 @@ const ResetPasswordForm = ( props ) => {
     const _handleSubmit = (e) => {
         e.preventDefault();
         UserAPI.resetPassword(token, password).then((response) => {
-            setSuccess('Password Reset! Please sign in with new password.')
+            setSuccess('Password Reset! Please sign in with new password.');
         }).catch( (error) => console.log(error) );
     };
 
