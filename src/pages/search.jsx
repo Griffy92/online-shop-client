@@ -5,6 +5,7 @@ import ProductFilter from "../components/product-filter";
 import { useLocation } from "@reach/router"
 import { useEffect, useState } from "react";
 import { Link } from "gatsby";
+import NoItemsFound from '../images/no-items-found.png';
 
 const Search = () => {
     const URL = "http://localhost:3000/"; 
@@ -46,7 +47,18 @@ const Search = () => {
     };
     
     return (
-        <div className="container mx-auto" pageTitle="search">
+        <div 
+            className="container mx-auto bg-cover bg-center" 
+            pageTitle="search"
+            style={{
+                backgroundImage: `url(${ NoItemsFound })`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                minHeight: "90vh",
+                padding: "2rem", 
+            }}
+        >
             {filteredProducts.length > 0 && (
             <ProductFilter products={products} onApplyFilters={ApplyFilters} />
             )}
@@ -83,7 +95,7 @@ const Search = () => {
                                         style={{
                                             fontSize: `13pt`, 
                                             lineHeight: `1.4`}}>
-                                                { product.product_name }
+                                        { product.product_name }
                                     </h2>
                                 </div>
 
@@ -102,7 +114,7 @@ const Search = () => {
                             </div>
                         ))
                     ) : (
-                        <h2>No Items Found</h2>
+                        <h1><strong>No Items Found</strong></h1>
                     )}
                 </div>
             </div>

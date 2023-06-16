@@ -1,5 +1,5 @@
 import React from 'react';
-import UserOrders from '../components/ UserOrderHistory';
+import UserOrders from '../components/UserOrderHistory';
 import headerImage from '../images/header.png';
 import { useContext } from 'react';
 import { UserContext } from '../providers/UserProvider'
