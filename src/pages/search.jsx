@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { Link } from "gatsby";
 import ProductControls from "../components/product-controls";
 import ProductFilter from "../components/product-filter";
+import items from "../images/item-not-found.png"
 
 const Search = () => {
     const URL = "http://localhost:3000/"; 
@@ -15,7 +16,7 @@ const Search = () => {
     const newSearch = search ? search.toLowerCase() : "";
     
     const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(true);
+
     const [filteredProducts, setFilteredProducts] = useState([]);
       
     useEffect(() => {
@@ -32,7 +33,6 @@ const Search = () => {
                 });
                 setProducts(searchProducts);
                 setFilteredProducts(searchProducts);
-                setLoading(false);
             } catch (error) {
                 console.error("ERROR", error);
             }
@@ -102,7 +102,7 @@ const Search = () => {
                             </div>
                         ))
                     ) : (
-                        <h2>No Items Found</h2>
+                        <img className="w-screen" src={items} alt="no items found" />
                     )}
                 </div>
             </div>
