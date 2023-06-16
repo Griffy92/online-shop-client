@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { Link } from "gatsby";
 import ProductControls from "../components/product-controls";
 import ProductFilter from "../components/product-filter";
-import items from "../images/item-not-found.png"
+import items from "../images/no-items-found-cat.png"
 
 const Search = () => {
     const URL = "http://localhost:3000/"; 
